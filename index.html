@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d324e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SIS Flight">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>SIS Flight Planner</title>
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <strong>SIS Flight Planner</strong>
+    <span>Plan de vuelo Aerocivil</span>
+  </div>
+  <button id="installBtn" class="ghost hidden">Instalar</button>
+</header>
+
+<nav class="tabs" aria-label="Secciones">
+  <button class="tab active" data-tab="plan">Nuevo plan</button>
+  <button class="tab" data-tab="history">Historial</button>
+  <button class="tab" data-tab="settings">Datos fijos</button>
+</nav>
+
+<main>
+<section id="tab-plan" class="panel active">
+  <div class="notice">
+    Genera siempre un PDF nuevo desde la plantilla maestra. No modifica planes anteriores.
+  </div>
+
+  <form id="flightForm">
+    <section class="card">
+      <h2>Vuelo</h2>
+      <div class="grid two">
+        <label>Matrícula
+          <select id="registration" required></select>
+        </label>
+        <label>Fecha
+          <input id="flightDate" type="date" required>
+        </label>
+        <label>Salida
+          <input id="departure" maxlength="4" autocapitalize="characters" placeholder="SKLC" required>
+        </label>
+        <label>Hora UTC
+          <input id="departureTime" inputmode="numeric" maxlength="4" placeholder="1230" required>
+        </label>
+        <label>Destino
+          <input id="destination" maxlength="4" autocapitalize="characters" placeholder="ZZZZ" required>
+        </label>
+        <label>EET total
+          <input id="eet" inputmode="numeric" maxlength="4" placeholder="0045" required>
+        </label>
+        <label>Velocidad
+          <input id="speed" maxlength="5" autocapitalize="characters" value="N0100">
+        </label>
+        <label>Nivel
+          <input id="level" maxlength="5" autocapitalize="characters" placeholder="A025">
+        </label>
+        <label>Alterno 1
+          <input id="alternate1" maxlength="4" autocapitalize="characters">
+        </label>
+        <label>Alterno 2
+          <input id="alternate2" maxlength="4" autocapitalize="characters">
+        </label>
+      </div>
+      <label>Ruta
+        <textarea id="route" rows="3" autocapitalize="characters" placeholder="DCT"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Información suplementaria</h2>
+      <p class="help editable-help">El nombre del piloto al mando y su licencia se pueden cambiar en cada plan. “Presentado por” continúa usando tus datos fijos.</p>
+      <div class="grid two">
+        <label>Autonomía
+          <input id="endurance" inputmode="numeric" maxlength="4" placeholder="0330">
+        </label>
+        <label>Personas a bordo
+          <input id="pob" inputmode="numeric" maxlength="3" placeholder="005">
+        </label>
+        <label>Piloto al mando <span class="editable-tag">Editable</span>
+          <input id="pilotInCommand" autocapitalize="words" placeholder="NOMBRE COMPLETO DEL PILOTO">
+        </label>
+        <label>Licencia del piloto al mando <span class="editable-tag">Editable</span>
+          <input id="pilotLicense" autocapitalize="characters" placeholder="EJEMPLO: PCH 1000">
+        </label>
+      </div>
+
+      <h3>Radio de emergencia</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="radioUHF"> UHF</label>
+        <label><input type="checkbox" id="radioVHF"> VHF</label>
+        <label><input type="checkbox" id="radioELT"> ELT</label>
+      </div>
+
+      <h3>Equipo de supervivencia</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="survivalNone"> Ninguno</label>
+        <label><input type="checkbox" id="survivalPolar"> Polar</label>
+        <label><input type="checkbox" id="survivalDesert"> Desértico</label>
+        <label><input type="checkbox" id="survivalMaritime"> Marítimo</label>
+        <label><input type="checkbox" id="survivalJungle"> Selva</label>
+      </div>
+
+      <h3>Chalecos</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="jacketsNone"> Ninguno</label>
+        <label><input type="checkbox" id="jacketsLight"> Luz</label>
+        <label><input type="checkbox" id="jacketsFluorescent"> Flúor</label>
+        <label><input type="checkbox" id="jacketsUHF"> UHF</label>
+        <label><input type="checkbox" id="jacketsVHF"> VHF</label>
+      </div>
+
+      <h3>Botes</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="dinghiesNone"> Ninguno</label>
+        <label><input type="checkbox" id="dinghiesCover"> Cubiertos</label>
+      </div>
+      <div class="grid three">
+        <label>Número
+          <input id="dinghiesNumber" maxlength="2">
+        </label>
+        <label>Capacidad
+          <input id="dinghiesCapacity" maxlength="3">
+        </label>
+        <label>Color
+          <input id="dinghiesColour" autocapitalize="characters">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Casilla 18</h2>
+      <div id="fixedPreview" class="fixed-preview"></div>
+      <label>Información variable
+        <textarea id="variableOtherInfo" rows="3" autocapitalize="characters"
+          placeholder="Ejemplo: DEP/BRIGADA 17 CAREPA DEST/HLP IMPROVISADO AREA ACANDI 50NM NW CAREPA"></textarea>
+      </label>
+      <p class="help">La aplicación añade automáticamente operador, CODE, misión y contacto.</p>
+    </section>
+
+    <section class="card">
+      <h2>Datos finales</h2>
+      <label>Color y marcas de la aeronave
+        <input id="aircraftColour" autocapitalize="characters" value="BLANCO">
+      </label>
+      <label>Observaciones
+        <textarea id="remarks" rows="2" autocapitalize="characters"></textarea>
+      </label>
+      <label>Requisitos adicionales
+        <textarea id="additionalRequirements" rows="2" autocapitalize="characters"></textarea>
+      </label>
+    </section>
+
+    <section class="card contact-card">
+      <h2>Oficina sugerida para presentar el plan</h2>
+      <p class="help">Se sugiere según el aeródromo de salida. Verifique antes de enviar; el directorio base es de 2022.</p>
+      <div id="contactOffice" class="office-box">Ingrese el aeródromo de salida.</div>
+      <div class="contact-actions">
+        <button type="button" id="callBtn" class="secondary" disabled>Llamar</button>
+        <button type="button" id="copyEmailBtn" class="secondary" disabled>Copiar correo</button>
+      </div>
+    </section>
+
+    <div class="actions-grid sticky-actions">
+      <button type="button" id="previewBtn" class="secondary">Vista previa</button>
+      <button type="button" id="generateBtn" class="primary">Generar PDF</button>
+      <button type="button" id="emailBtn" class="primary">Enviar correo</button>
+      <button type="button" id="saveFilesBtn" class="secondary">Guardar en Archivos</button>
+    </div>
+  </form>
+</section>
+
+<section id="tab-history" class="panel">
+  <div class="card">
+    <div class="row-between">
+      <h2>Planes guardados</h2>
+      <button id="clearHistoryBtn" class="danger-link">Borrar historial</button>
+    </div>
+    <div id="historyList" class="history-list"></div>
+  </div>
+</section>
+
+<section id="tab-settings" class="panel">
+  <form id="settingsForm">
+    <section class="card">
+      <h2>Datos fijos</h2>
+      <label>Operador
+        <input id="operator">
+      </label>
+      <label>Nombre de contacto
+        <input id="contactName">
+      </label>
+      <label>Teléfono
+        <input id="contactPhone" inputmode="tel">
+      </label>
+      <label>Correo
+        <input id="contactEmail" type="email">
+      </label>
+      <label>Misión habitual
+        <textarea id="mission" rows="3"></textarea>
+      </label>
+      <label>Equipo COM/NAV
+        <input id="equipmentComNav" autocapitalize="characters">
+      </label>
+      <label>Licencia predeterminada
+        <input id="defaultLicense" autocapitalize="characters">
+      </label>
+      <button type="submit" class="primary full">Guardar datos fijos</button>
+    </section>
+  </form>
+</section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <div class="row-between">
+      <strong>Vista previa de casilla 18</strong>
+      <button id="closeModal" class="ghost">Cerrar</button>
+    </div>
+    <pre id="previewText"></pre>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
