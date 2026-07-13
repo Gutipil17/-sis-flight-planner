@@ -60,3 +60,22 @@ Una aplicación web no puede obligar a Mail a colocar simultáneamente un destin
 - El campo **Licencia del piloto al mando** es editable para cada plan.
 - Estos valores se guardan en el historial del vuelo y vuelven a cargarse al duplicar los datos.
 - El campo **Presentado por** permanece separado y utiliza el nombre fijo configurado en la aplicación.
+
+
+## Versión 1.3
+
+Valores marcados por defecto en cada plan nuevo:
+
+- Radio de emergencia: VHF.
+- Equipo de supervivencia: Polar, Desértico y Marítimo.
+- Chalecos: Ninguno.
+- Botes: Ninguno.
+
+Todos siguen siendo editables para un vuelo particular.
+
+Corrección de casilla 10:
+
+- COM/NAV: `S`
+- Vigilancia: `CB1`
+
+El texto `SUR/260B` se conserva exclusivamente en la casilla 18, asociado al CODE de cada aeronave.

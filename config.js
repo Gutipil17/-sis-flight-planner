@@ -53,7 +53,8 @@ window.SIS_CONFIG = {
     "flightType": "M",
     "equipmentComNav": "S",
     "pilotLicense": "",
-    "aircraftColour": "BLANCO"
+    "aircraftColour": "BLANCO",
+    "equipmentSurveillance": "CB1"
   },
   "fieldRects": {
     "Aircraft_ID": [

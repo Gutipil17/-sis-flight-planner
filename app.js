@@ -41,6 +41,27 @@ function loadFormDefaults(){
   $('pilotInCommand').value=s.contactName;
   $('pilotLicense').value=s.pilotLicense || '';
   $('aircraftColour').value=s.aircraftColour || 'BLANCO';
+
+  // Selecciones habituales de la operación SIS.
+  $('radioUHF').checked=false;
+  $('radioVHF').checked=true;
+  $('radioELT').checked=false;
+
+  $('survivalNone').checked=false;
+  $('survivalPolar').checked=true;
+  $('survivalDesert').checked=true;
+  $('survivalMaritime').checked=true;
+  $('survivalJungle').checked=false;
+
+  $('jacketsNone').checked=true;
+  $('jacketsLight').checked=false;
+  $('jacketsFluorescent').checked=false;
+  $('jacketsUHF').checked=false;
+  $('jacketsVHF').checked=false;
+
+  $('dinghiesNone').checked=true;
+  $('dinghiesCover').checked=false;
+
   updateFixedPreview();
 }
 function loadSettingsForm(){
@@ -133,7 +154,7 @@ async function createPdf(){
   drawCentered(doc,'Aircraft_Type',ac.type||'MI8',9.5);
   drawCentered(doc,'Wake_Turbulence_Category',ac.wake||'M',10);
   drawLeft(doc,'Equipment_COM_NAV',s.equipmentComNav||'',9,5);
-  drawCentered(doc,'Equipment_Surveillance',ac.sur||'260B',9);
+  drawCentered(doc,'Equipment_Surveillance',s.equipmentSurveillance||'CB1',9);
 
   drawComb(doc,'Departure_Aerodrome',normalizeCode($('departure').value,4),4,9.3);
   drawComb(doc,'Departure_Time',onlyDigits($('departureTime').value,4),4,9.3);

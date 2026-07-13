@@ -1,4 +1,4 @@
-const CACHE='sis-flight-mobile-v3';
+const CACHE='sis-flight-mobile-v4';
 const ASSETS=['./','index.html','styles.css','app.js','config.js','contacts.js','manifest.webmanifest',
 'assets/plan-background.png','assets/icon-192.png','assets/icon-512.png','vendor/jspdf.umd.min.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));
