@@ -16,13 +16,19 @@
 <header class="app-header">
   <div>
     <strong>SIS Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v1.5</span>
+    <span>Plan de vuelo Aerocivil · v1.6</span>
   </div>
   <button id="installBtn" class="ghost hidden">Instalar</button>
 </header>
 
+<div id="updateBanner" class="update-banner hidden">
+  <span>Nueva actualización disponible.</span>
+  <button id="updateNowBtn" class="update-button">Actualizar ahora</button>
+</div>
+
 <nav class="tabs" aria-label="Secciones">
   <button class="tab active" data-tab="plan">Nuevo plan</button>
+  <button class="tab" data-tab="directory">Directorio</button>
   <button class="tab" data-tab="history">Historial</button>
   <button class="tab" data-tab="settings">Datos fijos</button>
 </nav>
@@ -175,6 +181,27 @@
       <button type="button" id="saveFilesBtn" class="secondary">Guardar en Archivos</button>
     </div>
   </form>
+</section>
+
+
+<section id="tab-directory" class="panel">
+  <section class="card">
+    <h2>Directorio Aerocivil</h2>
+    <p class="help">Busque por código OACI o por nombre del aeródromo. Verifique los datos antes de usarlos.</p>
+
+    <label>Buscar aeródromo
+      <input id="directorySearch" placeholder="EJEMPLO: SKUI, QUIBDO, CAREPA">
+    </label>
+
+    <div class="directory-type-tabs">
+      <button type="button" class="directory-type active" data-directory-type="all">Todo</button>
+      <button type="button" class="directory-type" data-directory-type="email">Correos</button>
+      <button type="button" class="directory-type" data-directory-type="fpl">Teléfonos FPL</button>
+      <button type="button" class="directory-type" data-directory-type="tower">Torres</button>
+    </div>
+
+    <div id="directoryResults" class="directory-results"></div>
+  </section>
 </section>
 
 <section id="tab-history" class="panel">

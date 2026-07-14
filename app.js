@@ -1,4 +1,4 @@
-const APP_VERSION='1.5';
+const APP_VERSION='1.6';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -289,10 +289,75 @@ function startNewPlan(){
   updateOffice();
   toast('Nuevo plan listo');
 }
+
+let directoryFilter='all';
+
+function normalizedDirectoryEntries(){
+  return Object.entries(window.FPL_CONTACTS || {})
+    .map(([code,info])=>({code,...info}))
+    .sort((a,b)=>a.code.localeCompare(b.code));
+}
+
+function renderDirectory(){
+  const query=upperTyping($('directorySearch')?.value || '').trim();
+  const results=$('directoryResults');
+  if(!results) return;
+
+  const entries=normalizedDirectoryEntries().filter(item=>{
+    const haystack=`${item.code} ${item.name} ${item.email||''} ${item.fpl||''} ${item.tower||''}`.toUpperCase();
+    if(query && !haystack.includes(query)) return false;
+    if(directoryFilter==='email' && !item.email) return false;
+    if(directoryFilter==='fpl' && !item.fpl) return false;
+    if(directoryFilter==='tower' && !item.tower) return false;
+    return true;
+  });
+
+  if(!entries.length){
+    results.innerHTML='<div class="directory-empty">No se encontró información para esa búsqueda.</div>';
+    return;
+  }
+
+  results.innerHTML=entries.map(item=>{
+    const emailLine=item.email ? `
+      <div class="directory-line">
+        <span>Correo FPL</span>
+        <a href="mailto:${item.email}">${item.email}</a>
+      </div>` : '';
+    const fplLine=item.fpl ? `
+      <div class="directory-line">
+        <span>Teléfono FPL</span>
+        <a href="tel:${item.fpl}">${item.fpl}</a>
+      </div>` : '';
+    const towerLine=item.tower ? `
+      <div class="directory-line">
+        <span>Torre</span>
+        <a href="tel:${item.tower}">${item.tower}</a>
+      </div>` : '';
+    return `<article class="directory-item">
+      <h3><span class="directory-code">${item.code}</span>${item.name}</h3>
+      ${emailLine}${fplLine}${towerLine}
+    </article>`;
+  }).join('');
+}
+
+document.querySelectorAll('.directory-type').forEach(button=>{
+  button.addEventListener('click',()=>{
+    directoryFilter=button.dataset.directoryType;
+    document.querySelectorAll('.directory-type').forEach(b=>b.classList.toggle('active',b===button));
+    renderDirectory();
+  });
+});
+
+$('directorySearch')?.addEventListener('input',event=>{
+  event.target.value=upperTyping(event.target.value);
+  renderDirectory();
+});
+
 function switchTab(tab){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${tab}`));
   if(tab==='history')renderHistory();
+  if(tab==='directory')renderDirectory();
 }
 document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.dataset.tab)));
 $('registration').addEventListener('change',updateFixedPreview);
@@ -435,6 +500,52 @@ $('installBtn').addEventListener('click',async()=>{
   if(!deferredPrompt)return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null;
   $('installBtn').classList.add('hidden');
 });
-if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
+let waitingServiceWorker=null;
 
-loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();updateOffice();
+function showUpdateBanner(worker){
+  waitingServiceWorker=worker;
+  $('updateBanner')?.classList.remove('hidden');
+}
+
+$('updateNowBtn')?.addEventListener('click',()=>{
+  if(waitingServiceWorker){
+    waitingServiceWorker.postMessage({type:'SKIP_WAITING'});
+  }else{
+    window.location.reload();
+  }
+});
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',async()=>{
+    try{
+      const registration=await navigator.serviceWorker.register('sw.js');
+
+      if(registration.waiting){
+        showUpdateBanner(registration.waiting);
+      }
+
+      registration.addEventListener('updatefound',()=>{
+        const worker=registration.installing;
+        if(!worker) return;
+        worker.addEventListener('statechange',()=>{
+          if(worker.state==='installed' && navigator.serviceWorker.controller){
+            showUpdateBanner(worker);
+          }
+        });
+      });
+
+      setInterval(()=>registration.update(),60*60*1000);
+    }catch(error){
+      console.error('No se pudo registrar el service worker',error);
+    }
+  });
+
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(refreshing) return;
+    refreshing=true;
+    window.location.reload();
+  });
+}
+
+loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();updateOffice();

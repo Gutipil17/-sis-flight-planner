@@ -1,4 +1,4 @@
-const CACHE='sis-flight-mobile-v6';
+const CACHE='sis-flight-mobile-v7';
 const ASSETS=['./','index.html','styles.css','app.js','config.js','contacts.js','manifest.webmanifest',
 'assets/plan-background.png','assets/icon-192.png','assets/icon-512.png','vendor/jspdf.umd.min.js'];
 
@@ -41,4 +41,11 @@ self.addEventListener('fetch',event=>{
       return response;
     }))
   );
+});
+
+
+self.addEventListener('message',event=>{
+  if(event.data && event.data.type==='SKIP_WAITING'){
+    self.skipWaiting();
+  }
 });

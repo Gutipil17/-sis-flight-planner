@@ -102,3 +102,13 @@ Corrección de escritura:
 - La información variable de la casilla 18 permite escribir espacios normalmente.
 - La ruta, observaciones, piloto, licencia y demás campos de texto también conservan los espacios mientras se escribe.
 - El texto continúa convirtiéndose automáticamente a mayúsculas.
+
+
+## Versión 1.6
+
+- Aviso visible cuando hay una actualización nueva.
+- Botón **Actualizar ahora**.
+- Nueva pestaña **Directorio**.
+- Búsqueda por código OACI o nombre del aeródromo.
+- Filtros para correos, teléfonos de plan de vuelo y teléfonos de torre.
+- Los teléfonos permiten llamar y los correos abren Mail desde el iPhone.
