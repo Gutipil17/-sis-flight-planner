@@ -200,3 +200,17 @@ En iPhone, la aplicación genera el PDF y abre la hoja de compartir. El destinat
 - Aeronaves asignadas.
 
 Los datos configurados alimentan automáticamente la casilla 18, los datos de contacto y el correo formal. Se mantiene compatibilidad con la configuración guardada en versiones anteriores.
+
+
+## Versión 3.0 — Primera base estable
+
+La aplicación se reorganizó en módulos independientes:
+
+- Plan.
+- Directorio.
+- Historial.
+- Aeronaves.
+- Perfil.
+- Actualizaciones.
+
+La pestaña **Actualizar** y el botón ↻ del encabezado están siempre visibles. El módulo de aeronaves permite decidir qué matrículas aparecen en Nuevo plan sin modificar los CODE protegidos.

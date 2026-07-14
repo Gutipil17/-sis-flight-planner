@@ -18,21 +18,23 @@
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v2.0</span>
+    <span>Plan de vuelo Aerocivil · v3.0</span>
   </div>
-  <button id="installBtn" class="ghost hidden">Instalar</button>
+  <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
 </header>
 
 <div id="updateBanner" class="update-banner hidden">
-  <span>Nueva actualización disponible.</span>
+  <span>Hay una actualización disponible.</span>
   <button id="updateNowBtn" class="update-button">Actualizar ahora</button>
 </div>
 
-<nav class="tabs" aria-label="Secciones">
-  <button class="tab active" data-tab="plan">Nuevo plan</button>
+<nav class="tabs module-tabs" aria-label="Módulos">
+  <button class="tab active" data-tab="plan">Plan</button>
   <button class="tab" data-tab="directory">Directorio</button>
   <button class="tab" data-tab="history">Historial</button>
-  <button class="tab" data-tab="settings">Datos fijos</button>
+  <button class="tab" data-tab="aircraft">Aeronaves</button>
+  <button class="tab" data-tab="settings">Perfil</button>
+  <button class="tab" data-tab="updates">Actualizar</button>
 </nav>
 
 <main>
@@ -219,6 +221,15 @@
   </section>
 </section>
 
+
+<section id="tab-aircraft" class="panel">
+  <section class="card">
+    <h2>Aeronaves</h2>
+    <p class="help">Administre qué matrículas aparecen en el formulario. Los CODE de las aeronaves SIS permanecen protegidos en esta versión.</p>
+    <div id="aircraftCards" class="aircraft-cards"></div>
+  </section>
+</section>
+
 <section id="tab-history" class="panel">
   <div class="card">
     <div class="row-between">
@@ -288,13 +299,25 @@
       <button type="submit" class="primary full">Guardar perfil y configuración</button>
     </section>
 
-    <section class="card">
-      <h2>Actualización de la aplicación</h2>
-      <button type="button" id="checkUpdateBtn" class="secondary full">Verificar actualización</button>
-      <div id="updateStatus" class="update-status">Versión instalada: 2.0</div>
-    </section>
+    
   </form>
 </section>
+
+<section id="tab-updates" class="panel">
+  <section class="card update-module-card">
+    <h2>Actualizaciones</h2>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.0</strong></div>
+    <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
+    <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
+    <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
+    <div id="updateStatus" class="update-status">No se ha realizado una verificación en esta sesión.</div>
+    <details class="update-details">
+      <summary>Qué hacer si no aparece una mejora</summary>
+      <p>Cierre completamente la aplicación, ábrala nuevamente y pulse “Verificar actualización”. Si continúa igual, pulse “Recargar aplicación”.</p>
+    </details>
+  </section>
+</section>
+
 </main>
 
 <div id="modal" class="modal hidden">

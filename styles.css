@@ -225,3 +225,54 @@ input.field-error, select.field-error, textarea.field-error{
 .aircraft-checkbox-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-weight:600}
 .aircraft-checkbox-item input{width:20px;height:20px;margin:0}
 @media(max-width:480px){.profile-logo-row{align-items:flex-start}.aircraft-checkbox-list{grid-template-columns:1fr}}
+
+.module-tabs{
+  display:flex !important;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.module-tabs::-webkit-scrollbar{display:none}
+.module-tabs .tab{
+  flex:0 0 auto;
+  min-width:92px;
+  padding:12px 10px;
+}
+.header-actions{display:flex;gap:7px;align-items:center}
+.version-badge{
+  display:inline-block;
+  background:#e5f0f7;
+  color:var(--navy);
+  padding:7px 10px;
+  border-radius:999px;
+  margin-bottom:12px;
+  font-size:13px;
+}
+.update-secondary{margin-top:9px}
+.update-details{
+  margin-top:12px;
+  border-top:1px solid var(--line);
+  padding-top:10px;
+  font-size:13px;
+}
+.update-details summary{font-weight:700;color:var(--navy)}
+.aircraft-cards{display:grid;gap:10px}
+.aircraft-card{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:12px;
+}
+.aircraft-card strong{display:block;color:var(--navy);font-size:15px}
+.aircraft-card small{display:block;color:var(--muted);margin-top:3px}
+.aircraft-toggle{
+  width:24px !important;
+  height:24px !important;
+  margin:0 !important;
+}
+@media(max-width:520px){
+  .module-tabs .tab{font-size:12px;min-width:88px}
+}
