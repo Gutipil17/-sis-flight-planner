@@ -214,3 +214,10 @@ La aplicación se reorganizó en módulos independientes:
 - Actualizaciones.
 
 La pestaña **Actualizar** y el botón ↻ del encabezado están siempre visibles. El módulo de aeronaves permite decidir qué matrículas aparecen en Nuevo plan sin modificar los CODE protegidos.
+
+
+## Versión 3.0.1 — Corrección de envío de correo
+
+- Se corrige el error `Can't find variable: setting`.
+- El botón **Enviar correo** vuelve a utilizar correctamente los datos del perfil guardado.
+- Se renovó la caché de la PWA para que la corrección se cargue en iPhone.
