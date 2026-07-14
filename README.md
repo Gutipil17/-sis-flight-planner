@@ -149,3 +149,54 @@ Corrección de escritura:
 - Se corrige el error `window.FPL_CONTACTS = undefined`.
 - Se añadieron metadatos modernos para PWA y un favicon.
 - El buscador por OACI, ciudad y aeródromo funciona sin depender de un archivo adicional.
+
+
+## Versión 1.10 — Validación y actualización manual
+
+- Corrección para iPhone: antes de generar, se cierra el teclado y se confirma el último texto escrito.
+- Si falta un campo, la aplicación lo marca en rojo, se desplaza hasta él y lo enfoca.
+- Los ejemplos grises ahora indican claramente “ESCRIBA…”, para no confundirlos con valores diligenciados.
+- Se añadió un botón permanente **Verificar actualización** en la pestaña **Datos fijos**.
+- La aplicación informa si está actualizada, si hay una versión disponible o si la actualización se está descargando.
+
+
+## Versión 1.11 — Correo formal automático
+
+El botón **Enviar correo** prepara automáticamente:
+
+- Destinatario según la oficina seleccionada.
+- Asunto con matrícula, salida y destino.
+- Nombre del aeropuerto y ciudad.
+- Matrícula.
+- Salida.
+- Destino.
+- Fecha.
+- Hora UTC.
+- Piloto al mando.
+- Licencia, cuando esté diligenciada.
+- Nombre, teléfono y correo de contacto.
+- Despedida: `CAP. ANDRÉS GUTIÉRREZ`.
+
+En iPhone, la aplicación genera el PDF y abre la hoja de compartir. El destinatario se copia al portapapeles para pegarlo en el campo “Para” de Mail.
+
+
+## Versión 1.12
+
+- La firma del correo deja de estar fija.
+- Se añade el campo **Firma para correos** en Datos fijos.
+- El nombre, teléfono, correo y firma utilizados en el correo salen de la configuración del usuario, facilitando el uso por cualquier piloto o empresa.
+
+
+## Versión 2.0 — Perfil multiusuario
+
+- Nombre completo.
+- Cargo o grado.
+- Empresa u operador.
+- Teléfono.
+- Correo.
+- Licencia.
+- Firma personalizada.
+- Logo opcional.
+- Aeronaves asignadas.
+
+Los datos configurados alimentan automáticamente la casilla 18, los datos de contacto y el correo formal. Se mantiene compatibilidad con la configuración guardada en versiones anteriores.

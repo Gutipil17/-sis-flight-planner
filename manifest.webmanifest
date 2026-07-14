@@ -1,7 +1,7 @@
 {
   "name": "GutiPilot Flight Planner",
   "short_name": "GutiPilot",
-  "description": "Aplicación móvil para generar planes de vuelo Aerocivil.",
+  "description": "Generador personalizable de planes de vuelo Aerocivil.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#eef3f6",

@@ -18,7 +18,7 @@
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v1.9</span>
+    <span>Plan de vuelo Aerocivil · v2.0</span>
   </div>
   <button id="installBtn" class="ghost hidden">Instalar</button>
 </header>
@@ -52,16 +52,16 @@
           <input id="flightDate" type="date" required>
         </label>
         <label>Salida
-          <input id="departure" maxlength="4" autocapitalize="characters" placeholder="SKLC" required>
+          <input id="departure" maxlength="4" autocapitalize="characters" placeholder="ESCRIBA EL OACI, EJ.: SKLC" required>
         </label>
         <label>Hora UTC
-          <input id="departureTime" inputmode="numeric" maxlength="4" placeholder="1230" required>
+          <input id="departureTime" inputmode="numeric" maxlength="4" placeholder="ESCRIBA LA HORA, EJ.: 1230" required>
         </label>
         <label>Destino
-          <input id="destination" maxlength="4" autocapitalize="characters" placeholder="ZZZZ" required>
+          <input id="destination" maxlength="4" autocapitalize="characters" placeholder="ESCRIBA EL DESTINO, EJ.: ZZZZ" required>
         </label>
         <label>EET total
-          <input id="eet" inputmode="numeric" maxlength="4" placeholder="0045" required>
+          <input id="eet" inputmode="numeric" maxlength="4" placeholder="ESCRIBA EL EET, EJ.: 0045" required>
         </label>
         <label>Velocidad
           <input id="speed" maxlength="5" autocapitalize="characters" value="N0100">
@@ -232,30 +232,66 @@
 <section id="tab-settings" class="panel">
   <form id="settingsForm">
     <section class="card">
-      <h2>Datos fijos</h2>
-      <label>Operador
-        <input id="operator">
+      <h2>Perfil del usuario</h2>
+      <p class="help">Estos datos personalizan el PDF y los correos. Se guardan solamente en este dispositivo.</p>
+
+      <div class="profile-logo-row">
+        <div id="profileLogoPreview" class="profile-logo-placeholder">GP</div>
+        <div class="profile-logo-actions">
+          <label class="file-button">Cargar logo de empresa
+            <input id="companyLogoInput" type="file" accept="image/*">
+          </label>
+          <button type="button" id="removeLogoBtn" class="danger-link">Eliminar logo</button>
+          <p class="help">Opcional. Máximo 900 KB.</p>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <label>Nombre completo
+          <input id="profileFullName" autocapitalize="words" placeholder="NOMBRE COMPLETO">
+        </label>
+        <label>Cargo o grado
+          <input id="profileJobTitle" autocapitalize="words" placeholder="CAPITÁN / PILOTO">
+        </label>
+        <label>Empresa u operador
+          <input id="profileCompany" autocapitalize="words" placeholder="EMPRESA">
+        </label>
+        <label>Licencia predeterminada
+          <input id="profileLicense" autocapitalize="characters" placeholder="PCH 0000">
+        </label>
+        <label>Teléfono
+          <input id="profilePhone" inputmode="tel" placeholder="+57 300 000 0000">
+        </label>
+        <label>Correo electrónico
+          <input id="profileEmail" type="email" placeholder="PILOTO@EMPRESA.COM">
+        </label>
+      </div>
+
+      <label>Firma para correos
+        <textarea id="profileSignature" rows="4" placeholder="CAP. JUAN PÉREZ&#10;PILOTO MI-171&#10;EMPRESA"></textarea>
       </label>
-      <label>Nombre de contacto
-        <input id="contactName">
-      </label>
-      <label>Teléfono
-        <input id="contactPhone" inputmode="tel">
-      </label>
-      <label>Correo
-        <input id="contactEmail" type="email">
-      </label>
+
+      <h3>Aeronaves asignadas</h3>
+      <p class="help">Solo estas matrículas aparecerán en Nuevo plan.</p>
+      <div id="assignedAircraftList" class="aircraft-checkbox-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Configuración operacional</h2>
       <label>Misión habitual
         <textarea id="mission" rows="3"></textarea>
       </label>
       <label>Equipo COM/NAV (casilla 10, antes del slash)
         <input id="equipmentComNav" autocapitalize="characters" value="S">
       </label>
-      <p class="help">La parte posterior al slash en la casilla 10 queda fija como <strong>CB1</strong>. El dato <strong>SUR/260B</strong> permanece únicamente en la casilla 18.</p>
-      <label>Licencia predeterminada
-        <input id="defaultLicense" autocapitalize="characters">
-      </label>
-      <button type="submit" class="primary full">Guardar datos fijos</button>
+      <p class="help">La parte posterior al slash permanece como <strong>CB1</strong>.</p>
+      <button type="submit" class="primary full">Guardar perfil y configuración</button>
+    </section>
+
+    <section class="card">
+      <h2>Actualización de la aplicación</h2>
+      <button type="button" id="checkUpdateBtn" class="secondary full">Verificar actualización</button>
+      <div id="updateStatus" class="update-status">Versión instalada: 2.0</div>
     </section>
   </form>
 </section>
