@@ -229,3 +229,11 @@ La pestaña **Actualizar** y el botón ↻ del encabezado están siempre visible
 - Nombre, teléfono, correo y firma se toman correctamente del perfil.
 - Se eliminan expresiones redundantes creadas por actualizaciones anteriores.
 - Se renovó la caché de la aplicación.
+
+
+## Versión 3.0.3 — Ícono oficial GutiPilot
+
+- Se reemplazó el ícono anterior por el logo suministrado por el usuario.
+- Se generaron versiones de 180×180, 192×192 y 512×512.
+- El mismo logo se usa como ícono de iPhone, PWA y favicon.
+- No se modificó el diseño del logo original.
