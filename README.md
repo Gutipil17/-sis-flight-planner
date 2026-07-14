@@ -140,3 +140,12 @@ Corrección de escritura:
 - Se eliminó la marca SIS del nombre de la aplicación.
 - El operador continúa siendo editable en **Datos fijos**, por lo que la aplicación puede utilizarse con SIS u otra empresa.
 - Se conservaron las claves de almacenamiento anteriores para no borrar la configuración ni el historial ya guardado en el dispositivo.
+
+
+## Versión 1.9 — Corrección del directorio
+
+- El directorio completo de 46 aeródromos queda embebido directamente en `app.js`.
+- Ya no depende de cargar `contacts.js`.
+- Se corrige el error `window.FPL_CONTACTS = undefined`.
+- Se añadieron metadatos modernos para PWA y un favicon.
+- El buscador por OACI, ciudad y aeródromo funciona sin depender de un archivo adicional.

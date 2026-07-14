@@ -1,5 +1,5 @@
-const CACHE='gutipilot-flight-mobile-v9';
-const ASSETS=['./','index.html','styles.css','app.js','config.js','contacts.js','manifest.webmanifest',
+const CACHE='gutipilot-flight-mobile-v10';
+const ASSETS=['./','index.html','styles.css','app.js','config.js','manifest.webmanifest',
 'assets/plan-background.png','assets/icon-192.png','assets/icon-512.png','vendor/jspdf.umd.min.js'];
 
 self.addEventListener('install',event=>{
