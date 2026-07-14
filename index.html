@@ -6,17 +6,17 @@
   <meta name="theme-color" content="#0d324e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="SIS Flight">
+  <meta name="apple-mobile-web-app-title" content="GutiPilot">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="styles.css">
-  <title>SIS Flight Planner</title>
+  <title>GutiPilot Flight Planner</title>
 </head>
 <body>
 <header class="app-header">
   <div>
-    <strong>SIS Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v1.6</span>
+    <strong>GutiPilot Flight Planner</strong>
+    <span>Plan de vuelo Aerocivil · v1.8</span>
   </div>
   <button id="installBtn" class="ghost hidden">Instalar</button>
 </header>
@@ -164,20 +164,33 @@
     </section>
 
     <section class="card contact-card">
-      <h2>Oficina sugerida para presentar el plan</h2>
-      <p class="help">Se sugiere según el aeródromo de salida. Verifique antes de enviar; el directorio base es de 2022.</p>
-      <div id="contactOffice" class="office-box">Ingrese el aeródromo de salida.</div>
+      <h2>Enviar o llamar a la oficina de plan de vuelo</h2>
+      <p class="help">
+        Busque por código OACI, ciudad o nombre del aeródromo. Puede escoger una oficina diferente al aeródromo de salida.
+      </p>
+
+      <label>Buscar oficina destinataria
+        <input id="recipientSearch" placeholder="EJEMPLO: SKUI, QUIBDÓ, CAREPA">
+      </label>
+
+      <div id="recipientSuggestions" class="recipient-suggestions hidden"></div>
+      <div id="selectedOffice" class="office-box">No ha seleccionado una oficina.</div>
+
       <div class="contact-actions">
+        <button type="button" id="selectFromDepartureBtn" class="secondary">Usar aeródromo de salida</button>
         <button type="button" id="callBtn" class="secondary" disabled>Llamar</button>
         <button type="button" id="copyEmailBtn" class="secondary" disabled>Copiar correo</button>
+        <button type="button" id="emailBtn" class="primary" disabled>Enviar correo</button>
       </div>
+      <p class="help mail-help">
+        En iPhone, “Enviar correo” genera el PDF, copia el destinatario y abre la hoja para compartir. Elija Mail y pegue el correo en “Para”.
+      </p>
     </section>
 
     <div class="actions-grid sticky-actions">
       <button type="button" id="newPlanBtn" class="secondary">Nuevo plan</button>
       <button type="button" id="previewBtn" class="secondary">Vista previa</button>
       <button type="button" id="generateBtn" class="primary">Generar PDF</button>
-      <button type="button" id="emailBtn" class="primary">Enviar correo</button>
       <button type="button" id="saveFilesBtn" class="secondary">Guardar en Archivos</button>
     </div>
   </form>

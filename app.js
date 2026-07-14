@@ -1,4 +1,4 @@
-const APP_VERSION='1.6';
+const APP_VERSION='1.8';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -286,8 +286,8 @@ function startNewPlan(){
   $('dinghiesNumber').value='';
   $('dinghiesCapacity').value='';
   $('dinghiesColour').value='';
-  updateOffice();
-  toast('Nuevo plan listo');
+  
+  selectedOfficeCode=''; $('recipientSearch').value=''; renderSelectedOffice(); toast('Nuevo plan listo');
 }
 
 let directoryFilter='all';
@@ -393,7 +393,7 @@ $('generateBtn').addEventListener('click',async()=>{
   try{
     const {blob,file}=await makePdfFile();
     addHistory();
-    const shared=await sharePdfFile(file,'Plan de vuelo SIS');
+    const shared=await sharePdfFile(file,'Plan de vuelo GutiPilot');
     if(!shared) forceDownload(blob,file.name);
     toast('Plan generado');
   }catch(err){if(err.name!=='AbortError')alert(err.message||String(err));}
@@ -408,19 +408,32 @@ $('saveFilesBtn').addEventListener('click',async()=>{
 });
 $('emailBtn').addEventListener('click',async()=>{
   try{
-    const office=getSuggestedOffice();
-    if(!office || !office.email){
-      throw new Error('No hay correo registrado para la oficina sugerida. Revíselo o use otro destinatario.');
+    const office=selectedOffice();
+    if(!office?.email){
+      throw new Error('Seleccione primero una oficina que tenga correo de plan de vuelo.');
     }
+
     const {file}=await makePdfFile();
     const subject=`PLAN DE VUELO ${$('registration').value} ${upper($('departure').value)}-${upper($('destination').value)} ${$('flightDate').value}`;
-    const body=`Señores ${office.name}\n\nAdjunto plan de vuelo ${$('registration').value}, salida ${upper($('departure').value)}, destino ${upper($('destination').value)}.\n\nContacto: ${getSettings().contactName} ${getSettings().contactPhone}\n\nDestinatario sugerido: ${office.email}`;
+    const body=`Señores ${office.city} / ${office.airport}
+
+Adjunto plan de vuelo ${$('registration').value}, salida ${upper($('departure').value)}, destino ${upper($('destination').value)}.
+
+Contacto: ${getSettings().contactName} ${getSettings().contactPhone}
+
+Destinatario: ${office.email}`;
+
+    try{ await navigator.clipboard.writeText(office.email); }catch{}
+
     const shared=await sharePdfFile(file,subject,body);
     if(!shared){
-      await navigator.clipboard?.writeText(office.email);
-      window.location.href=`mailto:${encodeURIComponent(office.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body+'\n\nEl PDF debe adjuntarse desde Archivos.')}`;
+      window.location.href=`mailto:${encodeURIComponent(office.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body+'\n\nAdjunte el PDF generado desde Archivos.')}`;
+    }else{
+      toast('Correo copiado: péguelo en “Para”');
     }
-  }catch(err){if(err.name!=='AbortError')alert(err.message||String(err));}
+  }catch(err){
+    if(err.name!=='AbortError') alert(err.message||String(err));
+  }
 });
 $('newPlanBtn').addEventListener('click',startNewPlan);
 $('previewBtn').addEventListener('click',()=>{
@@ -462,35 +475,127 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 });
 
 
-function getSuggestedOffice(){
-  const code=normalizeCode($('departure').value,4);
-  return window.FPL_CONTACTS?.[code] || null;
+
+let selectedOfficeCode='';
+
+function allOffices(){
+  return Object.values(window.FPL_CONTACTS || {})
+    .sort((a,b)=>a.code.localeCompare(b.code));
 }
-function updateOffice(){
-  const office=getSuggestedOffice();
-  const box=$('contactOffice');
+
+function officeSearchText(office){
+  return [
+    office.code, office.city, office.airport, office.department,
+    office.regional, office.aliases, office.searchKey
+  ].join(' ').toUpperCase();
+}
+
+function findOfficeByCode(code){
+  return window.FPL_CONTACTS?.[normalizeCode(code,4)] || null;
+}
+
+function selectedOffice(){
+  return selectedOfficeCode ? window.FPL_CONTACTS?.[selectedOfficeCode] || null : null;
+}
+
+function renderSelectedOffice(){
+  const office=selectedOffice();
+  const box=$('selectedOffice');
   if(!office){
-    box.innerHTML='No hay contacto cargado para este código. Puede generar el PDF y enviarlo manualmente.';
-    $('callBtn').disabled=true;$('copyEmailBtn').disabled=true;
+    box.innerHTML='No ha seleccionado una oficina.';
+    $('callBtn').disabled=true;
+    $('copyEmailBtn').disabled=true;
+    $('emailBtn').disabled=true;
     return;
   }
-  box.innerHTML=`<strong>${office.name}</strong>
-    Torre: ${office.tower||'No registrado'}<br>
-    Plan de vuelo: ${office.fpl||'No registrado'}<br>
-    Correo: ${office.email||'No registrado'}`;
-  $('callBtn').disabled=!(office.fpl||office.tower);
+
+  const warning=office.status && !office.status.toLowerCase().includes('completo')
+    ? `<span class="office-warning">${office.status}</span>` : '';
+
+  box.innerHTML=`<strong>${office.code} · ${office.city} / ${office.airport}</strong>
+    Regional: ${office.regional || 'No registrada'}<br>
+    Torre: ${office.tower || 'No registrado'}<br>
+    Plan de vuelo: ${office.fpl || 'No registrado'}<br>
+    Correo: ${office.email || 'No registrado'}<br>
+    ${warning}`;
+
+  $('callBtn').disabled=!(office.fpl || office.tower);
   $('copyEmailBtn').disabled=!office.email;
+  $('emailBtn').disabled=!office.email;
 }
-$('departure').addEventListener('input',updateOffice);
-$('callBtn').addEventListener('click',()=>{
-  const office=getSuggestedOffice(); if(!office)return;
-  const number=office.fpl||office.tower;
-  if(number)window.location.href=`tel:${number}`;
+
+function selectOffice(code){
+  const office=findOfficeByCode(code);
+  if(!office) return;
+  selectedOfficeCode=office.code;
+  $('recipientSearch').value=`${office.code} - ${office.city}`;
+  $('recipientSuggestions').classList.add('hidden');
+  renderSelectedOffice();
+}
+
+function renderRecipientSuggestions(){
+  const query=upperTyping($('recipientSearch').value).trim();
+  const box=$('recipientSuggestions');
+  if(!query){
+    box.classList.add('hidden');
+    box.innerHTML='';
+    return;
+  }
+  const matches=allOffices()
+    .filter(office=>officeSearchText(office).includes(query))
+    .slice(0,12);
+
+  if(!matches.length){
+    box.innerHTML='<div class="directory-empty">No se encontró ese aeródromo.</div>';
+    box.classList.remove('hidden');
+    return;
+  }
+
+  box.innerHTML=matches.map(office=>`
+    <button type="button" class="recipient-option" data-office-code="${office.code}">
+      <strong>${office.code} · ${office.city}</strong>
+      <small>${office.airport} · ${office.regional}</small>
+    </button>`).join('');
+  box.classList.remove('hidden');
+}
+
+$('recipientSearch').addEventListener('input',event=>{
+  event.target.value=upperTyping(event.target.value);
+  selectedOfficeCode='';
+  renderSelectedOffice();
+  renderRecipientSuggestions();
 });
+
+$('recipientSuggestions').addEventListener('click',event=>{
+  const button=event.target.closest('[data-office-code]');
+  if(button) selectOffice(button.dataset.officeCode);
+});
+
+$('selectFromDepartureBtn').addEventListener('click',()=>{
+  const office=findOfficeByCode($('departure').value);
+  if(!office){
+    alert('No hay una oficina registrada para el código de salida ingresado.');
+    return;
+  }
+  selectOffice(office.code);
+});
+
+$('callBtn').addEventListener('click',()=>{
+  const office=selectedOffice();
+  if(!office) return;
+  const number=office.fpl || office.tower;
+  if(number) window.location.href=`tel:${number}`;
+});
+
 $('copyEmailBtn').addEventListener('click',async()=>{
-  const office=getSuggestedOffice(); if(!office?.email)return;
-  try{await navigator.clipboard.writeText(office.email);toast('Correo copiado');}
-  catch{window.prompt('Copie el correo:',office.email);}
+  const office=selectedOffice();
+  if(!office?.email) return;
+  try{
+    await navigator.clipboard.writeText(office.email);
+    toast('Correo copiado');
+  }catch{
+    window.prompt('Copie el correo:',office.email);
+  }
 });
 
 window.addEventListener('beforeinstallprompt',e=>{
@@ -548,4 +653,4 @@ if('serviceWorker' in navigator){
   });
 }
 
-loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();updateOffice();
+loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();

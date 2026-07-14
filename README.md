@@ -1,4 +1,4 @@
-# SIS Flight Planner Mobile 1.0
+# GutiPilot Flight Planner Mobile 1.0
 
 Aplicación web móvil (PWA) para iPhone y Mac.
 
@@ -112,3 +112,31 @@ Corrección de escritura:
 - Búsqueda por código OACI o nombre del aeródromo.
 - Filtros para correos, teléfonos de plan de vuelo y teléfonos de torre.
 - Los teléfonos permiten llamar y los correos abren Mail desde el iPhone.
+
+
+## Versión 1.7
+
+- El directorio fue reemplazado por el JSON estructurado suministrado por el usuario.
+- Al final del formulario se puede buscar manualmente la oficina destinataria por:
+  - código OACI;
+  - ciudad;
+  - aeropuerto;
+  - departamento;
+  - regional.
+- La oficina destinataria puede ser diferente al aeródromo de salida.
+- Botón **Usar aeródromo de salida** para selección rápida.
+- Botones integrados al final del plan:
+  - Llamar.
+  - Copiar correo.
+  - Enviar correo.
+- “Enviar correo” genera el PDF, copia el destinatario y abre la hoja de compartir del iPhone.
+
+
+## Versión 1.8 — Nueva identidad
+
+- Nuevo nombre: **GutiPilot Flight Planner**.
+- Nombre corto en el iPhone: **GutiPilot**.
+- Nuevo ícono con las iniciales **GP**.
+- Se eliminó la marca SIS del nombre de la aplicación.
+- El operador continúa siendo editable en **Datos fijos**, por lo que la aplicación puede utilizarse con SIS u otra empresa.
+- Se conservaron las claves de almacenamiento anteriores para no borrar la configuración ni el historial ya guardado en el dispositivo.
