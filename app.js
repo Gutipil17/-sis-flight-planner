@@ -1,3 +1,4 @@
+const APP_VERSION='1.5';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -8,6 +9,7 @@ let lastPdfBlob = null;
 
 const $ = id => document.getElementById(id);
 const upper = value => String(value || '').trim().toUpperCase();
+const upperTyping = value => String(value || '').toUpperCase();
 const today = () => new Date().toISOString().slice(0,10);
 const defaultSettings = {...CFG.fixed};
 
@@ -35,33 +37,38 @@ function loadAircraft(){
   select.innerHTML=Object.keys(CFG.aircraft).map(reg=>`<option value="${reg}">${reg}</option>`).join('');
   select.value='HK3911';
 }
-function loadFormDefaults(){
-  const s=getSettings();
-  $('flightDate').value=today();
-  $('pilotInCommand').value=s.contactName;
-  $('pilotLicense').value=s.pilotLicense || '';
-  $('aircraftColour').value=s.aircraftColour || 'BLANCO';
-
-  // Selecciones habituales de la operación SIS.
-  $('radioUHF').checked=false;
-  $('radioVHF').checked=true;
+function applyOperationalDefaults(){
+  // Radio de emergencia: UHF.
+  $('radioUHF').checked=true;
+  $('radioVHF').checked=false;
   $('radioELT').checked=false;
 
+  // Equipo de supervivencia: Polar, Desértico y Marítimo.
   $('survivalNone').checked=false;
   $('survivalPolar').checked=true;
   $('survivalDesert').checked=true;
   $('survivalMaritime').checked=true;
   $('survivalJungle').checked=false;
 
+  // Chalecos: Ninguno.
   $('jacketsNone').checked=true;
   $('jacketsLight').checked=false;
   $('jacketsFluorescent').checked=false;
   $('jacketsUHF').checked=false;
   $('jacketsVHF').checked=false;
 
+  // Botes: Ninguno.
   $('dinghiesNone').checked=true;
   $('dinghiesCover').checked=false;
+}
 
+function loadFormDefaults(){
+  const s=getSettings();
+  $('flightDate').value=today();
+  $('pilotInCommand').value=s.contactName;
+  $('pilotLicense').value=s.pilotLicense || '';
+  $('aircraftColour').value=s.aircraftColour || 'BLANCO';
+  applyOperationalDefaults();
   updateFixedPreview();
 }
 function loadSettingsForm(){
@@ -259,6 +266,29 @@ function renderHistory(){
       </div>
     </article>`).join('');
 }
+function startNewPlan(){
+  const preservedRegistration=$('registration').value;
+  document.getElementById('flightForm').reset();
+  $('registration').value=preservedRegistration || 'HK3911';
+  loadFormDefaults();
+  $('departure').value='';
+  $('departureTime').value='';
+  $('destination').value='';
+  $('eet').value='';
+  $('alternate1').value='';
+  $('alternate2').value='';
+  $('route').value='DCT';
+  $('endurance').value='';
+  $('pob').value='';
+  $('variableOtherInfo').value='';
+  $('remarks').value='';
+  $('additionalRequirements').value='';
+  $('dinghiesNumber').value='';
+  $('dinghiesCapacity').value='';
+  $('dinghiesColour').value='';
+  updateOffice();
+  toast('Nuevo plan listo');
+}
 function switchTab(tab){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${tab}`));
@@ -327,6 +357,7 @@ $('emailBtn').addEventListener('click',async()=>{
     }
   }catch(err){if(err.name!=='AbortError')alert(err.message||String(err));}
 });
+$('newPlanBtn').addEventListener('click',startNewPlan);
 $('previewBtn').addEventListener('click',()=>{
   $('previewText').textContent=buildOtherInfo().join('\n');
   $('modal').classList.remove('hidden');
@@ -355,8 +386,11 @@ $('historyList').addEventListener('click',async e=>{
 $('clearHistoryBtn').addEventListener('click',()=>{
   if(confirm('¿Borrar todo el historial guardado en este dispositivo?')){saveHistory([]);renderHistory();}
 });
-['departure','destination','alternate1','alternate2','level','speed','route','variableOtherInfo'].forEach(id=>{
-  $(id).addEventListener('input',e=>{e.target.value=upper(e.target.value)});
+['departure','destination','alternate1','alternate2','level','speed'].forEach(id=>{
+  $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
+});
+['route','variableOtherInfo','remarks','additionalRequirements','pilotInCommand','pilotLicense','aircraftColour','dinghiesColour'].forEach(id=>{
+  $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
 });
 ['departureTime','eet','endurance','pob','dinghiesNumber','dinghiesCapacity'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'')});

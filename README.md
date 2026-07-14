@@ -79,3 +79,26 @@ Corrección de casilla 10:
 - Vigilancia: `CB1`
 
 El texto `SUR/260B` se conserva exclusivamente en la casilla 18, asociado al CODE de cada aeronave.
+
+
+## Versión 1.4
+
+Correcciones:
+
+- Radio de emergencia predeterminado: **UHF**.
+- VHF y ELT quedan desmarcados por defecto.
+- Polar, Desértico y Marítimo marcados por defecto.
+- Chalecos: Ninguno.
+- Botes: Ninguno.
+- Nuevo botón **Nuevo plan** para restablecer esos valores sin afectar planes del historial.
+- Caché de la PWA renovada para que las actualizaciones aparezcan más rápido.
+- Casilla 10 permanece como `S / CB1`.
+
+
+## Versión 1.5
+
+Corrección de escritura:
+
+- La información variable de la casilla 18 permite escribir espacios normalmente.
+- La ruta, observaciones, piloto, licencia y demás campos de texto también conservan los espacios mientras se escribe.
+- El texto continúa convirtiéndose automáticamente a mayúsculas.
