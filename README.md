@@ -221,3 +221,11 @@ La pestaña **Actualizar** y el botón ↻ del encabezado están siempre visible
 - Se corrige el error `Can't find variable: setting`.
 - El botón **Enviar correo** vuelve a utilizar correctamente los datos del perfil guardado.
 - Se renovó la caché de la PWA para que la corrección se cargue en iPhone.
+
+
+## Versión 3.0.2 — Corrección definitiva del correo
+
+- Se corrigen referencias mal formadas en el cuerpo del correo.
+- Nombre, teléfono, correo y firma se toman correctamente del perfil.
+- Se eliminan expresiones redundantes creadas por actualizaciones anteriores.
+- Se renovó la caché de la aplicación.
