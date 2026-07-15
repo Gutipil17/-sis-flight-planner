@@ -50,7 +50,7 @@ window.SIS_CONFIG = {
     "contactEmail": "GUTIPIL17@GMAIL.COM",
     "mission": "APOYO AL EJERCITO NACIONAL TRANSPORTE DE CARGA Y PASAJEROS",
     "flightRules": "V",
-    "flightType": "M",
+    "flightType": "N",
     "equipmentComNav": "S",
     "pilotLicense": "",
     "aircraftColour": "BLANCO",
