@@ -1,4 +1,4 @@
-const CACHE='gutipilot-flight-mobile-v23';
+const CACHE='gutipilot-flight-mobile-v24';
 const ASSETS=['./','index.html','styles.css','app.js','dictation.js','config.js','manifest.webmanifest',
 'assets/plan-background.png','assets/icon-180.png','assets/icon-192.png','assets/icon-512.png','vendor/jspdf.umd.min.js'];
 

@@ -71,3 +71,16 @@
     byId('editVoiceTextBtn')?.addEventListener('click',()=>byId('voiceTranscript')?.focus());
   });
 })();
+
+function wireAnalyzeFallback(){
+  const btn=document.getElementById('analyzeVoiceBtn');
+  if(!btn)return;
+  btn.addEventListener('click',()=>{
+    const text=document.getElementById('voiceTranscript')?.value||'';
+    if(typeof window.parseVoicePlan==='function' && typeof window.renderVoicePreview==='function'){
+      window.voiceDraft=window.parseVoicePlan(text);
+      window.renderVoicePreview();
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded',wireAnalyzeFallback);

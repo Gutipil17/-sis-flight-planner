@@ -399,3 +399,19 @@ body.modal-open{overflow:hidden}
 .equipment-output span{font-size:11px;opacity:.8;text-transform:uppercase}
 .equipment-output strong{font-size:16px;text-align:right}
 @media(max-width:650px){.equipment-checklist{grid-template-columns:1fr}}
+
+/* ===== Perfiles de aeronave · v4.1 ===== */
+.copilot-aircraft-selector{background:#0c356a;color:#fff;border-radius:14px;padding:10px 12px;min-width:160px}
+.copilot-aircraft-selector label,.copilot-aircraft-selector small{display:block;font-size:10px;opacity:.82}
+.copilot-aircraft-selector select{margin:5px 0;background:#fff;color:#0c356a;font-weight:800}
+.aircraft-profile-layout{display:grid;grid-template-columns:240px 1fr;gap:16px}
+.aircraft-profile-summary{margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#f6f9fb}
+.aircraft-profile-summary strong,.aircraft-profile-summary span{display:block}
+.aircraft-profile-summary strong{font-size:20px;color:var(--navy)}
+.aircraft-profile-summary span{margin-top:4px;color:var(--muted)}
+.aircraft-profile-editor{border-left:1px solid var(--line);padding-left:16px}
+@media(max-width:760px){
+  .aircraft-profile-layout{grid-template-columns:1fr}
+  .aircraft-profile-editor{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:14px}
+  .copilot-aircraft-selector{width:100%}
+}

@@ -1,5 +1,5 @@
 window.FPL_CONTACTS = {"SKBO":{"code":"SKBO","city":"Bogotá","airport":"El Dorado","department":"Bogotá D.C.","regional":"Centro Sur","tower":"3175387792","fpl":"3175171035","email":"SKBOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bogotá; El Dorado; SKBO","searchKey":"skbo bogota el dorado bogota d c centro sur bogota el dorado skbo","sourceDate":"2022-06-10"},"SKGY":{"code":"SKGY","city":"Guaymaral","airport":"Flaminio Suárez Camacho","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171117","fpl":"3185863359","email":"SKGYZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Guaymaral; Flaminio Suárez Camacho; SKGY","searchKey":"skgy guaymaral flaminio suarez camacho cundinamarca centro sur guaymaral flaminio suarez camacho skgy","sourceDate":"2022-06-10"},"SKFL":{"code":"SKFL","city":"Florencia","airport":"Gustavo Artunduaga Paredes","department":"Caquetá","regional":"Centro Sur","tower":"3175387822","fpl":"3175171210","email":"SKFLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Florencia; Gustavo Artunduaga Paredes; SKFL","searchKey":"skfl florencia gustavo artunduaga paredes caqueta centro sur florencia gustavo artunduaga paredes skfl","sourceDate":"2022-06-10"},"SKGI":{"code":"SKGI","city":"Girardot","airport":"Santiago Vila","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171183","fpl":"3176354593","email":"SKGIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Girardot; Santiago Vila; SKGI","searchKey":"skgi girardot santiago vila cundinamarca centro sur girardot santiago vila skgi","sourceDate":"2022-06-10"},"SKIB":{"code":"SKIB","city":"Ibagué","airport":"Perales","department":"Tolima","regional":"Centro Sur","tower":"3175171114","fpl":"3185479912","email":"SKIBZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Ibagué; Perales; SKIB","searchKey":"skib ibague perales tolima centro sur ibague perales skib","sourceDate":"2022-06-10"},"SKLT":{"code":"SKLT","city":"Leticia","airport":"Alfredo Vásquez Cobo","department":"Amazonas","regional":"Centro Sur","tower":"3175171132","fpl":"3165221144","email":"SKLTZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Leticia; Alfredo Vásquez Cobo; SKLT","searchKey":"sklt leticia alfredo vasquez cobo amazonas centro sur leticia alfredo vasquez cobo sklt","sourceDate":"2022-06-10"},"SKQU":{"code":"SKQU","city":"Mariquita","airport":"José Celestino Mutis","department":"Tolima","regional":"Centro Sur","tower":"3175171094","fpl":"3185165780","email":"SKQUZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Mariquita; José Celestino Mutis; SKQU","searchKey":"skqu mariquita jose celestino mutis tolima centro sur mariquita jose celestino mutis skqu","sourceDate":"2022-06-10"},"SKNV":{"code":"SKNV","city":"Neiva","airport":"Benito Salas","department":"Huila","regional":"Centro Sur","tower":"3175171147","fpl":"3167422604","email":"SKNVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Neiva; Benito Salas; SKNV","searchKey":"sknv neiva benito salas huila centro sur neiva benito salas sknv","sourceDate":"2022-06-10"},"SKAS":{"code":"SKAS","city":"Puerto Asís","airport":"Tres de Mayo","department":"Putumayo","regional":"Centro Sur","tower":"3175387818","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Asís; Tres de Mayo; SKAS","searchKey":"skas puerto asis tres de mayo putumayo centro sur puerto asis tres de mayo skas","sourceDate":"2022-06-10"},"SKBQ":{"code":"SKBQ","city":"Barranquilla","airport":"Ernesto Cortissoz","department":"Atlántico","regional":"Norte","tower":"3175171021","fpl":"3175171039","email":"SKBQZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barranquilla; Ernesto Cortissoz; SKBQ","searchKey":"skbq barranquilla ernesto cortissoz atlantico norte barranquilla ernesto cortissoz skbq","sourceDate":"2022-06-10"},"SKCG":{"code":"SKCG","city":"Cartagena","airport":"Rafael Núñez","department":"Bolívar","regional":"Norte","tower":"3175171095","fpl":"3153413225","email":"SKCGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartagena; Rafael Núñez; SKCG","searchKey":"skcg cartagena rafael nunez bolivar norte cartagena rafael nunez skcg","sourceDate":"2022-06-10"},"SKSP":{"code":"SKSP","city":"San Andrés","airport":"Gustavo Rojas Pinilla","department":"San Andrés y Providencia","regional":"Norte","tower":"3175387834","fpl":"3182064662","email":"SKSPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"San Andrés; Gustavo Rojas Pinilla; SKSP","searchKey":"sksp san andres gustavo rojas pinilla san andres y providencia norte san andres gustavo rojas pinilla sksp","sourceDate":"2022-06-10"},"SKSM":{"code":"SKSM","city":"Santa Marta","airport":"Simón Bolívar","department":"Magdalena","regional":"Norte","tower":"3175171007","fpl":"3156966455","email":"SKSMZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Santa Marta; Simón Bolívar; SKSM","searchKey":"sksm santa marta simon bolivar magdalena norte santa marta simon bolivar sksm","sourceDate":"2022-06-10"},"SKVP":{"code":"SKVP","city":"Valledupar","airport":"Alfonso López Pumarejo","department":"Cesar","regional":"Norte","tower":"3175171096","fpl":"3156966455","email":"SKVPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Valledupar; Alfonso López Pumarejo; SKVP","searchKey":"skvp valledupar alfonso lopez pumarejo cesar norte valledupar alfonso lopez pumarejo skvp","sourceDate":"2022-06-10"},"SKCZ":{"code":"SKCZ","city":"Corozal","airport":"Las Brujas","department":"Sucre","regional":"Norte","tower":"3175387835","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Corozal; Las Brujas; SKCZ","searchKey":"skcz corozal las brujas sucre norte corozal las brujas skcz","sourceDate":"2022-06-10"},"SKPV":{"code":"SKPV","city":"Providencia","airport":"El Embrujo","department":"San Andrés y Providencia","regional":"Norte","tower":"3175171214","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Providencia; El Embrujo; SKPV","searchKey":"skpv providencia el embrujo san andres y providencia norte providencia el embrujo skpv","sourceDate":"2022-06-10"},"SKRH":{"code":"SKRH","city":"Riohacha","airport":"Almirante Padilla","department":"La Guajira","regional":"Norte","tower":"3175387837","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Riohacha; Almirante Padilla; SKRH","searchKey":"skrh riohacha almirante padilla la guajira norte riohacha almirante padilla skrh","sourceDate":"2022-06-10"},"SKRG":{"code":"SKRG","city":"Rionegro","airport":"José María Córdova","department":"Antioquia","regional":"Noroccidente","tower":"3175171011","fpl":"3176465224","email":"SKRGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Rionegro; José María Córdova; SKRG","searchKey":"skrg rionegro jose maria cordova antioquia noroccidente rionegro jose maria cordova skrg","sourceDate":"2022-06-10"},"SKMD":{"code":"SKMD","city":"Medellín","airport":"Olaya Herrera","department":"Antioquia","regional":"Noroccidente","tower":"3175171078","fpl":"3106488038","email":"SKMDZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Medellín; Olaya Herrera; SKMD","searchKey":"skmd medellin olaya herrera antioquia noroccidente medellin olaya herrera skmd","sourceDate":"2022-06-10"},"SKMR":{"code":"SKMR","city":"Montería","airport":"Los Garzones","department":"Córdoba","regional":"Noroccidente","tower":"3175171098","fpl":"3188508541","email":"SKMRZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Montería; Los Garzones; SKMR","searchKey":"skmr monteria los garzones cordoba noroccidente monteria los garzones skmr","sourceDate":"2022-06-10"},"SKUI":{"code":"SKUI","city":"Quibdó","airport":"El Caraño","department":"Chocó","regional":"Noroccidente","tower":"3175387807","fpl":"3175177589","email":"SKUIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Quibdó; El Caraño; SKUI","searchKey":"skui quibdo el carano choco noroccidente quibdo el carano skui","sourceDate":"2022-06-10"},"SKBS":{"code":"SKBS","city":"Bahía Solano","airport":"José Celestino Mutis","department":"Chocó","regional":"Noroccidente","tower":"3128267400","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Bahía Solano; José Celestino Mutis; SKBS","searchKey":"skbs bahia solano jose celestino mutis choco noroccidente bahia solano jose celestino mutis skbs","sourceDate":"2022-06-10"},"SKLC":{"code":"SKLC","city":"Carepa","airport":"Antonio Roldán Betancourt","department":"Antioquia","regional":"Noroccidente","tower":"3158066109","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Carepa; Antonio Roldán Betancourt; SKLC","searchKey":"sklc carepa antonio roldan betancourt antioquia noroccidente carepa antonio roldan betancourt sklc","sourceDate":"2022-06-10"},"SKMZ":{"code":"SKMZ","city":"Manizales","airport":"La Nubia","department":"Caldas","regional":"Noroccidente","tower":"3175171211","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Manizales; La Nubia; SKMZ","searchKey":"skmz manizales la nubia caldas noroccidente manizales la nubia skmz","sourceDate":"2022-06-10"},"SKCC":{"code":"SKCC","city":"Cúcuta","airport":"Camilo Daza","department":"Norte de Santander","regional":"Nororiente","tower":"3175171100","fpl":"3157335754","email":"SKCCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cúcuta; Camilo Daza; SKCC","searchKey":"skcc cucuta camilo daza norte de santander nororiente cucuta camilo daza skcc","sourceDate":"2022-06-10"},"SKBG":{"code":"SKBG","city":"Bucaramanga","airport":"Palonegro","department":"Santander","regional":"Nororiente","tower":"3175171013","fpl":"3175171051","email":"SKBGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bucaramanga; Palonegro; SKBG","searchKey":"skbg bucaramanga palonegro santander nororiente bucaramanga palonegro skbg","sourceDate":"2022-06-10"},"SKUC":{"code":"SKUC","city":"Arauca","airport":"Santiago Pérez Quiroz","department":"Arauca","regional":"Nororiente","tower":"3175387801","fpl":"3176567229","email":"SKUCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Arauca; Santiago Pérez Quiroz; SKUC","searchKey":"skuc arauca santiago perez quiroz arauca nororiente arauca santiago perez quiroz skuc","sourceDate":"2022-06-10"},"SKEJ":{"code":"SKEJ","city":"Barrancabermeja","airport":"Yariguíes","department":"Santander","regional":"Nororiente","tower":"3175171120","fpl":"3173638805","email":"SKEJZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barrancabermeja; Yariguíes; SKEJ","searchKey":"skej barrancabermeja yariguies santander nororiente barrancabermeja yariguies skej","sourceDate":"2022-06-10"},"SKSA":{"code":"SKSA","city":"Saravena","airport":"Los Colonizadores","department":"Arauca","regional":"Nororiente","tower":"3175387802","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Saravena; Los Colonizadores; SKSA","searchKey":"sksa saravena los colonizadores arauca nororiente saravena los colonizadores sksa","sourceDate":"2022-06-10"},"SKTM":{"code":"SKTM","city":"Tame","airport":"Gustavo Vargas","department":"Arauca","regional":"Nororiente","tower":"3175387804","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tame; Gustavo Vargas; SKTM","searchKey":"sktm tame gustavo vargas arauca nororiente tame gustavo vargas sktm","sourceDate":"2022-06-10"},"SKVV":{"code":"SKVV","city":"Villavicencio","airport":"Vanguardia","department":"Meta","regional":"Oriente","tower":"3175171031","fpl":"3175171049","email":"SKVVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Villavicencio; Vanguardia; SKVV","searchKey":"skvv villavicencio vanguardia meta oriente villavicencio vanguardia skvv","sourceDate":"2022-06-10"},"SKYP":{"code":"SKYP","city":"Yopal","airport":"El Yopal","department":"Casanare","regional":"Oriente","tower":"3175171165","fpl":"3186084571","email":"SKYPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Yopal; El Yopal; SKYP","searchKey":"skyp yopal el yopal casanare oriente yopal el yopal skyp","sourceDate":"2022-06-10"},"SKMU":{"code":"SKMU","city":"Mitú","airport":"Fabio Alberto León Bentley","department":"Vaupés","regional":"Oriente","tower":"3175387797","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Mitú; Fabio Alberto León Bentley; SKMU","searchKey":"skmu mitu fabio alberto leon bentley vaupes oriente mitu fabio alberto leon bentley skmu","sourceDate":"2022-06-10"},"SKPC":{"code":"SKPC","city":"Puerto Carreño","airport":"Germán Olano","department":"Vichada","regional":"Oriente","tower":"3175387794","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Carreño; Germán Olano; SKPC","searchKey":"skpc puerto carreno german olano vichada oriente puerto carreno german olano skpc","sourceDate":"2022-06-10"},"SKSJ":{"code":"SKSJ","city":"San José del Guaviare","airport":"Jorge E. González T.","department":"Guaviare","regional":"Oriente","tower":"3175387795","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"San José del Guaviare; Jorge E. González T.; SKSJ","searchKey":"sksj san jose del guaviare jorge e gonzalez t guaviare oriente san jose del guaviare jorge e gonzalez t sksj","sourceDate":"2022-06-10"},"SKPD":{"code":"SKPD","city":"Puerto Inírida","airport":"César Gaviria Trujillo","department":"Guainía","regional":"Oriente","tower":"3175171075","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Inírida; César Gaviria Trujillo; SKPD","searchKey":"skpd puerto inirida cesar gaviria trujillo guainia oriente puerto inirida cesar gaviria trujillo skpd","sourceDate":"2022-06-10"},"SKCL":{"code":"SKCL","city":"Cali","airport":"Alfonso Bonilla Aragón","department":"Valle del Cauca","regional":"Occidente","tower":"3175171026","fpl":"3175171047","email":"SKCLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cali; Alfonso Bonilla Aragón; SKCL","searchKey":"skcl cali alfonso bonilla aragon valle del cauca occidente cali alfonso bonilla aragon skcl","sourceDate":"2022-06-10"},"SKPE":{"code":"SKPE","city":"Pereira","airport":"Matecaña","department":"Risaralda","regional":"Occidente","tower":"3175171099","fpl":"3183307370","email":"SKPEZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Pereira; Matecaña; SKPE","searchKey":"skpe pereira matecana risaralda occidente pereira matecana skpe","sourceDate":"2022-06-10"},"SKAR":{"code":"SKAR","city":"Armenia","airport":"El Edén","department":"Quindío","regional":"Occidente","tower":"3175171122","fpl":"3175171233","email":"SKARZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Armenia; El Edén; SKAR","searchKey":"skar armenia el eden quindio occidente armenia el eden skar","sourceDate":"2022-06-10"},"SKGO":{"code":"SKGO","city":"Cartago","airport":"Santa Ana","department":"Valle del Cauca","regional":"Occidente","tower":"3175387824","fpl":"3175177587","email":"SKGOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartago; Santa Ana; SKGO","searchKey":"skgo cartago santa ana valle del cauca occidente cartago santa ana skgo","sourceDate":"2022-06-10"},"SKPS":{"code":"SKPS","city":"Pasto","airport":"Antonio Nariño","department":"Nariño","regional":"Occidente","tower":"3175171118","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Pasto; Antonio Nariño; SKPS","searchKey":"skps pasto antonio narino narino occidente pasto antonio narino skps","sourceDate":"2022-06-10"},"SKPP":{"code":"SKPP","city":"Popayán","airport":"Guillermo León Valencia","department":"Cauca","regional":"Occidente","tower":"3175171123","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Popayán; Guillermo León Valencia; SKPP","searchKey":"skpp popayan guillermo leon valencia cauca occidente popayan guillermo leon valencia skpp","sourceDate":"2022-06-10"},"SKBU":{"code":"SKBU","city":"Buenaventura","airport":"Gerardo Tobar López","department":"Valle del Cauca","regional":"Occidente","tower":"3175387826","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Buenaventura; Gerardo Tobar López; SKBU","searchKey":"skbu buenaventura gerardo tobar lopez valle del cauca occidente buenaventura gerardo tobar lopez skbu","sourceDate":"2022-06-10"},"SKGP":{"code":"SKGP","city":"Guapi","airport":"Juan Casiano","department":"Cauca","regional":"Occidente","tower":"3175387832","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Guapi; Juan Casiano; SKGP","searchKey":"skgp guapi juan casiano cauca occidente guapi juan casiano skgp","sourceDate":"2022-06-10"},"SKIP":{"code":"SKIP","city":"Ipiales","airport":"San Luis","department":"Nariño","regional":"Occidente","tower":"3175387828","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Ipiales; San Luis; SKIP","searchKey":"skip ipiales san luis narino occidente ipiales san luis skip","sourceDate":"2022-06-10"},"SKCO":{"code":"SKCO","city":"Tumaco","airport":"La Florida","department":"Nariño","regional":"Occidente","tower":"3175387830","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tumaco; La Florida; SKCO","searchKey":"skco tumaco la florida narino occidente tumaco la florida skco","sourceDate":"2022-06-10"}};
-const APP_VERSION='4.0.0';
+const APP_VERSION='4.2.0';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -94,11 +94,8 @@ function loadFormDefaults(){
   $('flightDate').value=today();
   $('pilotInCommand').value=s.fullName || s.contactName || '';
   $('pilotLicense').value=s.pilotLicense || '';
-  $('aircraftColour').value=s.aircraftColour || 'BLANCO';
-  $('flightRules').value=s.flightRules || 'V';
-  $('flightType').value=s.flightType || 'N';
-  $('wakeCategory').value=s.wakeCategory || 'M';
-  applyOperationalDefaults();
+  const reg=$('registration')?.value || s.activeRegistration || 'HK3911';
+  applyAircraftProfile(reg);
   updateFixedPreview();
 }
 function renderAssignedAircraft(selected){
@@ -219,8 +216,9 @@ async function createPdf(){
   drawCentered(doc,'Flight_Rules',$('flightRules').value||s.flightRules||'V',10);
   drawCentered(doc,'Flight_Type',$('flightType').value||s.flightType||'N',10);
   drawComb(doc,'Aircraft_Number',ac.number||'01',2,9);
-  drawCentered(doc,'Aircraft_Type',ac.type||'MI8',9.5);
-  drawCentered(doc,'Wake_Turbulence_Category',$('wakeCategory').value||s.wakeCategory||ac.wake||'M',10);
+  const aircraftProfile=getAircraftProfile(reg);
+  drawCentered(doc,'Aircraft_Type',aircraftProfile.type||ac.type||'MI8',9.5);
+  drawCentered(doc,'Wake_Turbulence_Category',$('wakeCategory').value||aircraftProfile.wake||s.wakeCategory||ac.wake||'M',10);
   drawLeft(doc,'Equipment_COM_NAV',s.equipmentComNav||'',9,5);
   drawCentered(doc,'Equipment_Surveillance',s.equipmentSurveillance||'CB1',9);
 
@@ -662,9 +660,10 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 
 
 $('registration')?.addEventListener('change',()=>{
-  const s=getSettings();
-  saveSettings({...s,activeRegistration:$('registration').value});
-  updateFixedPreview();
+  const reg=$('registration').value;
+  applyAircraftProfile(reg);
+  if($('quickAircraftSelect')) $('quickAircraftSelect').value=reg;
+  if($('aircraftProfileSelect')) $('aircraftProfileSelect').value=reg;
 });
 
 ['registration','flightDate','departure','departureTime','destination','eet'].forEach(id=>{
@@ -989,7 +988,7 @@ $('removeLogoBtn')?.addEventListener('click',()=>{
   toast('Logo eliminado');
 });
 
-loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();renderAircraftModule();initItem18Builder();initVoiceAssistant();initCopilotHome();initEquipmentBuilder();
+loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();renderAircraftModule();initItem18Builder();initVoiceAssistant();initCopilotHome();initEquipmentBuilder();initAircraftProfiles();
 
 
 // ===== Asistente de creación de plan por voz =====
@@ -1544,6 +1543,130 @@ function initEquipmentBuilder(){
   updateEquipmentBuilder();
 }
 
+
+const DEFAULT_AIRCRAFT_PROFILES={
+  HK3779:{type:'MI8',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true},
+  HK4692:{type:'MI8',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true},
+  HK5334:{type:'MI8',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true},
+  HK3882:{type:'MI8',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true},
+  HK3911:{type:'MI8',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true},
+  HK4900:{type:'MI171',wake:'M',flightRules:'V',flightType:'N',colour:'BLANCO',comNav:'S',surveillance:'CB1',radio:{uhf:true,vhf:false,elt:false},survival:{jungle:true,polar:false,desert:false,maritime:false},jacketsNone:true,dinghiesNone:true}
+};
+function getAircraftProfiles(){
+  try{
+    return {...DEFAULT_AIRCRAFT_PROFILES,...JSON.parse(localStorage.getItem(STORAGE_AIRCRAFT_PROFILES)||'{}')};
+  }catch{return {...DEFAULT_AIRCRAFT_PROFILES};}
+}
+function saveAircraftProfiles(profiles){
+  localStorage.setItem(STORAGE_AIRCRAFT_PROFILES,JSON.stringify(profiles));
+}
+function getAircraftProfile(reg){
+  return getAircraftProfiles()[reg] || DEFAULT_AIRCRAFT_PROFILES[reg] || DEFAULT_AIRCRAFT_PROFILES.HK3911;
+}
+function applyAircraftProfile(reg){
+  const p=getAircraftProfile(reg), s=getSettings();
+  if($('flightRules')) $('flightRules').value=p.flightRules||'V';
+  if($('flightType')) $('flightType').value=p.flightType||'N';
+  if($('wakeCategory')) $('wakeCategory').value=p.wake||'M';
+  if($('aircraftColour')) $('aircraftColour').value=p.colour||'BLANCO';
+  if($('radioUHF')) $('radioUHF').checked=!!p.radio?.uhf;
+  if($('radioVHF')) $('radioVHF').checked=!!p.radio?.vhf;
+  if($('radioELT')) $('radioELT').checked=!!p.radio?.elt;
+  if($('survivalNone')) $('survivalNone').checked=false;
+  if($('survivalJungle')) $('survivalJungle').checked=!!p.survival?.jungle;
+  if($('survivalPolar')) $('survivalPolar').checked=!!p.survival?.polar;
+  if($('survivalDesert')) $('survivalDesert').checked=!!p.survival?.desert;
+  if($('survivalMaritime')) $('survivalMaritime').checked=!!p.survival?.maritime;
+  if($('jacketsNone')) $('jacketsNone').checked=p.jacketsNone!==false;
+  if($('dinghiesNone')) $('dinghiesNone').checked=p.dinghiesNone!==false;
+
+  saveSettings({...s,activeRegistration:reg,flightRules:p.flightRules||'V',flightType:p.flightType||'N',wakeCategory:p.wake||'M',aircraftColour:p.colour||'BLANCO',equipmentComNav:p.comNav||'S',equipmentSurveillance:p.surveillance||'CB1'});
+  updateFixedPreview();
+  renderCopilotHome?.();
+}
+function populateAircraftSelectors(){
+  const regs=Object.keys(CFG.aircraft||{});
+  ['quickAircraftSelect','aircraftProfileSelect'].forEach(id=>{
+    const el=$(id); if(!el)return;
+    const current=$('registration')?.value || getSettings().activeRegistration || 'HK3911';
+    el.innerHTML=regs.map(reg=>`<option value="${reg}">${reg}</option>`).join('');
+    el.value=regs.includes(current)?current:regs[0];
+  });
+}
+function renderAircraftProfileEditor(reg){
+  const p=getAircraftProfile(reg);
+  $('aircraftProfileRegistration').value=reg;
+  $('aircraftProfileType').value=p.type||'MI8';
+  $('aircraftProfileWake').value=p.wake||'M';
+  $('aircraftProfileFlightRules').value=p.flightRules||'V';
+  $('aircraftProfileFlightType').value=p.flightType||'N';
+  $('aircraftProfileColour').value=p.colour||'BLANCO';
+  $('aircraftProfileComNav').value=p.comNav||'S';
+  $('aircraftProfileSurveillance').value=p.surveillance||'CB1';
+  $('aircraftRadioUHF').checked=!!p.radio?.uhf;
+  $('aircraftRadioVHF').checked=!!p.radio?.vhf;
+  $('aircraftRadioELT').checked=!!p.radio?.elt;
+  $('aircraftSurvivalJungle').checked=!!p.survival?.jungle;
+  $('aircraftSurvivalPolar').checked=!!p.survival?.polar;
+  $('aircraftSurvivalDesert').checked=!!p.survival?.desert;
+  $('aircraftSurvivalMaritime').checked=!!p.survival?.maritime;
+  $('aircraftJacketsNone').checked=p.jacketsNone!==false;
+  $('aircraftDinghiesNone').checked=p.dinghiesNone!==false;
+  $('aircraftProfileSummary').innerHTML=`<strong>${reg}</strong><span>${p.type==='MI171'?'MI-171':'MI-8'}</span><span>${p.flightRules}/${p.flightType} · ${p.wake}</span><span>${p.comNav}/${p.surveillance}</span>`;
+}
+function saveCurrentAircraftProfile(){
+  const reg=upper($('aircraftProfileRegistration').value).replace(/[^A-Z0-9]/g,'');
+  if(!reg){toast('Matrícula inválida');return;}
+  const profiles=getAircraftProfiles();
+  profiles[reg]={
+    type:$('aircraftProfileType').value,
+    wake:$('aircraftProfileWake').value,
+    flightRules:$('aircraftProfileFlightRules').value,
+    flightType:$('aircraftProfileFlightType').value,
+    colour:upper($('aircraftProfileColour').value)||'BLANCO',
+    comNav:upper($('aircraftProfileComNav').value)||'S',
+    surveillance:upper($('aircraftProfileSurveillance').value)||'CB1',
+    radio:{uhf:$('aircraftRadioUHF').checked,vhf:$('aircraftRadioVHF').checked,elt:$('aircraftRadioELT').checked},
+    survival:{jungle:$('aircraftSurvivalJungle').checked,polar:$('aircraftSurvivalPolar').checked,desert:$('aircraftSurvivalDesert').checked,maritime:$('aircraftSurvivalMaritime').checked},
+    jacketsNone:$('aircraftJacketsNone').checked,
+    dinghiesNone:$('aircraftDinghiesNone').checked
+  };
+  saveAircraftProfiles(profiles);
+  if(CFG.aircraft[reg]) CFG.aircraft[reg].type=profiles[reg].type;
+  populateAircraftSelectors();
+  renderAircraftProfileEditor(reg);
+  toast('Perfil de aeronave guardado');
+}
+function duplicateAircraftProfile(){
+  const source=$('aircraftProfileSelect').value;
+  const target=prompt('Nueva matrícula para duplicar el perfil de '+source);
+  if(!target)return;
+  const reg=upper(target).replace(/[^A-Z0-9]/g,'');
+  const profiles=getAircraftProfiles();
+  profiles[reg]=JSON.parse(JSON.stringify(getAircraftProfile(source)));
+  saveAircraftProfiles(profiles);
+  toast('Perfil duplicado. Agrega la nueva aeronave al catálogo si corresponde.');
+}
+function initAircraftProfiles(){
+  populateAircraftSelectors();
+  const active=getSettings().activeRegistration||'HK3911';
+  renderAircraftProfileEditor(active);
+  applyAircraftProfile(active);
+
+  $('quickAircraftSelect')?.addEventListener('change',e=>{
+    const reg=e.target.value;
+    if($('registration')) $('registration').value=reg;
+    applyAircraftProfile(reg);
+    populateAircraftSelectors();
+  });
+  $('aircraftProfileSelect')?.addEventListener('change',e=>renderAircraftProfileEditor(e.target.value));
+  $('saveAircraftProfileBtn')?.addEventListener('click',saveCurrentAircraftProfile);
+  $('duplicateAircraftProfileBtn')?.addEventListener('click',duplicateAircraftProfile);
+}
+
 window.addEventListener('error',event=>{
   console.error('GutiPilot error:',event.error||event.message);
 });
+
+window.parseVoicePlan=parseVoicePlan;
+window.renderVoicePreview=renderVoicePreview;

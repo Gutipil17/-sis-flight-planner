@@ -18,7 +18,7 @@
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v4.0</span>
+    <span>Plan de vuelo Aerocivil · v4.2</span>
   </div>
   <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
 </header>
@@ -52,9 +52,10 @@
           <h2 id="copilotGreeting">Crear un nuevo plan de vuelo</h2>
           <p class="help">Elige la forma más rápida de comenzar. Tus datos fijos y la última aeronave quedan cargados automáticamente.</p>
         </div>
-        <div class="copilot-aircraft-badge">
-          <span>Aeronave activa</span>
-          <strong id="copilotActiveAircraft">—</strong>
+        <div class="copilot-aircraft-selector">
+          <label for="quickAircraftSelect">Aeronave activa</label>
+          <select id="quickAircraftSelect"></select>
+          <small id="quickAircraftType">—</small>
         </div>
       </div>
 
@@ -327,11 +328,95 @@
 </section>
 
 
+
 <section id="tab-aircraft" class="panel">
   <section class="card">
-    <h2>Aeronaves</h2>
-    <p class="help">Administre qué matrículas aparecen en el formulario. Los CODE de las aeronaves SIS permanecen protegidos en esta versión.</p>
-    <div id="aircraftCards" class="aircraft-cards"></div>
+    <div class="section-title-row">
+      <div>
+        <h2>Perfiles de aeronave</h2>
+        <p class="help">Cada matrícula conserva su tipo, equipo, configuración operacional y elementos de supervivencia.</p>
+      </div>
+      <button type="button" id="duplicateAircraftProfileBtn" class="secondary">Duplicar perfil activo</button>
+    </div>
+
+    <div class="aircraft-profile-layout">
+      <aside>
+        <label>Seleccionar aeronave
+          <select id="aircraftProfileSelect"></select>
+        </label>
+        <div id="aircraftProfileSummary" class="aircraft-profile-summary"></div>
+      </aside>
+
+      <div class="aircraft-profile-editor">
+        <div class="grid two">
+          <label>Matrícula
+            <input id="aircraftProfileRegistration" autocapitalize="characters">
+          </label>
+          <label>Tipo de aeronave
+            <select id="aircraftProfileType">
+              <option value="MI8">MI-8</option>
+              <option value="MI171">MI-171</option>
+            </select>
+          </label>
+          <label>Categoría de turbulencia
+            <select id="aircraftProfileWake">
+              <option value="M">M — Media</option>
+              <option value="L">L — Ligera</option>
+              <option value="H">H — Pesada</option>
+            </select>
+          </label>
+          <label>Reglas de vuelo predeterminadas
+            <select id="aircraftProfileFlightRules">
+              <option value="V">V — Visual</option>
+              <option value="I">I — IFR</option>
+              <option value="Y">Y — IFR luego VFR</option>
+              <option value="Z">Z — VFR luego IFR</option>
+            </select>
+          </label>
+          <label>Tipo de vuelo predeterminado
+            <select id="aircraftProfileFlightType">
+              <option value="N">N — No regular</option>
+              <option value="S">S — Regular</option>
+              <option value="M">M — Militar</option>
+              <option value="G">G — Aviación general</option>
+              <option value="X">X — Otro</option>
+            </select>
+          </label>
+          <label>Color
+            <input id="aircraftProfileColour" autocapitalize="characters" value="BLANCO">
+          </label>
+          <label>Equipo COM/NAV
+            <input id="aircraftProfileComNav" autocapitalize="characters" value="S">
+          </label>
+          <label>Equipo de vigilancia
+            <input id="aircraftProfileSurveillance" autocapitalize="characters" value="CB1">
+          </label>
+        </div>
+
+        <h3>Radio de emergencia</h3>
+        <div class="checks">
+          <label><input type="checkbox" id="aircraftRadioUHF"> UHF</label>
+          <label><input type="checkbox" id="aircraftRadioVHF"> VHF</label>
+          <label><input type="checkbox" id="aircraftRadioELT"> ELT</label>
+        </div>
+
+        <h3>Equipo de supervivencia</h3>
+        <div class="checks">
+          <label><input type="checkbox" id="aircraftSurvivalJungle"> Selva</label>
+          <label><input type="checkbox" id="aircraftSurvivalPolar"> Polar</label>
+          <label><input type="checkbox" id="aircraftSurvivalDesert"> Desierto</label>
+          <label><input type="checkbox" id="aircraftSurvivalMaritime"> Marítimo</label>
+        </div>
+
+        <h3>Chalecos y botes</h3>
+        <div class="checks">
+          <label><input type="checkbox" id="aircraftJacketsNone"> Chalecos: ninguno</label>
+          <label><input type="checkbox" id="aircraftDinghiesNone"> Botes: ninguno</label>
+        </div>
+
+        <button type="button" id="saveAircraftProfileBtn" class="primary full">Guardar perfil de aeronave</button>
+      </div>
+    </div>
   </section>
 </section>
 
@@ -542,7 +627,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">4.0</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">4.2</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -643,7 +728,9 @@
 
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
+<script src="text-engine.js"></script>
 <script src="app.js"></script>
 <script src="dictation.js"></script>
+<script src="text-engine-ui.js"></script>
 </body>
 </html>
