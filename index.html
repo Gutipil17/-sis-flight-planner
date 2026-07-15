@@ -144,14 +144,50 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>Casilla 18</h2>
-      <div id="fixedPreview" class="fixed-preview"></div>
-      <label>Información variable
-        <textarea id="variableOtherInfo" rows="3" autocapitalize="characters"
-          placeholder="Ejemplo: DEP/BRIGADA 17 CAREPA DEST/HLP IMPROVISADO AREA ACANDI 50NM NW CAREPA"></textarea>
-      </label>
-      <p class="help">La aplicación añade automáticamente operador, CODE, misión y contacto.</p>
+    <section class="card item18-card">
+      <div class="section-title-row">
+        <div>
+          <h2>Constructor inteligente · Casilla 18</h2>
+          <p class="help">Selecciona lo que necesitas. GutiPilot agrega el indicador, explica el formato y valida mientras escribes.</p>
+        </div>
+        <span id="item18OverallStatus" class="validation-pill neutral">SIN REVISAR</span>
+      </div>
+
+      <div class="item18-mode-switch" role="group" aria-label="Modo de casilla 18">
+        <button type="button" id="item18GuidedMode" class="mode-btn active">Modo guiado</button>
+        <button type="button" id="item18AdvancedMode" class="mode-btn">Modo avanzado</button>
+      </div>
+
+      <div id="item18GuidedPanel">
+        <div class="item18-selector-grid">
+          <label>¿Qué información deseas agregar?
+            <select id="item18IndicatorSelect"></select>
+          </label>
+          <button type="button" id="item18AddBtn" class="primary item18-add-btn">Añadir</button>
+        </div>
+
+        <div id="item18Guide" class="item18-guide"></div>
+        <div id="item18Cards" class="item18-cards"></div>
+      </div>
+
+      <div id="item18AdvancedPanel" class="hidden">
+        <label>Edición avanzada
+          <textarea id="variableOtherInfo" rows="5" autocapitalize="characters"
+            placeholder="Ejemplo: DEP/BRIGADA 17 CAREPA DOF/260716 REG/HK3911"></textarea>
+        </label>
+        <p class="help">Puedes escribir directamente. GutiPilot convertirá a mayúsculas, ordenará los indicadores reconocidos y explicará cada error.</p>
+        <button type="button" id="item18ParseAdvancedBtn" class="secondary">Analizar y organizar</button>
+      </div>
+
+      <div class="item18-preview-panel">
+        <div class="preview-heading">
+          <strong>Vista previa final</strong>
+          <button type="button" id="item18CopyBtn" class="secondary compact">Copiar</button>
+        </div>
+        <div id="fixedPreview" class="fixed-preview"></div>
+        <div id="item18Preview" class="item18-preview">0</div>
+        <div id="item18Messages" class="validation-messages"></div>
+      </div>
     </section>
 
     <section class="card">
