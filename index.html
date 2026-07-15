@@ -53,6 +53,31 @@
         <label>Fecha
           <input id="flightDate" type="date" required>
         </label>
+        <label>Reglas de vuelo
+          <select id="flightRules">
+            <option value="V">V — Visual (VFR)</option>
+            <option value="I">I — Instrumental (IFR)</option>
+            <option value="Y">Y — IFR y después VFR</option>
+            <option value="Z">Z — VFR y después IFR</option>
+          </select>
+        </label>
+        <label>Tipo de vuelo
+          <select id="flightType">
+            <option value="N">N — No regular</option>
+            <option value="S">S — Regular</option>
+            <option value="G">G — Aviación general</option>
+            <option value="M">M — Militar</option>
+            <option value="X">X — Otro</option>
+          </select>
+        </label>
+        <label>Categoría de turbulencia
+          <select id="wakeCategory">
+            <option value="L">L — Ligera</option>
+            <option value="M">M — Media</option>
+            <option value="H">H — Pesada</option>
+            <option value="J">J — Súper</option>
+          </select>
+        </label>
         <label>Salida
           <input id="departure" maxlength="4" autocapitalize="characters" placeholder="ESCRIBA EL OACI, EJ.: SKLC" required>
         </label>
@@ -141,6 +166,26 @@
         <label>Color
           <input id="dinghiesColour" autocapitalize="characters">
         </label>
+      </div>
+    </section>
+
+
+    <section class="card voice-plan-card">
+      <div class="section-title-row">
+        <div>
+          <h2>🎙️ Crear plan por voz</h2>
+          <p class="help">Dicta los datos variables. GutiPilot los reconoce, los organiza y te muestra una vista previa antes de aplicarlos.</p>
+        </div>
+        <span id="voiceSupportStatus" class="validation-pill neutral">COMPROBANDO</span>
+      </div>
+
+      <button type="button" id="openVoiceAssistantBtn" class="primary full voice-main-button">
+        Iniciar dictado del plan
+      </button>
+
+      <div class="voice-quick-example">
+        <strong>Ejemplo de dictado</strong>
+        <p>“Aeronave HK3911. Salida Zulu Zulu Zulu Zulu. Departure Batallón en Carepa. Destino Zulu Zulu Zulu Zulu. Destination Batallón en Ánimas Chocó. Fecha 16 de julio de 2026. Altitud cuatro mil quinientos pies. Personas a bordo cinco. Autonomía tres horas treinta. Tiempo en ruta una hora treinta.”</p>
       </div>
     </section>
 
@@ -332,6 +377,36 @@
         <input id="equipmentComNav" autocapitalize="characters" value="S">
       </label>
       <p class="help">La parte posterior al slash permanece como <strong>CB1</strong>.</p>
+
+      <h3>Valores predeterminados del plan</h3>
+      <p class="help">Se cargarán automáticamente en cada plan nuevo. Podrás cambiarlos temporalmente en el formulario sin modificar el perfil.</p>
+      <div class="grid three">
+        <label>Reglas de vuelo predeterminadas
+          <select id="profileFlightRules">
+            <option value="V">V — Visual (VFR)</option>
+            <option value="I">I — Instrumental (IFR)</option>
+            <option value="Y">Y — IFR y después VFR</option>
+            <option value="Z">Z — VFR y después IFR</option>
+          </select>
+        </label>
+        <label>Tipo de vuelo predeterminado
+          <select id="profileFlightType">
+            <option value="N">N — No regular</option>
+            <option value="S">S — Regular</option>
+            <option value="G">G — Aviación general</option>
+            <option value="M">M — Militar</option>
+            <option value="X">X — Otro</option>
+          </select>
+        </label>
+        <label>Turbulencia predeterminada
+          <select id="profileWakeCategory">
+            <option value="L">L — Ligera</option>
+            <option value="M">M — Media</option>
+            <option value="H">H — Pesada</option>
+            <option value="J">J — Súper</option>
+          </select>
+        </label>
+      </div>
       <button type="submit" class="primary full">Guardar perfil y configuración</button>
     </section>
 
@@ -342,7 +417,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.0</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.3</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -371,5 +446,77 @@
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
+
+<div id="voiceAssistantModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="voiceAssistantTitle">
+  <div class="modal-card voice-modal-card">
+    <div class="row-between voice-modal-heading">
+      <div>
+        <h2 id="voiceAssistantTitle">Crear plan por voz</h2>
+        <p class="help">Habla de forma natural. No necesitas decir los datos fijos del perfil o de la aeronave, salvo que quieras cambiarlos.</p>
+      </div>
+      <button type="button" id="closeVoiceAssistantBtn" class="icon-btn" aria-label="Cerrar">Cerrar</button>
+    </div>
+
+    <div id="voiceActiveContext" class="voice-active-context"></div>
+
+    <div id="voiceStepGuide" class="voice-guide">
+      <h3>Solo dicta lo que cambia en este vuelo</h3>
+      <p class="help">La aeronave, piloto, operador, equipo, reglas de vuelo, tipo de vuelo y turbulencia ya se toman del perfil activo. Menciona alguno únicamente cuando quieras cambiarlo para este plan.</p>
+      <h3>Datos variables recomendados:</h3>
+      <div class="voice-checklist">
+        <div><strong>1. Salida y hora</strong><span>“Salida SKLC, hora 1230”</span></div>
+        <div><strong>2. Destino</strong><span>“Destino SKUI”</span></div>
+        <div><strong>3. Lugares ZZZZ</strong><span>“Departure Batallón Carepa, Destination Ánimas Chocó”</span></div>
+        <div><strong>4. Fecha</strong><span>“Fecha 16 de julio de 2026”</span></div>
+        <div><strong>5. Ruta y altitud</strong><span>“Ruta directa, altitud 4500 pies”</span></div>
+        <div><strong>6. Tiempos</strong><span>“Tiempo en ruta 1 hora 30, autonomía 3 horas 30”</span></div>
+        <div><strong>7. Personas y alternos</strong><span>“Cinco personas a bordo, alterno SKLC”</span></div>
+        <div><strong>8. Observaciones</strong><span>“Observaciones apoyo al Ejército Nacional”</span></div>
+        <div><strong>Cambio opcional</strong><span>“Cambiar aeronave a HK3779” o “vuelo IFR”</span></div>
+      </div>
+      <p class="voice-tip"><strong>Consejo:</strong> haz una pausa corta entre cada dato. GutiPilot nunca aplicará información crítica sin mostrarte primero la vista previa.</p>
+    </div>
+
+    <div class="voice-controls">
+      <button type="button" id="startVoiceBtn" class="primary">🎙️ Empezar a escuchar</button>
+      <button type="button" id="stopVoiceBtn" class="secondary" disabled>Detener</button>
+      <button type="button" id="correctByVoiceBtn" class="secondary hidden">Corregir por voz</button>
+    </div>
+
+    <div id="voiceListeningState" class="voice-listening-state neutral">
+      Pulsa “Empezar a escuchar” y dicta el plan.
+    </div>
+
+    <label>Transcripción
+      <textarea id="voiceTranscript" rows="6" placeholder="Aquí aparecerá lo que GutiPilot escuchó. También puedes escribir o corregir manualmente."></textarea>
+    </label>
+
+    <div class="voice-analysis-actions">
+      <button type="button" id="analyzeVoiceBtn" class="primary">Analizar dictado</button>
+      <button type="button" id="clearVoiceBtn" class="secondary">Limpiar</button>
+    </div>
+
+    <section id="voicePreviewSection" class="voice-preview-section hidden">
+      <div class="section-title-row">
+        <div>
+          <h3>Vista previa de datos reconocidos</h3>
+          <p class="help">Confirma cada dato antes de aplicarlo al formulario.</p>
+        </div>
+        <span id="voicePreviewStatus" class="validation-pill neutral">SIN ANALIZAR</span>
+      </div>
+
+      <div id="voiceRecognizedFields" class="voice-recognized-fields"></div>
+      <div id="voiceMissingFields" class="validation-messages"></div>
+
+      <div class="voice-final-actions">
+        <button type="button" id="applyVoicePlanBtn" class="primary" disabled>Aplicar al plan</button>
+        <button type="button" id="editVoiceTextBtn" class="secondary">Editar transcripción</button>
+      </div>
+    </section>
+
+    <p class="voice-privacy-note">El reconocimiento de voz depende del navegador y puede requerir conexión. El formulario manual continúa disponible en todo momento.</p>
+  </div>
+</div>
+
 </body>
 </html>

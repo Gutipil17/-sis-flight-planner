@@ -1,5 +1,5 @@
 window.FPL_CONTACTS = {"SKBO":{"code":"SKBO","city":"Bogotá","airport":"El Dorado","department":"Bogotá D.C.","regional":"Centro Sur","tower":"3175387792","fpl":"3175171035","email":"SKBOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bogotá; El Dorado; SKBO","searchKey":"skbo bogota el dorado bogota d c centro sur bogota el dorado skbo","sourceDate":"2022-06-10"},"SKGY":{"code":"SKGY","city":"Guaymaral","airport":"Flaminio Suárez Camacho","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171117","fpl":"3185863359","email":"SKGYZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Guaymaral; Flaminio Suárez Camacho; SKGY","searchKey":"skgy guaymaral flaminio suarez camacho cundinamarca centro sur guaymaral flaminio suarez camacho skgy","sourceDate":"2022-06-10"},"SKFL":{"code":"SKFL","city":"Florencia","airport":"Gustavo Artunduaga Paredes","department":"Caquetá","regional":"Centro Sur","tower":"3175387822","fpl":"3175171210","email":"SKFLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Florencia; Gustavo Artunduaga Paredes; SKFL","searchKey":"skfl florencia gustavo artunduaga paredes caqueta centro sur florencia gustavo artunduaga paredes skfl","sourceDate":"2022-06-10"},"SKGI":{"code":"SKGI","city":"Girardot","airport":"Santiago Vila","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171183","fpl":"3176354593","email":"SKGIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Girardot; Santiago Vila; SKGI","searchKey":"skgi girardot santiago vila cundinamarca centro sur girardot santiago vila skgi","sourceDate":"2022-06-10"},"SKIB":{"code":"SKIB","city":"Ibagué","airport":"Perales","department":"Tolima","regional":"Centro Sur","tower":"3175171114","fpl":"3185479912","email":"SKIBZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Ibagué; Perales; SKIB","searchKey":"skib ibague perales tolima centro sur ibague perales skib","sourceDate":"2022-06-10"},"SKLT":{"code":"SKLT","city":"Leticia","airport":"Alfredo Vásquez Cobo","department":"Amazonas","regional":"Centro Sur","tower":"3175171132","fpl":"3165221144","email":"SKLTZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Leticia; Alfredo Vásquez Cobo; SKLT","searchKey":"sklt leticia alfredo vasquez cobo amazonas centro sur leticia alfredo vasquez cobo sklt","sourceDate":"2022-06-10"},"SKQU":{"code":"SKQU","city":"Mariquita","airport":"José Celestino Mutis","department":"Tolima","regional":"Centro Sur","tower":"3175171094","fpl":"3185165780","email":"SKQUZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Mariquita; José Celestino Mutis; SKQU","searchKey":"skqu mariquita jose celestino mutis tolima centro sur mariquita jose celestino mutis skqu","sourceDate":"2022-06-10"},"SKNV":{"code":"SKNV","city":"Neiva","airport":"Benito Salas","department":"Huila","regional":"Centro Sur","tower":"3175171147","fpl":"3167422604","email":"SKNVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Neiva; Benito Salas; SKNV","searchKey":"sknv neiva benito salas huila centro sur neiva benito salas sknv","sourceDate":"2022-06-10"},"SKAS":{"code":"SKAS","city":"Puerto Asís","airport":"Tres de Mayo","department":"Putumayo","regional":"Centro Sur","tower":"3175387818","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Asís; Tres de Mayo; SKAS","searchKey":"skas puerto asis tres de mayo putumayo centro sur puerto asis tres de mayo skas","sourceDate":"2022-06-10"},"SKBQ":{"code":"SKBQ","city":"Barranquilla","airport":"Ernesto Cortissoz","department":"Atlántico","regional":"Norte","tower":"3175171021","fpl":"3175171039","email":"SKBQZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barranquilla; Ernesto Cortissoz; SKBQ","searchKey":"skbq barranquilla ernesto cortissoz atlantico norte barranquilla ernesto cortissoz skbq","sourceDate":"2022-06-10"},"SKCG":{"code":"SKCG","city":"Cartagena","airport":"Rafael Núñez","department":"Bolívar","regional":"Norte","tower":"3175171095","fpl":"3153413225","email":"SKCGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartagena; Rafael Núñez; SKCG","searchKey":"skcg cartagena rafael nunez bolivar norte cartagena rafael nunez skcg","sourceDate":"2022-06-10"},"SKSP":{"code":"SKSP","city":"San Andrés","airport":"Gustavo Rojas Pinilla","department":"San Andrés y Providencia","regional":"Norte","tower":"3175387834","fpl":"3182064662","email":"SKSPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"San Andrés; Gustavo Rojas Pinilla; SKSP","searchKey":"sksp san andres gustavo rojas pinilla san andres y providencia norte san andres gustavo rojas pinilla sksp","sourceDate":"2022-06-10"},"SKSM":{"code":"SKSM","city":"Santa Marta","airport":"Simón Bolívar","department":"Magdalena","regional":"Norte","tower":"3175171007","fpl":"3156966455","email":"SKSMZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Santa Marta; Simón Bolívar; SKSM","searchKey":"sksm santa marta simon bolivar magdalena norte santa marta simon bolivar sksm","sourceDate":"2022-06-10"},"SKVP":{"code":"SKVP","city":"Valledupar","airport":"Alfonso López Pumarejo","department":"Cesar","regional":"Norte","tower":"3175171096","fpl":"3156966455","email":"SKVPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Valledupar; Alfonso López Pumarejo; SKVP","searchKey":"skvp valledupar alfonso lopez pumarejo cesar norte valledupar alfonso lopez pumarejo skvp","sourceDate":"2022-06-10"},"SKCZ":{"code":"SKCZ","city":"Corozal","airport":"Las Brujas","department":"Sucre","regional":"Norte","tower":"3175387835","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Corozal; Las Brujas; SKCZ","searchKey":"skcz corozal las brujas sucre norte corozal las brujas skcz","sourceDate":"2022-06-10"},"SKPV":{"code":"SKPV","city":"Providencia","airport":"El Embrujo","department":"San Andrés y Providencia","regional":"Norte","tower":"3175171214","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Providencia; El Embrujo; SKPV","searchKey":"skpv providencia el embrujo san andres y providencia norte providencia el embrujo skpv","sourceDate":"2022-06-10"},"SKRH":{"code":"SKRH","city":"Riohacha","airport":"Almirante Padilla","department":"La Guajira","regional":"Norte","tower":"3175387837","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Riohacha; Almirante Padilla; SKRH","searchKey":"skrh riohacha almirante padilla la guajira norte riohacha almirante padilla skrh","sourceDate":"2022-06-10"},"SKRG":{"code":"SKRG","city":"Rionegro","airport":"José María Córdova","department":"Antioquia","regional":"Noroccidente","tower":"3175171011","fpl":"3176465224","email":"SKRGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Rionegro; José María Córdova; SKRG","searchKey":"skrg rionegro jose maria cordova antioquia noroccidente rionegro jose maria cordova skrg","sourceDate":"2022-06-10"},"SKMD":{"code":"SKMD","city":"Medellín","airport":"Olaya Herrera","department":"Antioquia","regional":"Noroccidente","tower":"3175171078","fpl":"3106488038","email":"SKMDZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Medellín; Olaya Herrera; SKMD","searchKey":"skmd medellin olaya herrera antioquia noroccidente medellin olaya herrera skmd","sourceDate":"2022-06-10"},"SKMR":{"code":"SKMR","city":"Montería","airport":"Los Garzones","department":"Córdoba","regional":"Noroccidente","tower":"3175171098","fpl":"3188508541","email":"SKMRZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Montería; Los Garzones; SKMR","searchKey":"skmr monteria los garzones cordoba noroccidente monteria los garzones skmr","sourceDate":"2022-06-10"},"SKUI":{"code":"SKUI","city":"Quibdó","airport":"El Caraño","department":"Chocó","regional":"Noroccidente","tower":"3175387807","fpl":"3175177589","email":"SKUIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Quibdó; El Caraño; SKUI","searchKey":"skui quibdo el carano choco noroccidente quibdo el carano skui","sourceDate":"2022-06-10"},"SKBS":{"code":"SKBS","city":"Bahía Solano","airport":"José Celestino Mutis","department":"Chocó","regional":"Noroccidente","tower":"3128267400","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Bahía Solano; José Celestino Mutis; SKBS","searchKey":"skbs bahia solano jose celestino mutis choco noroccidente bahia solano jose celestino mutis skbs","sourceDate":"2022-06-10"},"SKLC":{"code":"SKLC","city":"Carepa","airport":"Antonio Roldán Betancourt","department":"Antioquia","regional":"Noroccidente","tower":"3158066109","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Carepa; Antonio Roldán Betancourt; SKLC","searchKey":"sklc carepa antonio roldan betancourt antioquia noroccidente carepa antonio roldan betancourt sklc","sourceDate":"2022-06-10"},"SKMZ":{"code":"SKMZ","city":"Manizales","airport":"La Nubia","department":"Caldas","regional":"Noroccidente","tower":"3175171211","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Manizales; La Nubia; SKMZ","searchKey":"skmz manizales la nubia caldas noroccidente manizales la nubia skmz","sourceDate":"2022-06-10"},"SKCC":{"code":"SKCC","city":"Cúcuta","airport":"Camilo Daza","department":"Norte de Santander","regional":"Nororiente","tower":"3175171100","fpl":"3157335754","email":"SKCCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cúcuta; Camilo Daza; SKCC","searchKey":"skcc cucuta camilo daza norte de santander nororiente cucuta camilo daza skcc","sourceDate":"2022-06-10"},"SKBG":{"code":"SKBG","city":"Bucaramanga","airport":"Palonegro","department":"Santander","regional":"Nororiente","tower":"3175171013","fpl":"3175171051","email":"SKBGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bucaramanga; Palonegro; SKBG","searchKey":"skbg bucaramanga palonegro santander nororiente bucaramanga palonegro skbg","sourceDate":"2022-06-10"},"SKUC":{"code":"SKUC","city":"Arauca","airport":"Santiago Pérez Quiroz","department":"Arauca","regional":"Nororiente","tower":"3175387801","fpl":"3176567229","email":"SKUCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Arauca; Santiago Pérez Quiroz; SKUC","searchKey":"skuc arauca santiago perez quiroz arauca nororiente arauca santiago perez quiroz skuc","sourceDate":"2022-06-10"},"SKEJ":{"code":"SKEJ","city":"Barrancabermeja","airport":"Yariguíes","department":"Santander","regional":"Nororiente","tower":"3175171120","fpl":"3173638805","email":"SKEJZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barrancabermeja; Yariguíes; SKEJ","searchKey":"skej barrancabermeja yariguies santander nororiente barrancabermeja yariguies skej","sourceDate":"2022-06-10"},"SKSA":{"code":"SKSA","city":"Saravena","airport":"Los Colonizadores","department":"Arauca","regional":"Nororiente","tower":"3175387802","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Saravena; Los Colonizadores; SKSA","searchKey":"sksa saravena los colonizadores arauca nororiente saravena los colonizadores sksa","sourceDate":"2022-06-10"},"SKTM":{"code":"SKTM","city":"Tame","airport":"Gustavo Vargas","department":"Arauca","regional":"Nororiente","tower":"3175387804","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tame; Gustavo Vargas; SKTM","searchKey":"sktm tame gustavo vargas arauca nororiente tame gustavo vargas sktm","sourceDate":"2022-06-10"},"SKVV":{"code":"SKVV","city":"Villavicencio","airport":"Vanguardia","department":"Meta","regional":"Oriente","tower":"3175171031","fpl":"3175171049","email":"SKVVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Villavicencio; Vanguardia; SKVV","searchKey":"skvv villavicencio vanguardia meta oriente villavicencio vanguardia skvv","sourceDate":"2022-06-10"},"SKYP":{"code":"SKYP","city":"Yopal","airport":"El Yopal","department":"Casanare","regional":"Oriente","tower":"3175171165","fpl":"3186084571","email":"SKYPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Yopal; El Yopal; SKYP","searchKey":"skyp yopal el yopal casanare oriente yopal el yopal skyp","sourceDate":"2022-06-10"},"SKMU":{"code":"SKMU","city":"Mitú","airport":"Fabio Alberto León Bentley","department":"Vaupés","regional":"Oriente","tower":"3175387797","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Mitú; Fabio Alberto León Bentley; SKMU","searchKey":"skmu mitu fabio alberto leon bentley vaupes oriente mitu fabio alberto leon bentley skmu","sourceDate":"2022-06-10"},"SKPC":{"code":"SKPC","city":"Puerto Carreño","airport":"Germán Olano","department":"Vichada","regional":"Oriente","tower":"3175387794","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Carreño; Germán Olano; SKPC","searchKey":"skpc puerto carreno german olano vichada oriente puerto carreno german olano skpc","sourceDate":"2022-06-10"},"SKSJ":{"code":"SKSJ","city":"San José del Guaviare","airport":"Jorge E. González T.","department":"Guaviare","regional":"Oriente","tower":"3175387795","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"San José del Guaviare; Jorge E. González T.; SKSJ","searchKey":"sksj san jose del guaviare jorge e gonzalez t guaviare oriente san jose del guaviare jorge e gonzalez t sksj","sourceDate":"2022-06-10"},"SKPD":{"code":"SKPD","city":"Puerto Inírida","airport":"César Gaviria Trujillo","department":"Guainía","regional":"Oriente","tower":"3175171075","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Inírida; César Gaviria Trujillo; SKPD","searchKey":"skpd puerto inirida cesar gaviria trujillo guainia oriente puerto inirida cesar gaviria trujillo skpd","sourceDate":"2022-06-10"},"SKCL":{"code":"SKCL","city":"Cali","airport":"Alfonso Bonilla Aragón","department":"Valle del Cauca","regional":"Occidente","tower":"3175171026","fpl":"3175171047","email":"SKCLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cali; Alfonso Bonilla Aragón; SKCL","searchKey":"skcl cali alfonso bonilla aragon valle del cauca occidente cali alfonso bonilla aragon skcl","sourceDate":"2022-06-10"},"SKPE":{"code":"SKPE","city":"Pereira","airport":"Matecaña","department":"Risaralda","regional":"Occidente","tower":"3175171099","fpl":"3183307370","email":"SKPEZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Pereira; Matecaña; SKPE","searchKey":"skpe pereira matecana risaralda occidente pereira matecana skpe","sourceDate":"2022-06-10"},"SKAR":{"code":"SKAR","city":"Armenia","airport":"El Edén","department":"Quindío","regional":"Occidente","tower":"3175171122","fpl":"3175171233","email":"SKARZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Armenia; El Edén; SKAR","searchKey":"skar armenia el eden quindio occidente armenia el eden skar","sourceDate":"2022-06-10"},"SKGO":{"code":"SKGO","city":"Cartago","airport":"Santa Ana","department":"Valle del Cauca","regional":"Occidente","tower":"3175387824","fpl":"3175177587","email":"SKGOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartago; Santa Ana; SKGO","searchKey":"skgo cartago santa ana valle del cauca occidente cartago santa ana skgo","sourceDate":"2022-06-10"},"SKPS":{"code":"SKPS","city":"Pasto","airport":"Antonio Nariño","department":"Nariño","regional":"Occidente","tower":"3175171118","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Pasto; Antonio Nariño; SKPS","searchKey":"skps pasto antonio narino narino occidente pasto antonio narino skps","sourceDate":"2022-06-10"},"SKPP":{"code":"SKPP","city":"Popayán","airport":"Guillermo León Valencia","department":"Cauca","regional":"Occidente","tower":"3175171123","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Popayán; Guillermo León Valencia; SKPP","searchKey":"skpp popayan guillermo leon valencia cauca occidente popayan guillermo leon valencia skpp","sourceDate":"2022-06-10"},"SKBU":{"code":"SKBU","city":"Buenaventura","airport":"Gerardo Tobar López","department":"Valle del Cauca","regional":"Occidente","tower":"3175387826","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Buenaventura; Gerardo Tobar López; SKBU","searchKey":"skbu buenaventura gerardo tobar lopez valle del cauca occidente buenaventura gerardo tobar lopez skbu","sourceDate":"2022-06-10"},"SKGP":{"code":"SKGP","city":"Guapi","airport":"Juan Casiano","department":"Cauca","regional":"Occidente","tower":"3175387832","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Guapi; Juan Casiano; SKGP","searchKey":"skgp guapi juan casiano cauca occidente guapi juan casiano skgp","sourceDate":"2022-06-10"},"SKIP":{"code":"SKIP","city":"Ipiales","airport":"San Luis","department":"Nariño","regional":"Occidente","tower":"3175387828","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Ipiales; San Luis; SKIP","searchKey":"skip ipiales san luis narino occidente ipiales san luis skip","sourceDate":"2022-06-10"},"SKCO":{"code":"SKCO","city":"Tumaco","airport":"La Florida","department":"Nariño","regional":"Occidente","tower":"3175387830","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tumaco; La Florida; SKCO","searchKey":"skco tumaco la florida narino occidente tumaco la florida skco","sourceDate":"2022-06-10"}};
-const APP_VERSION='3.1.0';
+const APP_VERSION='3.3.0';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -22,7 +22,11 @@ const defaultSettings = {
   emailSignature: '',
   pilotLicense: CFG.fixed.pilotLicense || '',
   assignedAircraft: Object.keys(CFG.aircraft || {}),
-  companyLogo: ''
+  companyLogo: '',
+  activeRegistration: 'HK3911',
+  flightRules: 'V',
+  flightType: 'N',
+  wakeCategory: 'M'
 };
 
 function getSettings(){
@@ -53,7 +57,8 @@ function loadAircraft(){
   const select=$('registration');
   const previous=select.value;
   select.innerHTML=available.map(reg=>`<option value="${reg}">${reg}</option>`).join('');
-  select.value=available.includes(previous) ? previous : (available.includes('HK3911') ? 'HK3911' : available[0] || '');
+  const preferred=settings.activeRegistration || previous || 'HK3911';
+  select.value=available.includes(previous) ? previous : (available.includes(preferred) ? preferred : (available.includes('HK3911') ? 'HK3911' : available[0] || ''));
 }
 function applyOperationalDefaults(){
   // Radio de emergencia: UHF.
@@ -86,6 +91,9 @@ function loadFormDefaults(){
   $('pilotInCommand').value=s.fullName || s.contactName || '';
   $('pilotLicense').value=s.pilotLicense || '';
   $('aircraftColour').value=s.aircraftColour || 'BLANCO';
+  $('flightRules').value=s.flightRules || 'V';
+  $('flightType').value=s.flightType || 'N';
+  $('wakeCategory').value=s.wakeCategory || 'M';
   applyOperationalDefaults();
   updateFixedPreview();
 }
@@ -118,6 +126,9 @@ function loadSettingsForm(){
   $('profileLicense').value=s.pilotLicense || '';
   $('mission').value=s.mission || '';
   $('equipmentComNav').value=s.equipmentComNav || 'S';
+  $('profileFlightRules').value=s.flightRules || 'V';
+  $('profileFlightType').value=s.flightType || 'N';
+  $('profileWakeCategory').value=s.wakeCategory || 'M';
   renderAssignedAircraft(s.assignedAircraft);
   updateProfileLogoPreview(s.companyLogo || '');
 }
@@ -199,11 +210,11 @@ async function createPdf(){
   addBackground(doc);
 
   drawComb(doc,'Aircraft_ID',reg,7,9.2);
-  drawCentered(doc,'Flight_Rules',s.flightRules||'V',10);
-  drawCentered(doc,'Flight_Type',s.flightType||'M',10);
+  drawCentered(doc,'Flight_Rules',$('flightRules').value||s.flightRules||'V',10);
+  drawCentered(doc,'Flight_Type',$('flightType').value||s.flightType||'N',10);
   drawComb(doc,'Aircraft_Number',ac.number||'01',2,9);
   drawCentered(doc,'Aircraft_Type',ac.type||'MI8',9.5);
-  drawCentered(doc,'Wake_Turbulence_Category',ac.wake||'M',10);
+  drawCentered(doc,'Wake_Turbulence_Category',$('wakeCategory').value||s.wakeCategory||ac.wake||'M',10);
   drawLeft(doc,'Equipment_COM_NAV',s.equipmentComNav||'',9,5);
   drawCentered(doc,'Equipment_Surveillance',s.equipmentSurveillance||'CB1',9);
 
@@ -604,6 +615,10 @@ $('settingsForm').addEventListener('submit',e=>{
     assignedAircraft:assignedAircraft.length ? assignedAircraft : Object.keys(CFG.aircraft || {}),
     mission:upper($('mission').value),
     equipmentComNav:upper($('equipmentComNav').value) || 'S',
+    flightRules:$('profileFlightRules').value || 'V',
+    flightType:$('profileFlightType').value || 'N',
+    wakeCategory:$('profileWakeCategory').value || 'M',
+    activeRegistration:$('registration').value || current.activeRegistration || 'HK3911',
     contactName:fullName,
     contactPhone:phone,
     contactEmail:email,
@@ -633,6 +648,13 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 });
 ['route','variableOtherInfo','remarks','additionalRequirements','pilotInCommand','pilotLicense','aircraftColour','dinghiesColour'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
+});
+
+
+$('registration')?.addEventListener('change',()=>{
+  const s=getSettings();
+  saveSettings({...s,activeRegistration:$('registration').value});
+  updateFixedPreview();
 });
 
 ['registration','flightDate','departure','departureTime','destination','eet'].forEach(id=>{
@@ -957,4 +979,385 @@ $('removeLogoBtn')?.addEventListener('click',()=>{
   toast('Logo eliminado');
 });
 
-loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();renderAircraftModule();initItem18Builder();
+loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();renderAircraftModule();initItem18Builder();initVoiceAssistant();
+
+
+// ===== Asistente de creación de plan por voz =====
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+let voiceRecognition = null;
+let voiceDraft = null;
+let voiceCorrectionMode = false;
+
+const SPANISH_MONTHS={
+  enero:1,febrero:2,marzo:3,abril:4,mayo:5,junio:6,
+  julio:7,agosto:8,septiembre:9,octubre:10,noviembre:11,diciembre:12
+};
+const SPOKEN_DIGITS={
+  cero:'0',uno:'1',una:'1',dos:'2',tres:'3',cuatro:'4',cinco:'5',
+  seis:'6',siete:'7',ocho:'8',nueve:'9'
+};
+const ICAO_WORDS={
+  alfa:'A',alpha:'A',bravo:'B',charlie:'C',delta:'D',eco:'E',echo:'E',
+  foxtrot:'F',golf:'G',hotel:'H',india:'I',juliet:'J',juliett:'J',
+  kilo:'K',lima:'L',mike:'M',november:'N',oscar:'O',papa:'P',
+  quebec:'Q',romeo:'R',sierra:'S',tango:'T',uniform:'U',victor:'V',
+  whiskey:'W',xray:'X','x-ray':'X',yankee:'Y',zulu:'Z'
+};
+ICAO_WORDS.yankee='Y'; ICAO_WORDS.zulu='Z';
+
+function normalizeVoiceText(text){
+  return String(text||'')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[.,;:!?]/g,' ')
+    .replace(/\s+/g,' ').trim();
+}
+function spokenSequenceToCode(text){
+  const words=normalizeVoiceText(text).split(' ');
+  let out='';
+  for(const word of words){
+    if(ICAO_WORDS[word]) out+=ICAO_WORDS[word];
+    else if(SPOKEN_DIGITS[word]!==undefined) out+=SPOKEN_DIGITS[word];
+    else if(/^[a-z0-9]+$/.test(word) && word.length<=8) out+=word.toUpperCase();
+  }
+  return out;
+}
+function wordsToNumber(text){
+  const clean=normalizeVoiceText(text);
+  const direct=clean.match(/\d+/);
+  if(direct) return Number(direct[0]);
+  const units={cero:0,un:1,uno:1,una:1,dos:2,tres:3,cuatro:4,cinco:5,seis:6,siete:7,ocho:8,nueve:9,diez:10,once:11,doce:12,trece:13,catorce:14,quince:15,dieciseis:16,diecisiete:17,dieciocho:18,diecinueve:19,veinte:20,treinta:30,cuarenta:40,cincuenta:50};
+  let total=0, found=false;
+  clean.split(' ').forEach(w=>{if(units[w]!==undefined){total+=units[w];found=true;}});
+  return found?total:null;
+}
+function parseDuration(text){
+  const t=normalizeVoiceText(text);
+  let h=0,m=0;
+  const hm=t.match(/(\d{1,2})\s*(?:horas?|h)\s*(?:y\s*)?(\d{1,2})?\s*(?:minutos?|min)?/);
+  if(hm){h=Number(hm[1]);m=Number(hm[2]||0);return String(h).padStart(2,'0')+String(m).padStart(2,'0');}
+  const only=t.match(/\b(\d{3,4})\b/);
+  if(only) return only[1].padStart(4,'0');
+  const hourWords=t.match(/(.+?)\s+horas?/);
+  if(hourWords) h=wordsToNumber(hourWords[1])||0;
+  const minWords=t.match(/(?:y\s+)?(.+?)\s+minutos?/);
+  if(minWords) m=wordsToNumber(minWords[1])||0;
+  if(h||m) return String(h).padStart(2,'0')+String(m).padStart(2,'0');
+  return '';
+}
+function parseDateVoice(text){
+  const t=normalizeVoiceText(text);
+  let m=t.match(/(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})/);
+  if(m && SPANISH_MONTHS[m[2]]){
+    return `${m[3]}-${String(SPANISH_MONTHS[m[2]]).padStart(2,'0')}-${String(m[1]).padStart(2,'0')}`;
+  }
+  m=t.match(/(\d{1,2})[\/-](\d{1,2})[\/-](\d{2,4})/);
+  if(m){
+    let year=m[3].length===2?'20'+m[3]:m[3];
+    return `${year}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+  }
+  return '';
+}
+function normalizeLocationValue(v){
+  return sanitizeItem18Value(v.replace(/\b(choco|chocho)\b/gi,'CHOCO'));
+}
+function voiceSegment(text, starts, stops){
+  const t=normalizeVoiceText(text);
+  let start=-1, found='';
+  for(const key of starts){
+    const i=t.indexOf(key);
+    if(i>=0 && (start<0||i<start)){start=i;found=key;}
+  }
+  if(start<0) return '';
+  const from=start+found.length;
+  let end=t.length;
+  for(const stop of stops){
+    const i=t.indexOf(stop,from);
+    if(i>=0 && i<end) end=i;
+  }
+  return t.slice(from,end).trim();
+}
+function parseVoicePlan(text){
+  const t=normalizeVoiceText(text);
+  const draft={recognized:{},warnings:[],missing:[]};
+
+  const labels=['cambiar aeronave a','aeronave','matricula','vuelo visual','vuelo vfr','vuelo ifr','vuelo no regular','vuelo regular','vuelo militar','aviacion general','turbulencia ligera','turbulencia media','turbulencia pesada','salida','departure','destino','destination','fecha','dof','hora de salida','hora','ruta','altitud','altura','nivel','velocidad','tiempo en ruta','tiempo estimado','eet','autonomia','personas a bordo','pob','alterno','observaciones','remark','rmk','piloto','licencia'];
+  const stops=labels.map(x=>' '+x+' ');
+
+  let seg=voiceSegment(t,['cambiar aeronave a ','aeronave ','matricula '],stops);
+  if(seg){
+    const reg=spokenSequenceToCode(seg).match(/HK\d{3,5}/)?.[0] || seg.toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(reg) draft.recognized.registration=reg;
+  }
+
+  if(t.includes('vuelo visual')||t.includes('vuelo vfr')) draft.recognized.flightRules='V';
+  if(t.includes('vuelo ifr')||t.includes('vuelo instrumental')) draft.recognized.flightRules='I';
+  if(t.includes('vuelo no regular')) draft.recognized.flightType='N';
+  else if(t.includes('vuelo regular')) draft.recognized.flightType='S';
+  if(t.includes('vuelo militar')) draft.recognized.flightType='M';
+  if(t.includes('aviacion general')) draft.recognized.flightType='G';
+  if(t.includes('turbulencia ligera')) draft.recognized.wakeCategory='L';
+  if(t.includes('turbulencia media')) draft.recognized.wakeCategory='M';
+  if(t.includes('turbulencia pesada')) draft.recognized.wakeCategory='H';
+
+  seg=voiceSegment(t,['salida '],stops);
+  if(seg){
+    const c=spokenSequenceToCode(seg);
+    draft.recognized.departure=(c.includes('ZZZZ')||seg.includes('zulu zulu zulu zulu'))?'ZZZZ':c.slice(0,4);
+  }
+  seg=voiceSegment(t,['departure ','dep '],stops);
+  if(seg) draft.recognized.dep=normalizeLocationValue(seg);
+
+  seg=voiceSegment(t,['destino '],stops);
+  if(seg){
+    const c=spokenSequenceToCode(seg);
+    draft.recognized.destination=(c.includes('ZZZZ')||seg.includes('zulu zulu zulu zulu'))?'ZZZZ':c.slice(0,4);
+  }
+  seg=voiceSegment(t,['destination ','dest '],stops);
+  if(seg) draft.recognized.dest=normalizeLocationValue(seg);
+
+  seg=voiceSegment(t,['fecha ','dof '],stops);
+  if(seg){
+    const date=parseDateVoice(seg);
+    if(date) draft.recognized.flightDate=date;
+    else draft.warnings.push('No pude interpretar la fecha. Dila como “16 de julio de 2026”.');
+  }
+
+  seg=voiceSegment(t,['hora de salida ','hora '],stops);
+  if(seg){
+    const digits=seg.replace(/\D/g,'');
+    const duration=parseDuration(seg);
+    draft.recognized.departureTime=(digits.length>=3?digits.slice(0,4):duration).padStart(4,'0');
+  }
+
+  seg=voiceSegment(t,['ruta '],stops);
+  if(seg) draft.recognized.route=seg.includes('directa')?'DCT':sanitizeItem18Value(seg);
+
+  seg=voiceSegment(t,['altitud ','altura ','nivel '],stops);
+  if(seg){
+    const num=wordsToNumber(seg);
+    const digits=seg.replace(/\D/g,'');
+    const feet=num || (digits?Number(digits):null);
+    if(feet){
+      const hundreds=Math.round(feet/100);
+      draft.recognized.level='A'+String(hundreds).padStart(3,'0');
+    }
+  }
+
+  seg=voiceSegment(t,['velocidad '],stops);
+  if(seg){
+    const n=wordsToNumber(seg)||Number(seg.replace(/\D/g,''));
+    if(n) draft.recognized.speed='N'+String(n).padStart(4,'0');
+  }
+
+  seg=voiceSegment(t,['tiempo en ruta ','tiempo estimado ','eet '],stops);
+  if(seg){
+    const val=parseDuration(seg);
+    if(val) draft.recognized.eet=val;
+  }
+
+  seg=voiceSegment(t,['autonomia '],stops);
+  if(seg){
+    const val=parseDuration(seg);
+    if(val) draft.recognized.endurance=val;
+  }
+
+  seg=voiceSegment(t,['personas a bordo ','pob '],stops);
+  if(seg){
+    const n=wordsToNumber(seg)||Number(seg.replace(/\D/g,''));
+    if(Number.isFinite(n)) draft.recognized.pob=String(n).padStart(3,'0');
+  }
+
+  seg=voiceSegment(t,['alterno '],stops);
+  if(seg){
+    const c=spokenSequenceToCode(seg);
+    if(c) draft.recognized.alternate1=c.slice(0,4);
+  }
+
+  seg=voiceSegment(t,['observaciones ','remark ','rmk '],stops);
+  if(seg) draft.recognized.remarks=sanitizeItem18Value(seg);
+
+  seg=voiceSegment(t,['piloto '],stops);
+  if(seg) draft.recognized.pilotInCommand=seg.toUpperCase();
+  seg=voiceSegment(t,['licencia '],stops);
+  if(seg) draft.recognized.pilotLicense=seg.toUpperCase();
+
+  const r=draft.recognized;
+  const effectiveValue=(key)=>r[key] || ($(key)?.value||'').trim();
+  const departureValue=effectiveValue('departure');
+  const destinationValue=effectiveValue('destination');
+  const existingDep=item18Entries.find(e=>e.code==='DEP')?.value;
+  const existingDest=item18Entries.find(e=>e.code==='DEST')?.value;
+  if(departureValue==='ZZZZ'&&!r.dep&&!existingDep) draft.missing.push('Falta identificar el lugar real de salida. Di “Departure…”');
+  if(destinationValue==='ZZZZ'&&!r.dest&&!existingDest) draft.missing.push('Falta identificar el lugar real de destino. Di “Destination…”');
+  ['departure','destination','flightDate','departureTime','eet','level','endurance','pob'].forEach(k=>{
+    if(!effectiveValue(k)) draft.missing.push(`Falta ${VOICE_FIELD_LABELS[k]}.`);
+  });
+  if(r.registration && !CFG.aircraft[r.registration]) draft.warnings.push(`La aeronave ${r.registration} no está configurada. Revisa la matrícula o agrégala al perfil.`);
+  if(r.level) draft.warnings.push(`Interpreté la altitud como ${r.level}. Confirma que corresponde a la altitud solicitada.`);
+  return draft;
+}
+const VOICE_FIELD_LABELS={
+  registration:'Aeronave',departure:'Salida',dep:'DEP/ Lugar real de salida',
+  departureTime:'Hora de salida',destination:'Destino',dest:'DEST/ Lugar real de destino',
+  flightDate:'Fecha del vuelo',route:'Ruta',level:'Altitud/Nivel',speed:'Velocidad',
+  eet:'Tiempo estimado en ruta',endurance:'Autonomía',pob:'Personas a bordo',
+  alternate1:'Alterno',remarks:'Observaciones',pilotInCommand:'Piloto',pilotLicense:'Licencia',
+  flightRules:'Reglas de vuelo',flightType:'Tipo de vuelo',wakeCategory:'Turbulencia'
+};
+function renderVoicePreview(){
+  const section=$('voicePreviewSection'), box=$('voiceRecognizedFields'), messages=$('voiceMissingFields');
+  if(!voiceDraft){section?.classList.add('hidden');return;}
+  section.classList.remove('hidden');
+  const entries=Object.entries(voiceDraft.recognized);
+  box.innerHTML=entries.map(([key,val])=>`
+    <div class="voice-field valid">
+      <span class="voice-field-label">${VOICE_FIELD_LABELS[key]||key}</span>
+      <span class="voice-field-value">${String(val)}</span>
+      <span class="voice-field-source">Reconocido del dictado</span>
+    </div>`).join('') || '<p class="help">No se reconocieron campos. Corrige la transcripción o vuelve a dictar.</p>';
+  const all=[...voiceDraft.missing.map(text=>({level:'error',text})),...voiceDraft.warnings.map(text=>({level:'warning',text}))];
+  messages.innerHTML=all.length?all.map(m=>`<div class="validation-message ${m.level}">${m.level==='error'?'✕':'⚠'} ${m.text}</div>`).join(''):'<div class="validation-message valid">✓ Los datos principales fueron reconocidos. Revísalos antes de aplicar.</div>';
+  const hasCritical=voiceDraft.missing.length>0 || entries.length===0;
+  $('applyVoicePlanBtn').disabled=hasCritical;
+  $('voicePreviewStatus').className=`validation-pill ${hasCritical?'error':voiceDraft.warnings.length?'warning':'valid'}`;
+  $('voicePreviewStatus').textContent=hasCritical?'FALTAN DATOS':voiceDraft.warnings.length?'REVISAR':'LISTO';
+  $('correctByVoiceBtn').classList.remove('hidden');
+}
+function applyVoicePlan(){
+  if(!voiceDraft || voiceDraft.missing.length) return;
+  const r=voiceDraft.recognized;
+  Object.entries(r).forEach(([key,val])=>{
+    if(['dep','dest'].includes(key)) return;
+    const el=$(key);
+    if(el){
+      el.value=val;
+      el.dispatchEvent(new Event('input',{bubbles:true}));
+      el.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+  });
+  if(r.registration && CFG.aircraft[r.registration]){
+    $('registration').value=r.registration;
+    $('registration').dispatchEvent(new Event('change',{bubbles:true}));
+  }
+  if(r.dep){
+    let entry=item18Entries.find(e=>e.code==='DEP');
+    if(entry) entry.value=r.dep; else addItem18Entry('DEP',r.dep);
+  }
+  if(r.dest){
+    let entry=item18Entries.find(e=>e.code==='DEST');
+    if(entry) entry.value=r.dest; else addItem18Entry('DEST',r.dest);
+  }
+  if(r.flightDate){
+    let entry=item18Entries.find(e=>e.code==='DOF');
+    if(entry) entry.value=toDOF(r.flightDate); else addItem18Entry('DOF',toDOF(r.flightDate));
+  }
+  if(r.remarks){
+    $('remarks').value=r.remarks;
+  }
+  saveItem18(); renderItem18();
+  $('voiceAssistantModal').classList.add('hidden');
+  toast('Datos de voz aplicados al plan');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderVoiceActiveContext(){
+  const s=getSettings();
+  const reg=$('registration')?.value || s.activeRegistration || '—';
+  const ac=CFG.aircraft[reg] || {};
+  const rules=$('flightRules')?.value || s.flightRules || 'V';
+  const type=$('flightType')?.value || s.flightType || 'N';
+  const wake=$('wakeCategory')?.value || s.wakeCategory || ac.wake || 'M';
+  const box=$('voiceActiveContext');
+  if(!box) return;
+  box.innerHTML=`
+    <h3>Datos ya cargados — no necesitas dictarlos</h3>
+    <div class="voice-context-grid">
+      <div><span>Aeronave activa</span><strong>${reg}</strong></div>
+      <div><span>Piloto</span><strong>${s.fullName||s.contactName||'SIN CONFIGURAR'}</strong></div>
+      <div><span>Operador</span><strong>${s.company||s.operator||'SIN CONFIGURAR'}</strong></div>
+      <div><span>Equipo</span><strong>${s.equipmentComNav||'S'}/CB1</strong></div>
+      <div><span>Reglas</span><strong>${rules}</strong></div>
+      <div><span>Tipo</span><strong>${type}</strong></div>
+      <div><span>Turbulencia</span><strong>${wake}</strong></div>
+      <div><span>CODE / SUR</span><strong>${ac.code||'—'} / ${ac.sur||'—'}</strong></div>
+    </div>
+    <p>Solo menciona alguno de estos datos si deseas cambiarlo para este plan.</p>`;
+}
+function openVoiceAssistant(){
+  renderVoiceActiveContext();
+  $('voiceAssistantModal').classList.remove('hidden');
+  $('voiceTranscript').focus();
+  voiceCorrectionMode=false;
+}
+function closeVoiceAssistant(){
+  if(voiceRecognition){try{voiceRecognition.stop();}catch{}}
+  $('voiceAssistantModal').classList.add('hidden');
+}
+function startVoiceRecognition(correction=false){
+  if(!SpeechRecognitionAPI){
+    $('voiceListeningState').className='voice-listening-state error';
+    $('voiceListeningState').textContent='El reconocimiento automático no está disponible aquí. Escribe el dictado en la transcripción y pulsa “Analizar dictado”.';
+    return;
+  }
+  voiceCorrectionMode=correction;
+  voiceRecognition=new SpeechRecognitionAPI();
+  voiceRecognition.lang='es-CO';
+  voiceRecognition.continuous=true;
+  voiceRecognition.interimResults=true;
+  let finalText=correction?$('voiceTranscript').value.trim():'';
+  voiceRecognition.onstart=()=>{
+    $('startVoiceBtn').disabled=true;$('stopVoiceBtn').disabled=false;
+    $('voiceListeningState').className='voice-listening-state listening';
+    $('voiceListeningState').textContent=correction?'Escuchando la corrección…':'Escuchando… habla ahora.';
+  };
+  voiceRecognition.onresult=e=>{
+    let interim='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const txt=e.results[i][0].transcript;
+      if(e.results[i].isFinal) finalText+=(finalText?' ':'')+txt;
+      else interim+=txt;
+    }
+    $('voiceTranscript').value=(finalText+(interim?' '+interim:'')).trim();
+  };
+  voiceRecognition.onerror=e=>{
+    $('voiceListeningState').className='voice-listening-state error';
+    $('voiceListeningState').textContent=`No se pudo continuar con el dictado (${e.error}). Puedes escribir o corregir manualmente.`;
+  };
+  voiceRecognition.onend=()=>{
+    $('startVoiceBtn').disabled=false;$('stopVoiceBtn').disabled=true;
+    if(!$('voiceListeningState').classList.contains('error')){
+      $('voiceListeningState').className='voice-listening-state done';
+      $('voiceListeningState').textContent='Dictado terminado. Pulsa “Analizar dictado”.';
+    }
+  };
+  voiceRecognition.start();
+}
+function initVoiceAssistant(){
+  const support=$('voiceSupportStatus');
+  if(support){
+    support.className=`validation-pill ${SpeechRecognitionAPI?'valid':'warning'}`;
+    support.textContent=SpeechRecognitionAPI?'VOZ DISPONIBLE':'MODO TEXTO';
+  }
+  $('openVoiceAssistantBtn')?.addEventListener('click',openVoiceAssistant);
+  $('closeVoiceAssistantBtn')?.addEventListener('click',closeVoiceAssistant);
+  $('startVoiceBtn')?.addEventListener('click',()=>startVoiceRecognition(false));
+  $('stopVoiceBtn')?.addEventListener('click',()=>{try{voiceRecognition?.stop();}catch{}});
+  $('correctByVoiceBtn')?.addEventListener('click',()=>startVoiceRecognition(true));
+  $('analyzeVoiceBtn')?.addEventListener('click',()=>{
+    voiceDraft=parseVoicePlan($('voiceTranscript').value);
+    renderVoicePreview();
+  });
+  $('clearVoiceBtn')?.addEventListener('click',()=>{
+    $('voiceTranscript').value=''; voiceDraft=null; renderVoicePreview();
+    $('voiceListeningState').className='voice-listening-state neutral';
+    $('voiceListeningState').textContent='Pulsa “Empezar a escuchar” y dicta el plan.';
+  });
+  $('editVoiceTextBtn')?.addEventListener('click',()=>{
+    $('voiceTranscript').focus();$('voicePreviewSection').classList.add('hidden');
+  });
+  $('applyVoicePlanBtn')?.addEventListener('click',applyVoicePlan);
+  $('voiceAssistantModal')?.addEventListener('click',e=>{
+    if(e.target.id==='voiceAssistantModal') closeVoiceAssistant();
+  });
+}
