@@ -18,7 +18,7 @@
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v3.0.3</span>
+    <span>Plan de vuelo Aerocivil · v4.0</span>
   </div>
   <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
 </header>
@@ -62,8 +62,8 @@
         <button type="button" id="openVoiceAssistantBtn" class="copilot-option primary-option">
           <span class="copilot-icon">🎙️</span>
           <span>
-            <strong>Dictar el plan</strong>
-            <small>Habla y GutiPilot completa los campos.</small>
+            <strong>Dictar con el micrófono del iPhone</strong>
+            <small>Abre un cuadro, usa el micrófono del teclado y GutiPilot analiza el texto.</small>
           </span>
         </button>
 
@@ -397,10 +397,111 @@
       <label>Misión habitual
         <textarea id="mission" rows="3"></textarea>
       </label>
-      <label>Equipo COM/NAV (casilla 10, antes del slash)
-        <input id="equipmentComNav" autocapitalize="characters" value="S">
-      </label>
-      <p class="help">La parte posterior al slash permanece como <strong>CB1</strong>.</p>
+
+      <section class="equipment-builder">
+        <div class="section-title-row">
+          <div>
+            <h3>Constructor de equipos — casilla 10</h3>
+            <p class="help">Selecciona únicamente equipos y capacidades realmente instalados, operativos y aprobados para la aeronave.</p>
+          </div>
+          <span id="equipmentBuilderStatus" class="validation-pill neutral">SIN REVISAR</span>
+        </div>
+
+        <div class="equipment-warning">
+          <strong>Importante:</strong> nombres comerciales como “Garmin GTN” no se escriben en el plan. GutiPilot traduce sus capacidades reales a códigos OACI, por ejemplo GNSS = G, VOR = O, ILS = L y PBN aprobado = R.
+        </div>
+
+        <h4>Comunicaciones y navegación — antes del slash</h4>
+        <div id="equipmentNavChecklist" class="equipment-checklist">
+          <label><input type="checkbox" value="S" data-eq-group="standard"> <strong>S</strong><span>Equipo estándar: VHF RTF + VOR + ILS</span></label>
+          <label><input type="checkbox" value="G"> <strong>G</strong><span>GNSS</span></label>
+          <label><input type="checkbox" value="D"> <strong>D</strong><span>DME</span></label>
+          <label><input type="checkbox" value="F"> <strong>F</strong><span>ADF</span></label>
+          <label><input type="checkbox" value="H"> <strong>H</strong><span>HF RTF</span></label>
+          <label><input type="checkbox" value="I"> <strong>I</strong><span>Navegación inercial</span></label>
+          <label><input type="checkbox" value="L"> <strong>L</strong><span>ILS</span></label>
+          <label><input type="checkbox" value="O"> <strong>O</strong><span>VOR</span></label>
+          <label><input type="checkbox" value="R"> <strong>R</strong><span>PBN aprobado; requiere PBN/ en casilla 18</span></label>
+          <label><input type="checkbox" value="T"> <strong>T</strong><span>TACAN</span></label>
+          <label><input type="checkbox" value="U"> <strong>U</strong><span>UHF RTF</span></label>
+          <label><input type="checkbox" value="V"> <strong>V</strong><span>VHF RTF</span></label>
+          <label><input type="checkbox" value="W"> <strong>W</strong><span>RVSM aprobado</span></label>
+          <label><input type="checkbox" value="Y"> <strong>Y</strong><span>VHF con separación de canales 8.33 kHz</span></label>
+          <label><input type="checkbox" value="B"> <strong>B</strong><span>LPV mediante SBAS</span></label>
+          <label><input type="checkbox" value="K"> <strong>K</strong><span>MLS</span></label>
+          <label><input type="checkbox" value="N" data-eq-none="nav"> <strong>N</strong><span>Sin equipo COM/NAV utilizable para la ruta</span></label>
+        </div>
+
+        <details class="equipment-advanced">
+          <summary>Equipos avanzados y enlace de datos</summary>
+          <div id="equipmentAdvancedChecklist" class="equipment-checklist">
+            <label><input type="checkbox" value="E1"> <strong>E1</strong><span>FMC WPR ACARS</span></label>
+            <label><input type="checkbox" value="E2"> <strong>E2</strong><span>D-FIS ACARS</span></label>
+            <label><input type="checkbox" value="E3"> <strong>E3</strong><span>PDC ACARS</span></label>
+            <label><input type="checkbox" value="J1"> <strong>J1</strong><span>CPDLC ATN VDL Mode 2</span></label>
+            <label><input type="checkbox" value="J2"> <strong>J2</strong><span>CPDLC FANS 1/A HFDL</span></label>
+            <label><input type="checkbox" value="J3"> <strong>J3</strong><span>CPDLC FANS 1/A VDL Mode A</span></label>
+            <label><input type="checkbox" value="J4"> <strong>J4</strong><span>CPDLC FANS 1/A VDL Mode 2</span></label>
+            <label><input type="checkbox" value="J5"> <strong>J5</strong><span>CPDLC FANS 1/A SATCOM Inmarsat</span></label>
+            <label><input type="checkbox" value="J6"> <strong>J6</strong><span>CPDLC FANS 1/A SATCOM MTSAT</span></label>
+            <label><input type="checkbox" value="J7"> <strong>J7</strong><span>CPDLC FANS 1/A SATCOM Iridium</span></label>
+            <label><input type="checkbox" value="M1"> <strong>M1</strong><span>ATC SATVOICE Inmarsat</span></label>
+            <label><input type="checkbox" value="M2"> <strong>M2</strong><span>ATC SATVOICE MTSAT</span></label>
+            <label><input type="checkbox" value="M3"> <strong>M3</strong><span>ATC SATVOICE Iridium</span></label>
+            <label><input type="checkbox" value="P1"> <strong>P1</strong><span>CPDLC RCP 400</span></label>
+            <label><input type="checkbox" value="P2"> <strong>P2</strong><span>CPDLC RCP 240</span></label>
+            <label><input type="checkbox" value="P3"> <strong>P3</strong><span>SATVOICE RCP 400</span></label>
+            <label><input type="checkbox" value="Z"> <strong>Z</strong><span>Otro equipo; debe explicarse en NAV/, COM/ o DAT/</span></label>
+          </div>
+        </details>
+
+        <h4>Vigilancia — después del slash</h4>
+        <div id="equipmentSurveillanceChecklist" class="equipment-checklist">
+          <label><input type="checkbox" value="A"> <strong>A</strong><span>Transpondedor Modo A</span></label>
+          <label><input type="checkbox" value="C"> <strong>C</strong><span>Modo A y C</span></label>
+          <label><input type="checkbox" value="E"> <strong>E</strong><span>Modo S con identificación, altitud y squitter extendido</span></label>
+          <label><input type="checkbox" value="H"> <strong>H</strong><span>Modo S con identificación, altitud y vigilancia mejorada</span></label>
+          <label><input type="checkbox" value="I"> <strong>I</strong><span>Modo S con identificación, sin altitud</span></label>
+          <label><input type="checkbox" value="L"> <strong>L</strong><span>Modo S con identificación, altitud, squitter y vigilancia mejorada</span></label>
+          <label><input type="checkbox" value="B1"> <strong>B1</strong><span>ADS-B Out 1090 MHz</span></label>
+          <label><input type="checkbox" value="B2"> <strong>B2</strong><span>ADS-B Out e In 1090 MHz</span></label>
+          <label><input type="checkbox" value="D1"> <strong>D1</strong><span>ADS-C FANS 1/A</span></label>
+          <label><input type="checkbox" value="G1"> <strong>G1</strong><span>ADS-C ATN</span></label>
+          <label><input type="checkbox" value="N" data-eq-none="sur"> <strong>N</strong><span>Sin equipo de vigilancia</span></label>
+        </div>
+
+        <h4>Capacidades PBN aprobadas — casilla 18 PBN/</h4>
+        <p class="help">Marca solo aprobaciones operacionales vigentes. Tener un GPS o GTN no significa automáticamente estar aprobado para todas las especificaciones PBN.</p>
+        <div id="pbnChecklist" class="equipment-checklist pbn-checklist">
+          <label><input type="checkbox" value="A1"><strong>A1</strong><span>RNAV 10</span></label>
+          <label><input type="checkbox" value="B1"><strong>B1</strong><span>RNAV 5 todos los sensores</span></label>
+          <label><input type="checkbox" value="B2"><strong>B2</strong><span>RNAV 5 GNSS</span></label>
+          <label><input type="checkbox" value="B3"><strong>B3</strong><span>RNAV 5 DME/DME</span></label>
+          <label><input type="checkbox" value="B4"><strong>B4</strong><span>RNAV 5 VOR/DME</span></label>
+          <label><input type="checkbox" value="C1"><strong>C1</strong><span>RNAV 2 todos los sensores</span></label>
+          <label><input type="checkbox" value="C2"><strong>C2</strong><span>RNAV 2 GNSS</span></label>
+          <label><input type="checkbox" value="D1"><strong>D1</strong><span>RNAV 1 todos los sensores</span></label>
+          <label><input type="checkbox" value="D2"><strong>D2</strong><span>RNAV 1 GNSS</span></label>
+          <label><input type="checkbox" value="O1"><strong>O1</strong><span>RNP 1 todos los sensores</span></label>
+          <label><input type="checkbox" value="O2"><strong>O2</strong><span>RNP 1 GNSS</span></label>
+          <label><input type="checkbox" value="S1"><strong>S1</strong><span>RNP APCH</span></label>
+          <label><input type="checkbox" value="S2"><strong>S2</strong><span>RNP APCH con BARO-VNAV</span></label>
+          <label><input type="checkbox" value="T1"><strong>T1</strong><span>RNP AR APCH con RF</span></label>
+          <label><input type="checkbox" value="T2"><strong>T2</strong><span>RNP AR APCH sin RF</span></label>
+        </div>
+
+        <div class="equipment-output">
+          <span>Casilla 10 generada</span>
+          <strong id="equipmentCodePreview">S/CB1</strong>
+          <span>Casilla 18 PBN/</span>
+          <strong id="pbnCodePreview">SIN PBN/</strong>
+        </div>
+
+        <input id="equipmentComNav" type="hidden" value="S">
+        <input id="profileEquipmentSurveillance" type="hidden" value="CB1">
+        <input id="profileEquipmentSurveillanceCustom" type="hidden">
+        <div id="customSurveillanceLabel" class="hidden"></div>
+      </section>
 
       <h3>Valores predeterminados del plan</h3>
       <p class="help">Se cargarán automáticamente en cada plan nuevo. Podrás cambiarlos temporalmente en el formulario sin modificar el perfil.</p>
@@ -441,7 +542,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.4</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">4.0</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -470,51 +571,54 @@
 
 
 
+
 <div id="voiceAssistantModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="voiceAssistantTitle">
-  <div class="modal-card voice-modal-card">
-    <div class="row-between voice-modal-heading">
+  <div class="modal-card dictation-modal-card">
+    <div class="row-between">
       <div>
         <span class="copilot-eyebrow">GUTIPILOT COPILOTO</span>
-        <h2 id="voiceAssistantTitle">Dictar plan de vuelo</h2>
-        <p class="help">Habla de forma natural. Antes de aplicar, siempre verás una vista previa completa.</p>
+        <h2 id="voiceAssistantTitle">Dictar usando el teclado del iPhone</h2>
+        <p class="help">Esta versión no usa el reconocimiento de Safari. Utiliza el micrófono propio del teclado del iPhone, que es más sencillo y estable.</p>
       </div>
       <button type="button" id="closeVoiceAssistantBtn" class="icon-btn">Cerrar</button>
     </div>
 
     <div id="voiceActiveContext" class="voice-active-context"></div>
 
-    <div class="voice-guide">
-      <h3>Solo necesito los datos que cambian</h3>
-      <div class="voice-checklist">
-        <div><strong>Salida y hora</strong><span>“Salida SKLC, hora 1230”</span></div>
-        <div><strong>Destino</strong><span>“Destino SKUI”</span></div>
-        <div><strong>Salida o destino ZZZZ</strong><span>“Departure Batallón Carepa, Destination Ánimas Chocó”</span></div>
-        <div><strong>Fecha</strong><span>“Fecha 16 de julio de 2026”</span></div>
-        <div><strong>Ruta y altitud</strong><span>“Ruta directa, altitud 4500 pies”</span></div>
-        <div><strong>Tiempos</strong><span>“Tiempo en ruta 1 hora 30, autonomía 3 horas 30”</span></div>
-        <div><strong>Personas y alterno</strong><span>“Cinco personas a bordo, alterno SKLC”</span></div>
-        <div><strong>Observaciones</strong><span>“Observaciones apoyo al Ejército Nacional”</span></div>
+    <section class="keyboard-dictation-guide">
+      <h3>Cómo dictar el plan</h3>
+      <div class="keyboard-demo" aria-label="Representación del teclado del iPhone">
+        <div class="keyboard-line">Escribe o dicta aquí…</div>
+        <div class="keyboard-bottom">
+          <span>123</span>
+          <span class="keyboard-space">espacio</span>
+          <span class="keyboard-mic">🎙️</span>
+        </div>
       </div>
-      <p class="voice-tip"><strong>Puedes omitir:</strong> matrícula, piloto, operador, equipo, CODE, SUR, VFR/IFR, tipo de vuelo y turbulencia, salvo que quieras cambiarlos.</p>
-    </div>
+      <ol>
+        <li>Toca el cuadro de texto que aparece abajo.</li>
+        <li>Cuando se abra el teclado del iPhone, toca el ícono <strong>🎙️ del micrófono</strong>, normalmente ubicado en la parte inferior derecha.</li>
+        <li>Dicta los datos variables del vuelo haciendo pausas cortas.</li>
+        <li>Cuando termines, toca <strong>Analizar dictado</strong>.</li>
+      </ol>
+      <p class="voice-tip"><strong>No necesitas repetir:</strong> matrícula activa, piloto, operador, equipo, CODE, SUR, VFR/IFR, tipo de vuelo ni turbulencia, salvo que quieras cambiarlos.</p>
+      <div class="local-parser-note">
+        <strong>Interpretación local:</strong> el micrófono del iPhone convierte tu voz en texto. GutiPilot analiza ese texto dentro del dispositivo, reconoce expresiones coloquiales y las convierte a campos técnicos. No necesita internet para esta interpretación. Antes de aplicar siempre debes confirmar la vista previa.
+      </div>
+    </section>
 
-    <div id="voiceSupportNotice" class="voice-support-notice"></div>
+    <section class="voice-guide">
+      <h3>Ejemplo rápido</h3>
+      <p>“Salida Zulu Zulu Zulu Zulu. Departure Batallón en Carepa. Hora doce treinta. Destino Zulu Zulu Zulu Zulu. Destination Batallón en Ánimas Chocó. Fecha dieciséis de julio de dos mil veintiséis. Altitud cuatro mil quinientos pies. Tiempo en ruta una hora treinta. Autonomía tres horas treinta. Cinco personas a bordo.”</p>
+    </section>
 
-    <div class="voice-controls">
-      <button type="button" id="startVoiceBtn" class="primary">🎙️ Empezar a escuchar</button>
-      <button type="button" id="stopVoiceBtn" class="secondary" disabled>Detener</button>
-      <button type="button" id="correctByVoiceBtn" class="secondary hidden">Corregir por voz</button>
-    </div>
-
-    <div id="voiceListeningState" class="voice-listening-state neutral">
-      Pulsa “Empezar a escuchar”. Si el navegador no admite voz, usa el micrófono del teclado del iPhone dentro del cuadro.
-    </div>
-
-    <label>Lo que GutiPilot escuchó
-      <textarea id="voiceTranscript" rows="7" placeholder="También puedes tocar aquí y usar el micrófono del teclado del iPhone."></textarea>
+    <label class="dictation-text-label">Dicta o escribe aquí
+      <textarea id="voiceTranscript" rows="8" autocomplete="off" autocapitalize="sentences"
+        placeholder="Toca este cuadro, abre el teclado del iPhone y pulsa el micrófono 🎙️ de la parte inferior derecha."></textarea>
     </label>
 
     <div class="voice-analysis-actions">
+      <button type="button" id="focusDictationBtn" class="secondary">Abrir teclado</button>
       <button type="button" id="analyzeVoiceBtn" class="primary">Analizar dictado</button>
       <button type="button" id="clearVoiceBtn" class="secondary">Limpiar</button>
     </div>
@@ -523,7 +627,7 @@
       <div class="section-title-row">
         <div>
           <h3>Vista previa</h3>
-          <p class="help">Confirma que lo reconocido coincide con lo que dictaste.</p>
+          <p class="help">Revisa los campos reconocidos y los datos que todavía hacen falta.</p>
         </div>
         <span id="voicePreviewStatus" class="validation-pill neutral">SIN ANALIZAR</span>
       </div>
@@ -531,7 +635,7 @@
       <div id="voiceMissingFields" class="validation-messages"></div>
       <div class="voice-final-actions">
         <button type="button" id="applyVoicePlanBtn" class="primary" disabled>Aplicar al plan</button>
-        <button type="button" id="editVoiceTextBtn" class="secondary">Editar transcripción</button>
+        <button type="button" id="editVoiceTextBtn" class="secondary">Corregir dictado</button>
       </div>
     </section>
   </div>
@@ -540,5 +644,6 @@
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
+<script src="dictation.js"></script>
 </body>
 </html>

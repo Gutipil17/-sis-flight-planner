@@ -365,3 +365,37 @@ body.modal-open{overflow:hidden}
   .copilot-aircraft-badge{width:100%;text-align:left}
   .copilot-option{min-height:70px}
 }
+
+/* ===== Dictado con micrófono del teclado · v3.5 ===== */
+.dictation-modal-card{max-width:720px;max-height:92vh;overflow:auto}
+.keyboard-dictation-guide{border:1px solid #9fc8dc;background:#f3fbff;border-radius:14px;padding:14px;margin:12px 0}
+.keyboard-dictation-guide h3{margin:0 0 10px;color:var(--navy)}
+.keyboard-dictation-guide ol{margin:12px 0;padding-left:22px;font-size:13px;line-height:1.55}
+.keyboard-demo{max-width:380px;margin:10px auto;background:#d8dde2;border-radius:14px;padding:10px;box-shadow:inset 0 0 0 1px #aeb8c0}
+.keyboard-line{background:#fff;border-radius:8px;padding:11px;color:#78838b;font-size:12px}
+.keyboard-bottom{display:flex;gap:8px;align-items:center;margin-top:8px}
+.keyboard-bottom span{background:#fff;border-radius:7px;padding:9px 12px;font-size:12px;box-shadow:0 1px 1px rgba(0,0,0,.12)}
+.keyboard-bottom .keyboard-space{flex:1;text-align:center}
+.keyboard-bottom .keyboard-mic{font-size:21px;background:#0c356a;color:#fff;outline:4px solid #9ec9dc}
+.dictation-text-label textarea{font-size:16px;line-height:1.5;min-height:160px}
+.voice-analysis-actions{grid-template-columns:1fr 1.4fr 1fr}
+.manual-highlight{outline:4px solid rgba(23,105,170,.28);transition:outline .25s}
+@media(max-width:600px){.voice-analysis-actions{grid-template-columns:1fr}.keyboard-demo{max-width:100%}}
+
+/* ===== Constructor OACI de equipos · v4.0 ===== */
+.equipment-builder{border:1px solid #b7d5e2;border-radius:15px;padding:14px;background:#f8fcfe;margin:12px 0}
+.equipment-builder h3,.equipment-builder h4{color:var(--navy)}
+.equipment-builder h4{margin:18px 0 8px}
+.equipment-warning,.local-parser-note{background:#fff6df;border:1px solid #ebcb79;border-radius:11px;padding:11px;font-size:12px;line-height:1.45;color:#654700}
+.local-parser-note{margin-top:10px;background:#edf8ff;border-color:#9acbdd;color:#164f69}
+.equipment-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.equipment-checklist label{display:grid;grid-template-columns:auto 40px 1fr;gap:7px;align-items:start;border:1px solid #d3e2e9;background:#fff;border-radius:10px;padding:9px;cursor:pointer}
+.equipment-checklist input{margin-top:3px}
+.equipment-checklist strong{color:#0c356a}
+.equipment-checklist span{font-size:11px;line-height:1.35;color:#526671}
+.equipment-advanced{margin-top:12px}
+.equipment-advanced summary{cursor:pointer;font-weight:750;color:#1769aa}
+.equipment-output{display:grid;grid-template-columns:1fr auto;gap:7px 12px;align-items:center;background:#0c356a;color:#fff;border-radius:13px;padding:13px;margin-top:15px}
+.equipment-output span{font-size:11px;opacity:.8;text-transform:uppercase}
+.equipment-output strong{font-size:16px;text-align:right}
+@media(max-width:650px){.equipment-checklist{grid-template-columns:1fr}}
