@@ -38,7 +38,7 @@ window.SIS_CONFIG = {
     "HK4900": {
       "code": "0ACCD5",
       "sur": "260B",
-      "type": "MI8",
+      "type": "MI171",
       "wake": "M",
       "number": "01"
     }
