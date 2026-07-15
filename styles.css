@@ -336,3 +336,32 @@ input.field-error, select.field-error, textarea.field-error{
 .voice-context-grid span{font-size:10px;text-transform:uppercase;color:#63756b}
 .voice-context-grid strong{font-size:13px;margin-top:3px;color:#153f2d;word-break:break-word}
 @media(max-width:600px){.voice-context-grid{grid-template-columns:1fr}}
+
+/* ===== GutiPilot Copiloto 3.4 ===== */
+.copilot-start-card{border:1px solid #9bc9dc;background:linear-gradient(145deg,#f7fcff,#edf7fb);padding:18px}
+.copilot-greeting{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.copilot-eyebrow{font-size:10px;letter-spacing:.12em;font-weight:850;color:#14709b}
+.copilot-greeting h2{margin:4px 0 5px;color:var(--navy);font-size:22px}
+.copilot-aircraft-badge{background:#0c356a;color:#fff;border-radius:14px;padding:10px 14px;text-align:center;min-width:115px}
+.copilot-aircraft-badge span{display:block;font-size:10px;opacity:.8;text-transform:uppercase}
+.copilot-aircraft-badge strong{display:block;font-size:20px;margin-top:2px}
+.copilot-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px}
+.copilot-option{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid #bdd5e0;background:#fff;border-radius:14px;padding:14px;cursor:pointer;min-height:82px}
+.copilot-option.primary-option{background:linear-gradient(135deg,#0c356a,#1769aa);color:#fff;border-color:#0c356a}
+.copilot-option:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(21,71,104,.12)}
+.copilot-icon{font-size:25px}
+.copilot-option strong,.copilot-option small{display:block}
+.copilot-option small{margin-top:4px;line-height:1.3;opacity:.78}
+.copilot-fixed-summary{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid #d2e5ed}
+.copilot-fixed-summary strong{width:100%;font-size:11px;color:#57717d;text-transform:uppercase}
+.copilot-fixed-summary span{background:#fff;border:1px solid #d1e1e8;border-radius:999px;padding:6px 9px;font-size:11px;color:#274a5b}
+.voice-support-notice{border-radius:11px;padding:11px;margin:10px 0;font-size:12px}
+.voice-support-notice.available{background:#e8f7ee;color:#176b47;border:1px solid #a8d8bb}
+.voice-support-notice.fallback{background:#fff5dd;color:#704b00;border:1px solid #e9ca78}
+body.modal-open{overflow:hidden}
+@media(max-width:700px){
+  .copilot-options{grid-template-columns:1fr}
+  .copilot-greeting{flex-direction:column}
+  .copilot-aircraft-badge{width:100%;text-align:left}
+  .copilot-option{min-height:70px}
+}

@@ -44,6 +44,50 @@
   </div>
 
   <form id="flightForm">
+
+    <section class="card copilot-start-card">
+      <div class="copilot-greeting">
+        <div>
+          <span class="copilot-eyebrow">GUTIPILOT COPILOTO</span>
+          <h2 id="copilotGreeting">Crear un nuevo plan de vuelo</h2>
+          <p class="help">Elige la forma más rápida de comenzar. Tus datos fijos y la última aeronave quedan cargados automáticamente.</p>
+        </div>
+        <div class="copilot-aircraft-badge">
+          <span>Aeronave activa</span>
+          <strong id="copilotActiveAircraft">—</strong>
+        </div>
+      </div>
+
+      <div class="copilot-options">
+        <button type="button" id="openVoiceAssistantBtn" class="copilot-option primary-option">
+          <span class="copilot-icon">🎙️</span>
+          <span>
+            <strong>Dictar el plan</strong>
+            <small>Habla y GutiPilot completa los campos.</small>
+          </span>
+        </button>
+
+        <button type="button" id="manualPlanBtn" class="copilot-option">
+          <span class="copilot-icon">✍️</span>
+          <span>
+            <strong>Crear manualmente</strong>
+            <small>Completa o corrige directamente el formulario.</small>
+          </span>
+        </button>
+
+        <button type="button" id="duplicateLastPlanBtn" class="copilot-option">
+          <span class="copilot-icon">📄</span>
+          <span>
+            <strong>Duplicar último vuelo</strong>
+            <small>Recupera el plan más reciente y modifica lo necesario.</small>
+          </span>
+        </button>
+      </div>
+
+      <div id="copilotFixedSummary" class="copilot-fixed-summary"></div>
+    </section>
+
+    <div id="manualPlanStart"></div>
     <section class="card">
       <h2>Vuelo</h2>
       <div class="grid two">
@@ -166,26 +210,6 @@
         <label>Color
           <input id="dinghiesColour" autocapitalize="characters">
         </label>
-      </div>
-    </section>
-
-
-    <section class="card voice-plan-card">
-      <div class="section-title-row">
-        <div>
-          <h2>🎙️ Crear plan por voz</h2>
-          <p class="help">Dicta los datos variables. GutiPilot los reconoce, los organiza y te muestra una vista previa antes de aplicarlos.</p>
-        </div>
-        <span id="voiceSupportStatus" class="validation-pill neutral">COMPROBANDO</span>
-      </div>
-
-      <button type="button" id="openVoiceAssistantBtn" class="primary full voice-main-button">
-        Iniciar dictado del plan
-      </button>
-
-      <div class="voice-quick-example">
-        <strong>Ejemplo de dictado</strong>
-        <p>“Aeronave HK3911. Salida Zulu Zulu Zulu Zulu. Departure Batallón en Carepa. Destino Zulu Zulu Zulu Zulu. Destination Batallón en Ánimas Chocó. Fecha 16 de julio de 2026. Altitud cuatro mil quinientos pies. Personas a bordo cinco. Autonomía tres horas treinta. Tiempo en ruta una hora treinta.”</p>
       </div>
     </section>
 
@@ -417,7 +441,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.3</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.4</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -443,39 +467,38 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="vendor/jspdf.umd.min.js"></script>
-<script src="config.js"></script>
-<script src="app.js"></script>
+
+
 
 <div id="voiceAssistantModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="voiceAssistantTitle">
   <div class="modal-card voice-modal-card">
     <div class="row-between voice-modal-heading">
       <div>
-        <h2 id="voiceAssistantTitle">Crear plan por voz</h2>
-        <p class="help">Habla de forma natural. No necesitas decir los datos fijos del perfil o de la aeronave, salvo que quieras cambiarlos.</p>
+        <span class="copilot-eyebrow">GUTIPILOT COPILOTO</span>
+        <h2 id="voiceAssistantTitle">Dictar plan de vuelo</h2>
+        <p class="help">Habla de forma natural. Antes de aplicar, siempre verás una vista previa completa.</p>
       </div>
-      <button type="button" id="closeVoiceAssistantBtn" class="icon-btn" aria-label="Cerrar">Cerrar</button>
+      <button type="button" id="closeVoiceAssistantBtn" class="icon-btn">Cerrar</button>
     </div>
 
     <div id="voiceActiveContext" class="voice-active-context"></div>
 
-    <div id="voiceStepGuide" class="voice-guide">
-      <h3>Solo dicta lo que cambia en este vuelo</h3>
-      <p class="help">La aeronave, piloto, operador, equipo, reglas de vuelo, tipo de vuelo y turbulencia ya se toman del perfil activo. Menciona alguno únicamente cuando quieras cambiarlo para este plan.</p>
-      <h3>Datos variables recomendados:</h3>
+    <div class="voice-guide">
+      <h3>Solo necesito los datos que cambian</h3>
       <div class="voice-checklist">
-        <div><strong>1. Salida y hora</strong><span>“Salida SKLC, hora 1230”</span></div>
-        <div><strong>2. Destino</strong><span>“Destino SKUI”</span></div>
-        <div><strong>3. Lugares ZZZZ</strong><span>“Departure Batallón Carepa, Destination Ánimas Chocó”</span></div>
-        <div><strong>4. Fecha</strong><span>“Fecha 16 de julio de 2026”</span></div>
-        <div><strong>5. Ruta y altitud</strong><span>“Ruta directa, altitud 4500 pies”</span></div>
-        <div><strong>6. Tiempos</strong><span>“Tiempo en ruta 1 hora 30, autonomía 3 horas 30”</span></div>
-        <div><strong>7. Personas y alternos</strong><span>“Cinco personas a bordo, alterno SKLC”</span></div>
-        <div><strong>8. Observaciones</strong><span>“Observaciones apoyo al Ejército Nacional”</span></div>
-        <div><strong>Cambio opcional</strong><span>“Cambiar aeronave a HK3779” o “vuelo IFR”</span></div>
+        <div><strong>Salida y hora</strong><span>“Salida SKLC, hora 1230”</span></div>
+        <div><strong>Destino</strong><span>“Destino SKUI”</span></div>
+        <div><strong>Salida o destino ZZZZ</strong><span>“Departure Batallón Carepa, Destination Ánimas Chocó”</span></div>
+        <div><strong>Fecha</strong><span>“Fecha 16 de julio de 2026”</span></div>
+        <div><strong>Ruta y altitud</strong><span>“Ruta directa, altitud 4500 pies”</span></div>
+        <div><strong>Tiempos</strong><span>“Tiempo en ruta 1 hora 30, autonomía 3 horas 30”</span></div>
+        <div><strong>Personas y alterno</strong><span>“Cinco personas a bordo, alterno SKLC”</span></div>
+        <div><strong>Observaciones</strong><span>“Observaciones apoyo al Ejército Nacional”</span></div>
       </div>
-      <p class="voice-tip"><strong>Consejo:</strong> haz una pausa corta entre cada dato. GutiPilot nunca aplicará información crítica sin mostrarte primero la vista previa.</p>
+      <p class="voice-tip"><strong>Puedes omitir:</strong> matrícula, piloto, operador, equipo, CODE, SUR, VFR/IFR, tipo de vuelo y turbulencia, salvo que quieras cambiarlos.</p>
     </div>
+
+    <div id="voiceSupportNotice" class="voice-support-notice"></div>
 
     <div class="voice-controls">
       <button type="button" id="startVoiceBtn" class="primary">🎙️ Empezar a escuchar</button>
@@ -484,11 +507,11 @@
     </div>
 
     <div id="voiceListeningState" class="voice-listening-state neutral">
-      Pulsa “Empezar a escuchar” y dicta el plan.
+      Pulsa “Empezar a escuchar”. Si el navegador no admite voz, usa el micrófono del teclado del iPhone dentro del cuadro.
     </div>
 
-    <label>Transcripción
-      <textarea id="voiceTranscript" rows="6" placeholder="Aquí aparecerá lo que GutiPilot escuchó. También puedes escribir o corregir manualmente."></textarea>
+    <label>Lo que GutiPilot escuchó
+      <textarea id="voiceTranscript" rows="7" placeholder="También puedes tocar aquí y usar el micrófono del teclado del iPhone."></textarea>
     </label>
 
     <div class="voice-analysis-actions">
@@ -499,24 +522,23 @@
     <section id="voicePreviewSection" class="voice-preview-section hidden">
       <div class="section-title-row">
         <div>
-          <h3>Vista previa de datos reconocidos</h3>
-          <p class="help">Confirma cada dato antes de aplicarlo al formulario.</p>
+          <h3>Vista previa</h3>
+          <p class="help">Confirma que lo reconocido coincide con lo que dictaste.</p>
         </div>
         <span id="voicePreviewStatus" class="validation-pill neutral">SIN ANALIZAR</span>
       </div>
-
       <div id="voiceRecognizedFields" class="voice-recognized-fields"></div>
       <div id="voiceMissingFields" class="validation-messages"></div>
-
       <div class="voice-final-actions">
         <button type="button" id="applyVoicePlanBtn" class="primary" disabled>Aplicar al plan</button>
         <button type="button" id="editVoiceTextBtn" class="secondary">Editar transcripción</button>
       </div>
     </section>
-
-    <p class="voice-privacy-note">El reconocimiento de voz depende del navegador y puede requerir conexión. El formulario manual continúa disponible en todo momento.</p>
   </div>
 </div>
 
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
