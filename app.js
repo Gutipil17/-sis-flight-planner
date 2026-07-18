@@ -1,5 +1,26 @@
 window.FPL_CONTACTS = {"SKBO":{"code":"SKBO","city":"Bogotá","airport":"El Dorado","department":"Bogotá D.C.","regional":"Centro Sur","tower":"3175387792","fpl":"3175171035","email":"SKBOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bogotá; El Dorado; SKBO","searchKey":"skbo bogota el dorado bogota d c centro sur bogota el dorado skbo","sourceDate":"2022-06-10"},"SKGY":{"code":"SKGY","city":"Guaymaral","airport":"Flaminio Suárez Camacho","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171117","fpl":"3185863359","email":"SKGYZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Guaymaral; Flaminio Suárez Camacho; SKGY","searchKey":"skgy guaymaral flaminio suarez camacho cundinamarca centro sur guaymaral flaminio suarez camacho skgy","sourceDate":"2022-06-10"},"SKFL":{"code":"SKFL","city":"Florencia","airport":"Gustavo Artunduaga Paredes","department":"Caquetá","regional":"Centro Sur","tower":"3175387822","fpl":"3175171210","email":"SKFLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Florencia; Gustavo Artunduaga Paredes; SKFL","searchKey":"skfl florencia gustavo artunduaga paredes caqueta centro sur florencia gustavo artunduaga paredes skfl","sourceDate":"2022-06-10"},"SKGI":{"code":"SKGI","city":"Girardot","airport":"Santiago Vila","department":"Cundinamarca","regional":"Centro Sur","tower":"3175171183","fpl":"3176354593","email":"SKGIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Girardot; Santiago Vila; SKGI","searchKey":"skgi girardot santiago vila cundinamarca centro sur girardot santiago vila skgi","sourceDate":"2022-06-10"},"SKIB":{"code":"SKIB","city":"Ibagué","airport":"Perales","department":"Tolima","regional":"Centro Sur","tower":"3175171114","fpl":"3185479912","email":"SKIBZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Ibagué; Perales; SKIB","searchKey":"skib ibague perales tolima centro sur ibague perales skib","sourceDate":"2022-06-10"},"SKLT":{"code":"SKLT","city":"Leticia","airport":"Alfredo Vásquez Cobo","department":"Amazonas","regional":"Centro Sur","tower":"3175171132","fpl":"3165221144","email":"SKLTZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Leticia; Alfredo Vásquez Cobo; SKLT","searchKey":"sklt leticia alfredo vasquez cobo amazonas centro sur leticia alfredo vasquez cobo sklt","sourceDate":"2022-06-10"},"SKQU":{"code":"SKQU","city":"Mariquita","airport":"José Celestino Mutis","department":"Tolima","regional":"Centro Sur","tower":"3175171094","fpl":"3185165780","email":"SKQUZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Mariquita; José Celestino Mutis; SKQU","searchKey":"skqu mariquita jose celestino mutis tolima centro sur mariquita jose celestino mutis skqu","sourceDate":"2022-06-10"},"SKNV":{"code":"SKNV","city":"Neiva","airport":"Benito Salas","department":"Huila","regional":"Centro Sur","tower":"3175171147","fpl":"3167422604","email":"SKNVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Neiva; Benito Salas; SKNV","searchKey":"sknv neiva benito salas huila centro sur neiva benito salas sknv","sourceDate":"2022-06-10"},"SKAS":{"code":"SKAS","city":"Puerto Asís","airport":"Tres de Mayo","department":"Putumayo","regional":"Centro Sur","tower":"3175387818","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Asís; Tres de Mayo; SKAS","searchKey":"skas puerto asis tres de mayo putumayo centro sur puerto asis tres de mayo skas","sourceDate":"2022-06-10"},"SKBQ":{"code":"SKBQ","city":"Barranquilla","airport":"Ernesto Cortissoz","department":"Atlántico","regional":"Norte","tower":"3175171021","fpl":"3175171039","email":"SKBQZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barranquilla; Ernesto Cortissoz; SKBQ","searchKey":"skbq barranquilla ernesto cortissoz atlantico norte barranquilla ernesto cortissoz skbq","sourceDate":"2022-06-10"},"SKCG":{"code":"SKCG","city":"Cartagena","airport":"Rafael Núñez","department":"Bolívar","regional":"Norte","tower":"3175171095","fpl":"3153413225","email":"SKCGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartagena; Rafael Núñez; SKCG","searchKey":"skcg cartagena rafael nunez bolivar norte cartagena rafael nunez skcg","sourceDate":"2022-06-10"},"SKSP":{"code":"SKSP","city":"San Andrés","airport":"Gustavo Rojas Pinilla","department":"San Andrés y Providencia","regional":"Norte","tower":"3175387834","fpl":"3182064662","email":"SKSPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"San Andrés; Gustavo Rojas Pinilla; SKSP","searchKey":"sksp san andres gustavo rojas pinilla san andres y providencia norte san andres gustavo rojas pinilla sksp","sourceDate":"2022-06-10"},"SKSM":{"code":"SKSM","city":"Santa Marta","airport":"Simón Bolívar","department":"Magdalena","regional":"Norte","tower":"3175171007","fpl":"3156966455","email":"SKSMZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Santa Marta; Simón Bolívar; SKSM","searchKey":"sksm santa marta simon bolivar magdalena norte santa marta simon bolivar sksm","sourceDate":"2022-06-10"},"SKVP":{"code":"SKVP","city":"Valledupar","airport":"Alfonso López Pumarejo","department":"Cesar","regional":"Norte","tower":"3175171096","fpl":"3156966455","email":"SKVPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Valledupar; Alfonso López Pumarejo; SKVP","searchKey":"skvp valledupar alfonso lopez pumarejo cesar norte valledupar alfonso lopez pumarejo skvp","sourceDate":"2022-06-10"},"SKCZ":{"code":"SKCZ","city":"Corozal","airport":"Las Brujas","department":"Sucre","regional":"Norte","tower":"3175387835","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Corozal; Las Brujas; SKCZ","searchKey":"skcz corozal las brujas sucre norte corozal las brujas skcz","sourceDate":"2022-06-10"},"SKPV":{"code":"SKPV","city":"Providencia","airport":"El Embrujo","department":"San Andrés y Providencia","regional":"Norte","tower":"3175171214","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Providencia; El Embrujo; SKPV","searchKey":"skpv providencia el embrujo san andres y providencia norte providencia el embrujo skpv","sourceDate":"2022-06-10"},"SKRH":{"code":"SKRH","city":"Riohacha","airport":"Almirante Padilla","department":"La Guajira","regional":"Norte","tower":"3175387837","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Riohacha; Almirante Padilla; SKRH","searchKey":"skrh riohacha almirante padilla la guajira norte riohacha almirante padilla skrh","sourceDate":"2022-06-10"},"SKRG":{"code":"SKRG","city":"Rionegro","airport":"José María Córdova","department":"Antioquia","regional":"Noroccidente","tower":"3175171011","fpl":"3176465224","email":"SKRGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Rionegro; José María Córdova; SKRG","searchKey":"skrg rionegro jose maria cordova antioquia noroccidente rionegro jose maria cordova skrg","sourceDate":"2022-06-10"},"SKMD":{"code":"SKMD","city":"Medellín","airport":"Olaya Herrera","department":"Antioquia","regional":"Noroccidente","tower":"3175171078","fpl":"3106488038","email":"SKMDZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Medellín; Olaya Herrera; SKMD","searchKey":"skmd medellin olaya herrera antioquia noroccidente medellin olaya herrera skmd","sourceDate":"2022-06-10"},"SKMR":{"code":"SKMR","city":"Montería","airport":"Los Garzones","department":"Córdoba","regional":"Noroccidente","tower":"3175171098","fpl":"3188508541","email":"SKMRZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Montería; Los Garzones; SKMR","searchKey":"skmr monteria los garzones cordoba noroccidente monteria los garzones skmr","sourceDate":"2022-06-10"},"SKUI":{"code":"SKUI","city":"Quibdó","airport":"El Caraño","department":"Chocó","regional":"Noroccidente","tower":"3175387807","fpl":"3175177589","email":"SKUIZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Quibdó; El Caraño; SKUI","searchKey":"skui quibdo el carano choco noroccidente quibdo el carano skui","sourceDate":"2022-06-10"},"SKBS":{"code":"SKBS","city":"Bahía Solano","airport":"José Celestino Mutis","department":"Chocó","regional":"Noroccidente","tower":"3128267400","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Bahía Solano; José Celestino Mutis; SKBS","searchKey":"skbs bahia solano jose celestino mutis choco noroccidente bahia solano jose celestino mutis skbs","sourceDate":"2022-06-10"},"SKLC":{"code":"SKLC","city":"Carepa","airport":"Antonio Roldán Betancourt","department":"Antioquia","regional":"Noroccidente","tower":"3158066109","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Carepa; Antonio Roldán Betancourt; SKLC","searchKey":"sklc carepa antonio roldan betancourt antioquia noroccidente carepa antonio roldan betancourt sklc","sourceDate":"2022-06-10"},"SKMZ":{"code":"SKMZ","city":"Manizales","airport":"La Nubia","department":"Caldas","regional":"Noroccidente","tower":"3175171211","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Manizales; La Nubia; SKMZ","searchKey":"skmz manizales la nubia caldas noroccidente manizales la nubia skmz","sourceDate":"2022-06-10"},"SKCC":{"code":"SKCC","city":"Cúcuta","airport":"Camilo Daza","department":"Norte de Santander","regional":"Nororiente","tower":"3175171100","fpl":"3157335754","email":"SKCCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cúcuta; Camilo Daza; SKCC","searchKey":"skcc cucuta camilo daza norte de santander nororiente cucuta camilo daza skcc","sourceDate":"2022-06-10"},"SKBG":{"code":"SKBG","city":"Bucaramanga","airport":"Palonegro","department":"Santander","regional":"Nororiente","tower":"3175171013","fpl":"3175171051","email":"SKBGZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Bucaramanga; Palonegro; SKBG","searchKey":"skbg bucaramanga palonegro santander nororiente bucaramanga palonegro skbg","sourceDate":"2022-06-10"},"SKUC":{"code":"SKUC","city":"Arauca","airport":"Santiago Pérez Quiroz","department":"Arauca","regional":"Nororiente","tower":"3175387801","fpl":"3176567229","email":"SKUCZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Arauca; Santiago Pérez Quiroz; SKUC","searchKey":"skuc arauca santiago perez quiroz arauca nororiente arauca santiago perez quiroz skuc","sourceDate":"2022-06-10"},"SKEJ":{"code":"SKEJ","city":"Barrancabermeja","airport":"Yariguíes","department":"Santander","regional":"Nororiente","tower":"3175171120","fpl":"3173638805","email":"SKEJZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Barrancabermeja; Yariguíes; SKEJ","searchKey":"skej barrancabermeja yariguies santander nororiente barrancabermeja yariguies skej","sourceDate":"2022-06-10"},"SKSA":{"code":"SKSA","city":"Saravena","airport":"Los Colonizadores","department":"Arauca","regional":"Nororiente","tower":"3175387802","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Saravena; Los Colonizadores; SKSA","searchKey":"sksa saravena los colonizadores arauca nororiente saravena los colonizadores sksa","sourceDate":"2022-06-10"},"SKTM":{"code":"SKTM","city":"Tame","airport":"Gustavo Vargas","department":"Arauca","regional":"Nororiente","tower":"3175387804","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tame; Gustavo Vargas; SKTM","searchKey":"sktm tame gustavo vargas arauca nororiente tame gustavo vargas sktm","sourceDate":"2022-06-10"},"SKVV":{"code":"SKVV","city":"Villavicencio","airport":"Vanguardia","department":"Meta","regional":"Oriente","tower":"3175171031","fpl":"3175171049","email":"SKVVZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Villavicencio; Vanguardia; SKVV","searchKey":"skvv villavicencio vanguardia meta oriente villavicencio vanguardia skvv","sourceDate":"2022-06-10"},"SKYP":{"code":"SKYP","city":"Yopal","airport":"El Yopal","department":"Casanare","regional":"Oriente","tower":"3175171165","fpl":"3186084571","email":"SKYPZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Yopal; El Yopal; SKYP","searchKey":"skyp yopal el yopal casanare oriente yopal el yopal skyp","sourceDate":"2022-06-10"},"SKMU":{"code":"SKMU","city":"Mitú","airport":"Fabio Alberto León Bentley","department":"Vaupés","regional":"Oriente","tower":"3175387797","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Mitú; Fabio Alberto León Bentley; SKMU","searchKey":"skmu mitu fabio alberto leon bentley vaupes oriente mitu fabio alberto leon bentley skmu","sourceDate":"2022-06-10"},"SKPC":{"code":"SKPC","city":"Puerto Carreño","airport":"Germán Olano","department":"Vichada","regional":"Oriente","tower":"3175387794","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Carreño; Germán Olano; SKPC","searchKey":"skpc puerto carreno german olano vichada oriente puerto carreno german olano skpc","sourceDate":"2022-06-10"},"SKSJ":{"code":"SKSJ","city":"San José del Guaviare","airport":"Jorge E. González T.","department":"Guaviare","regional":"Oriente","tower":"3175387795","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"San José del Guaviare; Jorge E. González T.; SKSJ","searchKey":"sksj san jose del guaviare jorge e gonzalez t guaviare oriente san jose del guaviare jorge e gonzalez t sksj","sourceDate":"2022-06-10"},"SKPD":{"code":"SKPD","city":"Puerto Inírida","airport":"César Gaviria Trujillo","department":"Guainía","regional":"Oriente","tower":"3175171075","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Puerto Inírida; César Gaviria Trujillo; SKPD","searchKey":"skpd puerto inirida cesar gaviria trujillo guainia oriente puerto inirida cesar gaviria trujillo skpd","sourceDate":"2022-06-10"},"SKCL":{"code":"SKCL","city":"Cali","airport":"Alfonso Bonilla Aragón","department":"Valle del Cauca","regional":"Occidente","tower":"3175171026","fpl":"3175171047","email":"SKCLZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cali; Alfonso Bonilla Aragón; SKCL","searchKey":"skcl cali alfonso bonilla aragon valle del cauca occidente cali alfonso bonilla aragon skcl","sourceDate":"2022-06-10"},"SKPE":{"code":"SKPE","city":"Pereira","airport":"Matecaña","department":"Risaralda","regional":"Occidente","tower":"3175171099","fpl":"3183307370","email":"SKPEZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Pereira; Matecaña; SKPE","searchKey":"skpe pereira matecana risaralda occidente pereira matecana skpe","sourceDate":"2022-06-10"},"SKAR":{"code":"SKAR","city":"Armenia","airport":"El Edén","department":"Quindío","regional":"Occidente","tower":"3175171122","fpl":"3175171233","email":"SKARZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Armenia; El Edén; SKAR","searchKey":"skar armenia el eden quindio occidente armenia el eden skar","sourceDate":"2022-06-10"},"SKGO":{"code":"SKGO","city":"Cartago","airport":"Santa Ana","department":"Valle del Cauca","regional":"Occidente","tower":"3175387824","fpl":"3175177587","email":"SKGOZPZX@AEROCIVIL.GOV.CO","status":"Completo en fuente","aliases":"Cartago; Santa Ana; SKGO","searchKey":"skgo cartago santa ana valle del cauca occidente cartago santa ana skgo","sourceDate":"2022-06-10"},"SKPS":{"code":"SKPS","city":"Pasto","airport":"Antonio Nariño","department":"Nariño","regional":"Occidente","tower":"3175171118","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Pasto; Antonio Nariño; SKPS","searchKey":"skps pasto antonio narino narino occidente pasto antonio narino skps","sourceDate":"2022-06-10"},"SKPP":{"code":"SKPP","city":"Popayán","airport":"Guillermo León Valencia","department":"Cauca","regional":"Occidente","tower":"3175171123","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Popayán; Guillermo León Valencia; SKPP","searchKey":"skpp popayan guillermo leon valencia cauca occidente popayan guillermo leon valencia skpp","sourceDate":"2022-06-10"},"SKBU":{"code":"SKBU","city":"Buenaventura","airport":"Gerardo Tobar López","department":"Valle del Cauca","regional":"Occidente","tower":"3175387826","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Buenaventura; Gerardo Tobar López; SKBU","searchKey":"skbu buenaventura gerardo tobar lopez valle del cauca occidente buenaventura gerardo tobar lopez skbu","sourceDate":"2022-06-10"},"SKGP":{"code":"SKGP","city":"Guapi","airport":"Juan Casiano","department":"Cauca","regional":"Occidente","tower":"3175387832","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Guapi; Juan Casiano; SKGP","searchKey":"skgp guapi juan casiano cauca occidente guapi juan casiano skgp","sourceDate":"2022-06-10"},"SKIP":{"code":"SKIP","city":"Ipiales","airport":"San Luis","department":"Nariño","regional":"Occidente","tower":"3175387828","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Ipiales; San Luis; SKIP","searchKey":"skip ipiales san luis narino occidente ipiales san luis skip","sourceDate":"2022-06-10"},"SKCO":{"code":"SKCO","city":"Tumaco","airport":"La Florida","department":"Nariño","regional":"Occidente","tower":"3175387830","fpl":"","email":"","status":"Datos parciales; verificar","aliases":"Tumaco; La Florida; SKCO","searchKey":"skco tumaco la florida narino occidente tumaco la florida skco","sourceDate":"2022-06-10"}};
-const APP_VERSION='3.0.4';
+// Correcciones operacionales validadas para la versión 3.0.5 de pruebas.
+Object.assign(window.FPL_CONTACTS.SKCL, {
+  fpl:'6024185080',
+  regionalFpl:'6024185124',
+  status:'Datos operacionales actualizados',
+  note:'Si el plan sale del aeropuerto de Cali use 602-418-5080. Si lo gestiona la Regional Cali y la salida NO es desde Cali use 602-418-5124.'
+});
+Object.assign(window.FPL_CONTACTS.SKLC, {
+  receiverCode:'SKRG',
+  receiverFpl:'3176465224',
+  receiverEmail:'SKRGZPZX@AEROCIVIL.GOV.CO',
+  status:'Oficina receptora: Rionegro',
+  note:'CAREPA: la oficina receptora del plan de vuelo es Rionegro (SKRG).'
+});
+Object.assign(window.FPL_CONTACTS.SKPS, {
+  receiverCode:'SKCL',
+  receiverFpl:'6024185124',
+  receiverEmail:'SKCLZPZX@AEROCIVIL.GOV.CO',
+  status:'Oficina receptora: Cali',
+  note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
+});
+const APP_VERSION='3.0.5';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -21,6 +42,7 @@ const defaultSettings = {
   email: CFG.fixed.contactEmail || '',
   emailSignature: '',
   pilotLicense: CFG.fixed.pilotLicense || '',
+  copilotName: '',
   assignedAircraft: Object.keys(CFG.aircraft || {}),
   companyLogo: ''
 };
@@ -31,10 +53,21 @@ function getSettings(){
 }
 function saveSettings(value){ localStorage.setItem(STORAGE_SETTINGS, JSON.stringify(value)); }
 function getHistory(){
-  try { return JSON.parse(localStorage.getItem(STORAGE_HISTORY) || '[]'); }
-  catch { return []; }
+  try {
+    const parsed=JSON.parse(localStorage.getItem(STORAGE_HISTORY) || '[]');
+    return Array.isArray(parsed) ? parsed.filter(item=>item && item.data) : [];
+  } catch {
+    return [];
+  }
 }
-function saveHistory(items){ localStorage.setItem(STORAGE_HISTORY, JSON.stringify(items.slice(0,60))); }
+function saveHistory(items){
+  try{
+    localStorage.setItem(STORAGE_HISTORY, JSON.stringify((Array.isArray(items)?items:[]).slice(0,60)));
+  }catch(error){
+    console.error('No se pudo guardar el historial',error);
+    toast('No se pudo guardar el historial en este dispositivo');
+  }
+}
 function toast(message){
   const el=$('toast'); el.textContent=message; el.classList.remove('hidden');
   setTimeout(()=>el.classList.add('hidden'),2200);
@@ -85,6 +118,7 @@ function loadFormDefaults(){
   $('flightDate').value=today();
   $('pilotInCommand').value=s.fullName || s.contactName || '';
   $('pilotLicense').value=s.pilotLicense || '';
+  $('copilotName').value=s.copilotName || '';
   $('aircraftColour').value=s.aircraftColour || 'BLANCO';
   applyOperationalDefaults();
   updateFixedPreview();
@@ -116,6 +150,7 @@ function loadSettingsForm(){
   $('profileEmail').value=s.email || s.contactEmail || '';
   $('profileSignature').value=s.emailSignature || '';
   $('profileLicense').value=s.pilotLicense || '';
+  $('profileCopilotName').value=s.copilotName || '';
   $('mission').value=s.mission || '';
   $('equipmentComNav').value=s.equipmentComNav || 'S';
   renderAssignedAircraft(s.assignedAircraft);
@@ -242,7 +277,7 @@ async function createPdf(){
   drawLeft(doc,'Aircraft_Colour_Markings',upper($('aircraftColour').value),8.4,7);
   drawLeft(doc,'Remarks_Text',upper($('remarks').value),8.2,7);
   drawCentered(doc,'Pilot_In_Command',upper($('pilotInCommand').value||(s.fullName || s.contactName)),8.5);
-  drawCentered(doc,'Filed_By',(s.fullName || s.contactName),7.8);
+  drawCentered(doc,'Filed_By',upper($('copilotName').value || s.copilotName),7.8);
   drawLeft(doc,'Additional_Requirements',upper($('additionalRequirements').value),7.3,5);
   drawCentered(doc,'Date_Day',day,8.5);
   drawCentered(doc,'Date_Month',month,8.5);
@@ -256,7 +291,7 @@ function filename(){
 }
 function collectData(){
   const ids=['registration','flightDate','departure','departureTime','destination','eet','speed','level',
-    'alternate1','alternate2','route','endurance','pob','pilotInCommand','pilotLicense',
+    'alternate1','alternate2','route','endurance','pob','pilotInCommand','pilotLicense','copilotName',
     'variableOtherInfo','aircraftColour','remarks','additionalRequirements','dinghiesNumber',
     'dinghiesCapacity','dinghiesColour'];
   const values={}; ids.forEach(id=>values[id]=$(id).value);
@@ -266,17 +301,32 @@ function collectData(){
   checks.forEach(id=>values[id]=$(id).checked);
   return values;
 }
-function loadData(values){
+function loadData(values,{duplicate=false}={}){
   if(!values)return;
   Object.entries(values).forEach(([id,val])=>{
     const el=$(id); if(!el)return;
     if(el.type==='checkbox')el.checked=!!val; else el.value=val??'';
   });
+  if(duplicate){
+    $('flightDate').value=today();
+    clearFieldErrors();
+    toast('Plan duplicado. Revise fecha, hora y ruta antes de generar.');
+  }
   updateFixedPreview(); switchTab('plan'); window.scrollTo({top:0,behavior:'smooth'});
+}
+function createShareableFile(blob,name){
+  try{
+    return new File([blob],name,{type:'application/pdf'});
+  }catch(error){
+    // Compatibilidad con versiones de Safari/iOS donde el constructor File genera “File Error”.
+    blob.name=name;
+    blob.lastModified=Date.now();
+    return blob;
+  }
 }
 async function downloadOrShare(doc){
   const blob=doc.output('blob'), name=filename(); lastPdfBlob=blob;
-  const file=new File([blob],name,{type:'application/pdf'});
+  const file=createShareableFile(blob,name);
   if(navigator.canShare && navigator.canShare({files:[file]})){
     try{ await navigator.share({files:[file],title:name}); return; }catch(e){ if(e.name==='AbortError')return; }
   }
@@ -298,8 +348,8 @@ function renderHistory(){
   if(!history.length){list.innerHTML='<p class="help">Todavía no hay planes guardados.</p>';return;}
   list.innerHTML=history.map(item=>`
     <article class="history-item">
-      <strong>${item.summary}</strong>
-      <small>${new Date(item.created).toLocaleString()}<br>${item.filename}</small>
+      <strong>${item.summary || 'Plan guardado'}</strong>
+      <small>${item.created ? new Date(item.created).toLocaleString() : 'Fecha no disponible'}<br>${item.filename || 'PDF sin nombre'}</small>
       <div class="history-actions">
         <button class="secondary" data-action="duplicate" data-id="${item.id}">Duplicar datos</button>
         <button class="primary" data-action="generate" data-id="${item.id}">Generar otra vez</button>
@@ -334,7 +384,7 @@ let directoryFilter='all';
 
 function normalizedDirectoryEntries(){
   return Object.entries(window.FPL_CONTACTS || {})
-    .map(([code,info])=>({code,...info}))
+    .map(([code,info])=>({code,...info,name:info.airport || info.city || code}))
     .sort((a,b)=>a.code.localeCompare(b.code));
 }
 
@@ -344,7 +394,7 @@ function renderDirectory(){
   if(!results) return;
 
   const entries=normalizedDirectoryEntries().filter(item=>{
-    const haystack=`${item.code} ${item.name} ${item.email||''} ${item.fpl||''} ${item.tower||''}`.toUpperCase();
+    const haystack=`${item.code} ${item.city||''} ${item.airport||''} ${item.department||''} ${item.regional||''} ${item.aliases||''} ${item.email||''} ${item.fpl||''} ${item.receiverFpl||''} ${item.tower||''}`.toUpperCase();
     if(query && !haystack.includes(query)) return false;
     if(directoryFilter==='email' && !item.email) return false;
     if(directoryFilter==='fpl' && !item.fpl) return false;
@@ -358,15 +408,16 @@ function renderDirectory(){
   }
 
   results.innerHTML=entries.map(item=>{
-    const emailLine=item.email ? `
+    const contact=communicationOffice(item);
+    const emailLine=contact.email ? `
       <div class="directory-line">
         <span>Correo FPL</span>
-        <a href="mailto:${item.email}">${item.email}</a>
+        <a href="mailto:${contact.email}">${contact.email}</a>
       </div>` : '';
-    const fplLine=item.fpl ? `
+    const fplLine=contact.fpl ? `
       <div class="directory-line">
         <span>Teléfono FPL</span>
-        <a href="tel:${item.fpl}">${item.fpl}</a>
+        <a href="tel:${contact.fpl}">${contact.fpl}</a>
       </div>` : '';
     const towerLine=item.tower ? `
       <div class="directory-line">
@@ -374,8 +425,10 @@ function renderDirectory(){
         <a href="tel:${item.tower}">${item.tower}</a>
       </div>` : '';
     return `<article class="directory-item">
-      <h3><span class="directory-code">${item.code}</span>${item.name}</h3>
+      <h3><span class="directory-code">${item.code}</span>${item.city || ''} · ${item.airport || item.name}</h3>
       ${emailLine}${fplLine}${towerLine}
+      ${item.receiverCode ? `<div class="directory-line"><span>Oficina receptora</span><strong>${item.receiverCode}</strong></div>` : ''}
+      ${item.note ? `<p class="office-warning">${item.note}</p>` : ''}
     </article>`;
   }).join('');
 }
@@ -464,7 +517,7 @@ async function makePdfFile(){
   validateRequired();
   const doc=await createPdf();
   const blob=doc.output('blob');
-  return {doc, blob, file:new File([blob],filename(),{type:'application/pdf'})};
+  return {doc, blob, file:createShareableFile(blob,filename())};
 }
 async function sharePdfFile(file,title,text=''){
   if(navigator.canShare && navigator.canShare({files:[file]})){
@@ -499,7 +552,8 @@ $('saveFilesBtn').addEventListener('click',async()=>{
 $('emailBtn').addEventListener('click',async()=>{
   try{
     const office=selectedOffice();
-    if(!office?.email){
+    const contact=communicationOffice(office);
+    if(!contact?.email){
       throw new Error('Seleccione primero una oficina que tenga correo de plan de vuelo.');
     }
 
@@ -511,13 +565,14 @@ $('emailBtn').addEventListener('click',async()=>{
     const departureTime=onlyDigits($('departureTime').value,4);
     const pilot=upper($('pilotInCommand').value || '');
     const license=upper($('pilotLicense').value || '');
+    const copilot=upper($('copilotName').value || '');
     const flightDate=$('flightDate').value;
 
     const subject=`PLAN DE VUELO ${registration} ${departure}-${destination}`;
 
     const body=[
       `Señores`,
-      `${office.airport}`,
+      `${contact.communicationName || office.airport}`,
       `${office.city}`,
       ``,
       `Cordial saludo.`,
@@ -530,6 +585,7 @@ $('emailBtn').addEventListener('click',async()=>{
       `Hora UTC: ${departureTime}`,
       pilot ? `Piloto al mando: ${pilot}` : '',
       license ? `Licencia: ${license}` : '',
+      copilot ? `Presentado por / Copiloto: ${copilot}` : '',
       ``,
       `Contacto:`,
       `${settings.fullName || settings.contactName || ''}`,
@@ -548,12 +604,12 @@ $('emailBtn').addEventListener('click',async()=>{
     }).join('\n');
 
     try{
-      await navigator.clipboard.writeText(office.email);
+      await navigator.clipboard.writeText(contact.email);
     }catch{}
 
     const shared=await sharePdfFile(file,subject,body);
     if(!shared){
-      window.location.href=`mailto:${encodeURIComponent(office.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body+'\n\nAdjunte el PDF generado desde Archivos.')}`;
+      window.location.href=`mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body+'\n\nAdjunte el PDF generado desde Archivos.')}`;
     }else{
       toast('Correo copiado: péguelo en “Para”');
     }
@@ -588,6 +644,7 @@ $('settingsForm').addEventListener('submit',e=>{
     email,
     emailSignature:signature,
     pilotLicense:upper($('profileLicense').value),
+    copilotName:upper($('profileCopilotName').value),
     assignedAircraft:assignedAircraft.length ? assignedAircraft : Object.keys(CFG.aircraft || {}),
     mission:upper($('mission').value),
     equipmentComNav:upper($('equipmentComNav').value) || 'S',
@@ -607,7 +664,7 @@ $('settingsForm').addEventListener('submit',e=>{
 $('historyList').addEventListener('click',async e=>{
   const btn=e.target.closest('button[data-id]'); if(!btn)return;
   const item=getHistory().find(x=>String(x.id)===btn.dataset.id); if(!item)return;
-  loadData(item.data);
+  loadData(item.data,{duplicate:btn.dataset.action==='duplicate'});
   if(btn.dataset.action==='generate'){
     setTimeout(async()=>{try{const doc=await createPdf();await downloadOrShare(doc)}catch(err){alert(err.message)}},150);
   }
@@ -618,7 +675,7 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 ['departure','destination','alternate1','alternate2','level','speed'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
 });
-['route','variableOtherInfo','remarks','additionalRequirements','pilotInCommand','pilotLicense','aircraftColour','dinghiesColour'].forEach(id=>{
+['route','variableOtherInfo','remarks','additionalRequirements','pilotInCommand','pilotLicense','copilotName','aircraftColour','dinghiesColour'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
 });
 
@@ -655,6 +712,18 @@ function selectedOffice(){
   return selectedOfficeCode ? window.FPL_CONTACTS?.[selectedOfficeCode] || null : null;
 }
 
+function communicationOffice(office){
+  if(!office) return null;
+  const receiver=office.receiverCode ? window.FPL_CONTACTS?.[office.receiverCode] : null;
+  return {
+    ...office,
+    communicationCode:office.receiverCode || office.code,
+    communicationName:receiver?.airport || office.airport,
+    fpl:office.receiverFpl || office.fpl || receiver?.fpl || '',
+    email:office.receiverEmail || office.email || receiver?.email || ''
+  };
+}
+
 function renderSelectedOffice(){
   const office=selectedOffice();
   const box=$('selectedOffice');
@@ -666,19 +735,21 @@ function renderSelectedOffice(){
     return;
   }
 
+  const contact=communicationOffice(office);
   const warning=office.status && !office.status.toLowerCase().includes('completo')
     ? `<span class="office-warning">${office.status}</span>` : '';
 
   box.innerHTML=`<strong>${office.code} · ${office.city} / ${office.airport}</strong>
     Regional: ${office.regional || 'No registrada'}<br>
     Torre: ${office.tower || 'No registrado'}<br>
-    Plan de vuelo: ${office.fpl || 'No registrado'}<br>
-    Correo: ${office.email || 'No registrado'}<br>
-    ${warning}`;
+    Oficina receptora: ${contact.communicationCode}${contact.communicationCode!==office.code ? ` · ${contact.communicationName}` : ''}<br>
+    Plan de vuelo: ${contact.fpl || 'No registrado'}<br>
+    Correo: ${contact.email || 'No registrado'}<br>
+    ${office.note ? `<span class="office-warning">${office.note}</span>` : warning}`;
 
-  $('callBtn').disabled=!(office.fpl || office.tower);
-  $('copyEmailBtn').disabled=!office.email;
-  $('emailBtn').disabled=!office.email;
+  $('callBtn').disabled=!(contact.fpl || office.tower);
+  $('copyEmailBtn').disabled=!contact.email;
+  $('emailBtn').disabled=!contact.email;
 }
 
 function selectOffice(code){
@@ -740,18 +811,20 @@ $('selectFromDepartureBtn').addEventListener('click',()=>{
 $('callBtn').addEventListener('click',()=>{
   const office=selectedOffice();
   if(!office) return;
-  const number=office.fpl || office.tower;
+  const contact=communicationOffice(office);
+  const number=contact.fpl || office.tower;
   if(number) window.location.href=`tel:${number}`;
 });
 
 $('copyEmailBtn').addEventListener('click',async()=>{
   const office=selectedOffice();
-  if(!office?.email) return;
+  const contact=communicationOffice(office);
+  if(!contact?.email) return;
   try{
-    await navigator.clipboard.writeText(office.email);
+    await navigator.clipboard.writeText(contact.email);
     toast('Correo copiado');
   }catch{
-    window.prompt('Copie el correo:',office.email);
+    window.prompt('Copie el correo:',contact.email);
   }
 });
 
