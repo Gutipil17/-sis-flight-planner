@@ -14,7 +14,7 @@
 
 <script>
 (function(){
-  const MIGRATION_VERSION = '3.0.6';
+  const MIGRATION_VERSION = '3.0.7';
   const KEY = 'gutipilot-cache-migration';
   if (localStorage.getItem(KEY) === MIGRATION_VERSION) return;
 
@@ -40,7 +40,7 @@
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v3.0.6</span>
+    <span>Plan de vuelo Aerocivil · v3.0.7</span>
   </div>
   <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
 </header>
@@ -107,22 +107,13 @@
 
     <section class="card">
       <h2>Información suplementaria</h2>
-      <p class="help editable-help">El piloto al mando y su licencia son independientes. “Presentado por” corresponde al copiloto y también puede cambiarse en cada plan.</p>
+      <p class="help">Los datos de piloto al mando, licencia PCH y copiloto/presentado por se toman automáticamente de la pestaña <strong>Perfil</strong>.</p>
       <div class="grid two">
         <label>Autonomía
           <input id="endurance" inputmode="numeric" maxlength="4" placeholder="0330">
         </label>
         <label>Personas a bordo
           <input id="pob" inputmode="numeric" maxlength="3" placeholder="005">
-        </label>
-        <label>Piloto al mando <span class="editable-tag">Editable</span>
-          <input id="pilotInCommand" autocapitalize="words" placeholder="NOMBRE COMPLETO DEL PILOTO">
-        </label>
-        <label>Licencia del piloto al mando <span class="editable-tag">Editable</span>
-          <input id="pilotLicense" autocapitalize="characters" placeholder="EJEMPLO: PCH 1000">
-        </label>
-        <label>Copiloto / Presentado por <span class="editable-tag">Editable</span>
-          <input id="copilotName" autocapitalize="words" placeholder="NOMBRE COMPLETO DEL COPILOTO">
         </label>
       </div>
 
@@ -269,7 +260,7 @@
   <form id="settingsForm">
     <section class="card">
       <h2>Perfil del usuario</h2>
-      <p class="help">Estos datos personalizan el PDF y los correos. Se guardan solamente en este dispositivo.</p>
+      <p class="help">Cree aquí el perfil de tripulación. Estos datos se aplican automáticamente a todos los planes de vuelo y se guardan solamente en este dispositivo.</p>
 
       <div class="profile-logo-row">
         <div id="profileLogoPreview" class="profile-logo-placeholder">GP</div>
@@ -283,8 +274,8 @@
       </div>
 
       <div class="grid two">
-        <label>Nombre completo
-          <input id="profileFullName" autocapitalize="words" placeholder="NOMBRE COMPLETO">
+        <label>Nombre del piloto al mando
+          <input id="profileFullName" autocapitalize="words" placeholder="NOMBRE COMPLETO DEL PILOTO">
         </label>
         <label>Cargo o grado
           <input id="profileJobTitle" autocapitalize="words" placeholder="CAPITÁN / PILOTO">
@@ -292,10 +283,10 @@
         <label>Empresa u operador
           <input id="profileCompany" autocapitalize="words" placeholder="EMPRESA">
         </label>
-        <label>Licencia predeterminada del piloto al mando
+        <label>Licencia PCH del piloto al mando
           <input id="profileLicense" autocapitalize="characters" placeholder="PCH 0000">
         </label>
-        <label>Copiloto predeterminado / Presentado por
+        <label>Nombre del copiloto / Presentado por
           <input id="profileCopilotName" autocapitalize="words" placeholder="NOMBRE COMPLETO DEL COPILOTO">
         </label>
         <label>Teléfono
@@ -334,7 +325,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.0.6</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.0.7</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>

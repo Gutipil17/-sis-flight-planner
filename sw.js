@@ -1,4 +1,4 @@
-// GutiPilot 3.0.6 — Service Worker de limpieza.
+// GutiPilot 3.0.7 — Service Worker de limpieza.
 // Se autodesinstala y elimina cachés antiguas para evitar versiones retenidas.
 self.addEventListener('install', event => {
   self.skipWaiting();

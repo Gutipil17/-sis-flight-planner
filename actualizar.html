@@ -18,8 +18,8 @@
       const keys=await caches.keys();
       await Promise.all(keys.map(k=>caches.delete(k)));
     }
-    localStorage.setItem('gutipilot-cache-migration','3.0.6');
-    document.getElementById('status').textContent='Limpieza terminada. Abriendo la versión 3.0.6…';
+    localStorage.setItem('gutipilot-cache-migration','3.0.7');
+    document.getElementById('status').textContent='Limpieza terminada. Abriendo la versión 3.0.7…';
     setTimeout(()=>location.replace('./?version=306&t='+Date.now()),700);
   } catch(e) {
     document.getElementById('status').textContent='Abra la aplicación principal y recargue una vez.';

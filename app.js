@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.0.6';
+const APP_VERSION='3.0.7';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -116,9 +116,6 @@ function applyOperationalDefaults(){
 function loadFormDefaults(){
   const s=getSettings();
   $('flightDate').value=today();
-  $('pilotInCommand').value=s.fullName || s.contactName || '';
-  $('pilotLicense').value=s.pilotLicense || '';
-  $('copilotName').value=s.copilotName || '';
   $('aircraftColour').value=s.aircraftColour || 'BLANCO';
   applyOperationalDefaults();
   updateFixedPreview();
@@ -276,13 +273,13 @@ async function createPdf(){
   drawCentered(doc,'Dinghies_Colour',upper($('dinghiesColour').value),8.3);
   drawLeft(doc,'Aircraft_Colour_Markings',upper($('aircraftColour').value),8.4,7);
   drawLeft(doc,'Remarks_Text',upper($('remarks').value),8.2,7);
-  drawCentered(doc,'Pilot_In_Command',upper($('pilotInCommand').value||(s.fullName || s.contactName)),8.5);
-  drawCentered(doc,'Filed_By',upper($('copilotName').value || s.copilotName),7.8);
+  drawCentered(doc,'Pilot_In_Command',upper(s.fullName || s.contactName),8.5);
+  drawCentered(doc,'Filed_By',upper(s.copilotName),7.8);
   drawLeft(doc,'Additional_Requirements',upper($('additionalRequirements').value),7.3,5);
   drawCentered(doc,'Date_Day',day,8.5);
   drawCentered(doc,'Date_Month',month,8.5);
   drawCentered(doc,'Date_Year',year,8.2);
-  drawCentered(doc,'Pilot_License',upper($('pilotLicense').value||s.pilotLicense),8.4);
+  drawCentered(doc,'Pilot_License',upper(s.pilotLicense),8.4);
 
   return doc;
 }
@@ -291,7 +288,7 @@ function filename(){
 }
 function collectData(){
   const ids=['registration','flightDate','departure','departureTime','destination','eet','speed','level',
-    'alternate1','alternate2','route','endurance','pob','pilotInCommand','pilotLicense','copilotName',
+    'alternate1','alternate2','route','endurance','pob',
     'variableOtherInfo','aircraftColour','remarks','additionalRequirements','dinghiesNumber',
     'dinghiesCapacity','dinghiesColour'];
   const values={}; ids.forEach(id=>values[id]=$(id).value);
@@ -563,9 +560,9 @@ $('emailBtn').addEventListener('click',async()=>{
     const departure=upper($('departure').value);
     const destination=upper($('destination').value);
     const departureTime=onlyDigits($('departureTime').value,4);
-    const pilot=upper($('pilotInCommand').value || '');
-    const license=upper($('pilotLicense').value || '');
-    const copilot=upper($('copilotName').value || '');
+    const pilot=upper(settings.fullName || settings.contactName || '');
+    const license=upper(settings.pilotLicense || '');
+    const copilot=upper(settings.copilotName || '');
     const flightDate=$('flightDate').value;
 
     const subject=`PLAN DE VUELO ${registration} ${departure}-${destination}`;
@@ -675,8 +672,8 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 ['departure','destination','alternate1','alternate2','level','speed'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
 });
-['route','variableOtherInfo','remarks','additionalRequirements','pilotInCommand','pilotLicense','copilotName','aircraftColour','dinghiesColour'].forEach(id=>{
-  $(id).addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
+['route','variableOtherInfo','remarks','additionalRequirements','aircraftColour','dinghiesColour'].forEach(id=>{
+  $(id)?.addEventListener('input',e=>{e.target.value=upperTyping(e.target.value)});
 });
 
 ['registration','flightDate','departure','departureTime','destination','eet'].forEach(id=>{
@@ -898,7 +895,7 @@ $('forceReloadBtn')?.addEventListener('click',async()=>{
   window.location.reload(true);
 });
 
-// Versión 3.0.6: el Service Worker queda desactivado temporalmente.
+// Versión 3.0.7: el Service Worker continúa desactivado temporalmente.
 // Esto evita que iPhone/Mac conserven archivos de versiones anteriores.
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations()
