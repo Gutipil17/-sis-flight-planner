@@ -1,51 +1,15 @@
-const CACHE='gutipilot-flight-mobile-v20-hotfix-306';
-const ASSETS=['./','index.html','styles.css?v=306','app.js?v=306','config.js?v=306','manifest.webmanifest',
-'assets/plan-background.png','assets/icon-180.png','assets/icon-192.png','assets/icon-512.png','vendor/jspdf.umd.min.js'];
-
-self.addEventListener('install',event=>{
+// GutiPilot 3.0.6 — Service Worker de limpieza.
+// Se autodesinstala y elimina cachés antiguas para evitar versiones retenidas.
+self.addEventListener('install', event => {
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));
 });
-
-self.addEventListener('activate',event=>{
-  event.waitUntil(
-    caches.keys()
-      .then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key))))
-      .then(()=>self.clients.claim())
-  );
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map(key => caches.delete(key)));
+    await self.registration.unregister();
+    const clientsList = await self.clients.matchAll({ type: 'window' });
+    clientsList.forEach(client => client.navigate(client.url));
+  })());
 });
-
-self.addEventListener('fetch',event=>{
-  if(event.request.method!=='GET') return;
-  const url=new URL(event.request.url);
-
-  // HTML / JS / CSS: network first so updates appear promptly.
-  if(event.request.mode==='navigate' || /\.(js|css|html)$/.test(url.pathname)){
-    event.respondWith(
-      fetch(event.request)
-        .then(response=>{
-          const copy=response.clone();
-          caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-          return response;
-        })
-        .catch(()=>caches.match(event.request).then(r=>r||caches.match('./')))
-    );
-    return;
-  }
-
-  // Images and libraries: cache first.
-  event.respondWith(
-    caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
-      const copy=response.clone();
-      caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-      return response;
-    }))
-  );
-});
-
-
-self.addEventListener('message',event=>{
-  if(event.data && event.data.type==='SKIP_WAITING'){
-    self.skipWaiting();
-  }
-});
+self.addEventListener('fetch', () => {});

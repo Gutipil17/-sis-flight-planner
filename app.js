@@ -898,40 +898,14 @@ $('forceReloadBtn')?.addEventListener('click',async()=>{
   window.location.reload(true);
 });
 
-if('serviceWorker' in navigator){
-  window.addEventListener('load',async()=>{
-    try{
-      const registration=await navigator.serviceWorker.register('sw.js');
-      serviceWorkerRegistration=registration;
-      serviceWorkerRegistration=registration;
-
-      if(registration.waiting){
-        showUpdateBanner(registration.waiting);
-      }
-
-      registration.addEventListener('updatefound',()=>{
-        const worker=registration.installing;
-        if(!worker) return;
-        worker.addEventListener('statechange',()=>{
-          if(worker.state==='installed' && navigator.serviceWorker.controller){
-            showUpdateBanner(worker);
-          }
-        });
-      });
-
-      setInterval(()=>registration.update(),60*60*1000);
-    }catch(error){
-      console.error('No se pudo registrar el service worker',error);
-    }
-  });
-
-  let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-    if(refreshing) return;
-    refreshing=true;
-    window.location.reload();
-  });
+// Versión 3.0.6: el Service Worker queda desactivado temporalmente.
+// Esto evita que iPhone/Mac conserven archivos de versiones anteriores.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations()
+    .then(registrations => Promise.all(registrations.map(registration => registration.unregister())))
+    .catch(() => {});
 }
+
 
 
 $('companyLogoInput')?.addEventListener('change',event=>{

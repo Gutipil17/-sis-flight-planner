@@ -11,6 +11,28 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png">
   <link rel="icon" sizes="192x192" href="assets/icon-192.png" type="image/png">
+
+<script>
+(function(){
+  const MIGRATION_VERSION = '3.0.6';
+  const KEY = 'gutipilot-cache-migration';
+  if (localStorage.getItem(KEY) === MIGRATION_VERSION) return;
+
+  Promise.all([
+    ('serviceWorker' in navigator)
+      ? navigator.serviceWorker.getRegistrations().then(items => Promise.all(items.map(item => item.unregister())))
+      : Promise.resolve(),
+    ('caches' in window)
+      ? caches.keys().then(keys => Promise.all(keys.map(key => caches.delete(key))))
+      : Promise.resolve()
+  ]).finally(() => {
+    localStorage.setItem(KEY, MIGRATION_VERSION);
+    const cleanUrl = location.pathname + '?version=306&t=' + Date.now();
+    location.replace(cleanUrl);
+  });
+})();
+</script>
+
   <link rel="stylesheet" href="styles.css?v=306">
   <title>GutiPilot Flight Planner</title>
 </head>

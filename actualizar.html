@@ -1,14 +1,28 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Actualizar GutiPilot</title></head>
-<body style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding:32px;text-align:center">
-<h2>Actualizando GutiPilot…</h2><p id="msg">Limpiando la versión anterior.</p>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Actualizar GutiPilot</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:32px;background:#eef5f9;color:#103b59}main{max-width:560px;margin:auto;background:white;padding:28px;border-radius:20px}h1{margin-top:0}p{line-height:1.5}</style>
+</head>
+<body><main><h1>Actualizando GutiPilot</h1><p id="status">Eliminando archivos antiguos…</p></main>
 <script>
 (async()=>{
- try{
-  if('serviceWorker' in navigator){const regs=await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map(r=>r.unregister()));}
-  if('caches' in window){const keys=await caches.keys(); await Promise.all(keys.map(k=>caches.delete(k)));}
- }catch(e){}
- document.getElementById('msg').textContent='Listo. Abriendo la versión 3.0.6…';
- setTimeout(()=>location.replace('./?v=306&t='+Date.now()),700);
+  try {
+    if ('serviceWorker' in navigator) {
+      const regs=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r=>r.unregister()));
+    }
+    if ('caches' in window) {
+      const keys=await caches.keys();
+      await Promise.all(keys.map(k=>caches.delete(k)));
+    }
+    localStorage.setItem('gutipilot-cache-migration','3.0.6');
+    document.getElementById('status').textContent='Limpieza terminada. Abriendo la versión 3.0.6…';
+    setTimeout(()=>location.replace('./?version=306&t='+Date.now()),700);
+  } catch(e) {
+    document.getElementById('status').textContent='Abra la aplicación principal y recargue una vez.';
+  }
 })();
 </script></body></html>
