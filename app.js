@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.0.7';
+const APP_VERSION='3.0.8';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -832,53 +832,87 @@ $('installBtn').addEventListener('click',async()=>{
   if(!deferredPrompt)return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null;
   $('installBtn').classList.add('hidden');
 });
-let waitingServiceWorker=null;
-let serviceWorkerRegistration=null;
+let latestAvailableVersion=null;
 
-function showUpdateBanner(worker){
-  waitingServiceWorker=worker;
-  $('updateBanner')?.classList.remove('hidden');
+function compareVersions(a,b){
+  const pa=String(a).split('.').map(n=>parseInt(n,10)||0);
+  const pb=String(b).split('.').map(n=>parseInt(n,10)||0);
+  const len=Math.max(pa.length,pb.length);
+  for(let i=0;i<len;i++){
+    const da=pa[i]||0, db=pb[i]||0;
+    if(da>db) return 1;
+    if(da<db) return -1;
+  }
+  return 0;
 }
 
-$('updateNowBtn')?.addEventListener('click',()=>{
-  if(waitingServiceWorker){
-    waitingServiceWorker.postMessage({type:'SKIP_WAITING'});
-  }else{
-    window.location.reload();
+function showUpdateBanner(version){
+  latestAvailableVersion=version;
+  const banner=$('updateBanner');
+  if(banner){
+    const text=banner.querySelector('span');
+    if(text) text.textContent=`Nueva versión ${version} disponible.`;
+    banner.classList.remove('hidden');
   }
-});
+}
 
+async function clearOldAppFiles(){
+  try{
+    if('serviceWorker' in navigator){
+      const registrations=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map(registration=>registration.unregister()));
+    }
+  }catch(error){ console.warn('No se pudo retirar el Service Worker anterior.',error); }
+  try{
+    if('caches' in window){
+      const keys=await caches.keys();
+      await Promise.all(keys.map(key=>caches.delete(key)));
+    }
+  }catch(error){ console.warn('No se pudo limpiar la caché anterior.',error); }
+}
+
+async function installAvailableUpdate(){
+  const version=latestAvailableVersion;
+  if(!version){
+    await checkForUpdates();
+    if(!latestAvailableVersion) return;
+  }
+  const targetVersion=latestAvailableVersion;
+  const status=$('updateStatus');
+  if(status) status.textContent=`Instalando versión ${targetVersion}…`;
+  await clearOldAppFiles();
+  const base=new URL('./',window.location.href);
+  base.searchParams.set('version',targetVersion);
+  base.searchParams.set('update',Date.now().toString());
+  window.location.replace(base.toString());
+}
+
+$('updateNowBtn')?.addEventListener('click',installAvailableUpdate);
 
 async function checkForUpdates(){
   const status=$('updateStatus');
   try{
-    status.textContent='Verificando actualización…';
-    if(!('serviceWorker' in navigator)){
-      status.textContent='Este navegador no admite actualizaciones automáticas.';
-      return;
-    }
+    if(status) status.textContent='Verificando actualización…';
+    const response=await fetch(`version.json?t=${Date.now()}`,{
+      cache:'no-store',
+      headers:{'Cache-Control':'no-cache'}
+    });
+    if(!response.ok) throw new Error(`HTTP ${response.status}`);
+    const info=await response.json();
+    const published=String(info.version||'').trim();
+    if(!published) throw new Error('La versión publicada no es válida.');
 
-    const registration=serviceWorkerRegistration || await navigator.serviceWorker.getRegistration();
-    if(!registration){
-      status.textContent='No se encontró el servicio de actualización. Pulse “Recargar aplicación”.';
-      return;
-    }
-
-    serviceWorkerRegistration=registration;
-    await registration.update();
-    await new Promise(resolve=>setTimeout(resolve,2200));
-
-    if(registration.waiting){
-      showUpdateBanner(registration.waiting);
-      status.textContent='Hay una actualización disponible. Pulse “Actualizar ahora” en la franja superior.';
-    }else if(registration.installing){
-      status.textContent='La actualización se está descargando. Espere unos segundos.';
+    if(compareVersions(published,APP_VERSION)>0){
+      showUpdateBanner(published);
+      if(status) status.textContent=`Nueva versión ${published} disponible. Pulse “Actualizar ahora”.`;
     }else{
-      status.textContent=`La aplicación está actualizada. Versión instalada: ${APP_VERSION}`;
+      latestAvailableVersion=null;
+      $('updateBanner')?.classList.add('hidden');
+      if(status) status.textContent=`La aplicación está actualizada. Versión instalada: ${APP_VERSION}`;
     }
   }catch(error){
     console.error(error);
-    status.textContent='No se pudo verificar. Revise la conexión y vuelva a intentarlo.';
+    if(status) status.textContent='No se pudo verificar la actualización. Revise la conexión y vuelva a intentarlo.';
   }
 }
 
@@ -888,22 +922,18 @@ $('headerUpdateBtn')?.addEventListener('click',()=>{
   checkForUpdates();
 });
 $('forceReloadBtn')?.addEventListener('click',async()=>{
-  try{
-    const keys=await caches.keys();
-    await Promise.all(keys.map(key=>caches.delete(key)));
-  }catch{}
-  window.location.reload(true);
+  const status=$('updateStatus');
+  if(status) status.textContent='Limpiando archivos antiguos y recargando…';
+  await clearOldAppFiles();
+  const base=new URL('./',window.location.href);
+  base.searchParams.set('reload',Date.now().toString());
+  window.location.replace(base.toString());
 });
 
-// Versión 3.0.7: el Service Worker continúa desactivado temporalmente.
-// Esto evita que iPhone/Mac conserven archivos de versiones anteriores.
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations()
-    .then(registrations => Promise.all(registrations.map(registration => registration.unregister())))
-    .catch(() => {});
-}
-
-
+// Comprobación silenciosa al abrir. No interrumpe al usuario si no hay una versión nueva.
+window.addEventListener('load',()=>{
+  setTimeout(()=>checkForUpdates(),1200);
+});
 
 $('companyLogoInput')?.addEventListener('change',event=>{
   const file=event.target.files?.[0];
