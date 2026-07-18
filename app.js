@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.0.8';
+const APP_VERSION='3.1.0';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -46,6 +46,210 @@ const defaultSettings = {
   assignedAircraft: Object.keys(CFG.aircraft || {}),
   companyLogo: ''
 };
+
+const EQUIPMENT_10A_CODES = [
+  ['N','Ningún equipo COM/NAV o no operativo'],
+  ['S','Estándar: VHF RTF, VOR e ILS'],
+  ['A','Sistema de aterrizaje GBAS'], ['B','LPV (APV con SBAS)'],
+  ['C','LORAN C'], ['D','DME'],
+  ['E1','FMC WPR ACARS'], ['E2','D-FIS ACARS'], ['E3','PDC ACARS'],
+  ['F','ADF'], ['G','GNSS'], ['H','HF RTF'], ['I','Navegación inercial'],
+  ['J1','CPDLC ATN VDL Modo 2'], ['J2','CPDLC FANS 1/A HFDL'],
+  ['J3','CPDLC FANS 1/A VDL Modo A'], ['J4','CPDLC FANS 1/A VDL Modo 2'],
+  ['J5','CPDLC FANS 1/A SATCOM Inmarsat'], ['J6','CPDLC FANS 1/A SATCOM MTSAT'],
+  ['J7','CPDLC FANS 1/A SATCOM Iridium'],
+  ['K','MLS'], ['L','ILS'],
+  ['M1','ATC SATVOICE Inmarsat'], ['M2','ATC SATVOICE MTSAT'], ['M3','ATC SATVOICE Iridium'],
+  ['O','VOR'], ['P1','CPDLC RCP 400'], ['P2','CPDLC RCP 240'], ['P3','SATVOICE RCP 400'],
+  ['P4','Reservado'], ['P5','Reservado'], ['P6','Reservado'], ['P7','Reservado'], ['P8','Reservado'], ['P9','Reservado'],
+  ['R','Aprobación PBN'], ['T','TACAN'], ['U','UHF RTF'], ['V','VHF RTF'],
+  ['W','Aprobación RVSM'], ['X','Aprobación MNPS'], ['Y','VHF con separación de 8,33 kHz'],
+  ['Z','Otro equipo o capacidad']
+];
+
+const EQUIPMENT_10B_CODES = [
+  ['N','Ningún equipo de vigilancia o no operativo'],
+  ['A','Transpondedor Modo A'], ['C','Modo A y C'],
+  ['E','Modo S: identificación, altitud y squitter extendido'],
+  ['H','Modo S: identificación, altitud y vigilancia mejorada'],
+  ['I','Modo S: identificación, sin altitud'],
+  ['L','Modo S: identificación, altitud, squitter extendido y vigilancia mejorada'],
+  ['P','Modo S: altitud, sin identificación'],
+  ['S','Modo S: identificación y altitud'],
+  ['X','Modo S: sin identificación ni altitud'],
+  ['B1','ADS-B 1090 MHz dedicado'], ['B2','ADS-B 1090 MHz dedicado y ADS-B OUT/IN'],
+  ['U1','ADS-B OUT por UAT'], ['U2','ADS-B OUT/IN por UAT'],
+  ['V1','ADS-B OUT por VDL Modo 4'], ['V2','ADS-B OUT/IN por VDL Modo 4'],
+  ['D1','ADS-C con capacidad FANS 1/A'], ['G1','ADS-C con capacidad ATN']
+];
+
+const ITEM18_FIELDS = [
+  {group:'Estado especial', code:'STS', label:'Estado especial del vuelo', type:'select',
+    description:'Indica que el vuelo requiere tratamiento especial por parte de los servicios ATS.',
+    options:[['','Seleccione'],['ALTRV','Vuelo con reserva de altitud'],['ATFMX','Exento de medidas ATFM'],['FFR','Extinción de incendios'],['FLTCK','Calibración de ayudas a la navegación'],['HAZMAT','Mercancías peligrosas'],['HEAD','Vuelo con Jefe de Estado'],['HOSP','Vuelo médico declarado por autoridad médica'],['HUM','Vuelo humanitario'],['MARSA','Separación militar asumida'],['MEDEVAC','Evacuación médica de emergencia'],['NONRVSM','Vuelo sin aprobación RVSM'],['SAR','Búsqueda y salvamento'],['STATE','Vuelo militar, aduanero o policial'] ]},
+  {group:'Capacidades', code:'PBN', label:'Capacidades PBN', description:'Códigos de navegación basada en performance aprobados para la aeronave. Ejemplo: A1B2C2D2L1O2S1.'},
+  {group:'Capacidades', code:'NAV', label:'Otros equipos de navegación', description:'Información adicional sobre equipos o capacidades NAV no expresados completamente en la casilla 10.'},
+  {group:'Capacidades', code:'COM', label:'Otros equipos de comunicaciones', description:'Información adicional sobre equipos o capacidades COM no expresados completamente en la casilla 10.'},
+  {group:'Capacidades', code:'DAT', label:'Capacidades de enlace de datos', description:'Información adicional sobre capacidades de enlace de datos.'},
+  {group:'Capacidades', code:'SUR', label:'Capacidades de vigilancia', description:'Información adicional sobre equipos o capacidades de vigilancia.'},
+  {group:'Aeródromos y ruta', code:'DEP', label:'Punto real de salida', description:'Lugar desde donde despega la aeronave cuando en la casilla 13 se utiliza ZZZZ. Puede ser nombre, coordenadas DMS compactas o referencia geográfica.'},
+  {group:'Aeródromos y ruta', code:'DEST', label:'Punto real de destino', description:'Lugar donde aterriza la aeronave cuando en la casilla 16 se utiliza ZZZZ. Puede ser nombre, coordenadas DMS compactas o referencia geográfica.'},
+  {group:'Aeródromos y ruta', code:'DOF', label:'Fecha del vuelo', description:'Fecha de operación en formato AAMMDD. Ejemplo: 260718.', pattern:'[0-9]{6}', maxlength:6},
+  {group:'Aeródromos y ruta', code:'EET', label:'Tiempo estimado a puntos significativos o límites FIR', description:'Indique punto o FIR seguido del tiempo transcurrido en HHMM. Ejemplo: SKED0030.'},
+  {group:'Aeródromos y ruta', code:'DLE', label:'Demora o espera en ruta', description:'Punto significativo seguido de la duración prevista de la demora en HHMM. Ejemplo: BOGOT0120.'},
+  {group:'Aeródromos y ruta', code:'RIF', label:'Ruta revisada en vuelo', description:'Detalles de la ruta hacia un aeródromo de destino revisado, seguidos del designador OACI del aeródromo.'},
+  {group:'Aeronave y operador', code:'REG', label:'Matrícula de la aeronave', description:'Matrícula o registro de la aeronave cuando sea requerido. Ejemplo: HK3911.'},
+  {group:'Aeronave y operador', code:'SEL', label:'Código SELCAL', description:'Código SELCAL de cuatro letras, cuando corresponda.'},
+  {group:'Aeronave y operador', code:'TYP', label:'Tipo de aeronave', description:'Tipo de aeronave cuando en la casilla 9 se utiliza ZZZZ; precedido, si aplica, por el número de aeronaves.'},
+  {group:'Aeronave y operador', code:'CODE', label:'Dirección de aeronave', description:'Dirección de 24 bits expresada como seis caracteres hexadecimales. Normalmente se toma del perfil de la aeronave.'},
+  {group:'Aeronave y operador', code:'OPR', label:'Operador', description:'Nombre o designador del explotador cuando no resulte evidente con la identificación de la aeronave.'},
+  {group:'Aeronave y operador', code:'ORGN', label:'Origen del plan de vuelo', description:'Dirección AFTN de ocho letras u otro dato de contacto del originador, cuando sea requerido.'},
+  {group:'Aeronave y operador', code:'PER', label:'Categoría de performance', type:'select', description:'Categoría de performance de la aeronave basada en velocidad de aproximación.', options:[['','Seleccione'],['A','Menos de 91 kt'],['B','91 a 120 kt'],['C','121 a 140 kt'],['D','141 a 165 kt'],['E','166 a 210 kt'],['H','Helicóptero']]},
+  {group:'Alternos', code:'ALTN', label:'Alterno de destino', description:'Nombre del aeródromo alterno cuando en la casilla 16 se utiliza ZZZZ para el alterno.'},
+  {group:'Alternos', code:'RALT', label:'Alternos en ruta', description:'Designadores OACI de aeródromos alternos en ruta.'},
+  {group:'Alternos', code:'TALT', label:'Alterno de despegue', description:'Designador OACI del aeródromo alterno de despegue.'},
+  {group:'Observaciones', code:'RMK', label:'Observaciones', description:'Cualquier observación operacional necesaria no incluida en otro indicador.'}
+];
+
+function escapeHtml(value){
+  return String(value ?? '').replace(/[&<>'"]/g, char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+}
+
+function renderItem18Assistant(){
+  const container=$('item18Fields');
+  if(!container) return;
+  const groups=[...new Set(ITEM18_FIELDS.map(item=>item.group))];
+  container.innerHTML=groups.map(group=>{
+    const fields=ITEM18_FIELDS.filter(item=>item.group===group).map(item=>{
+      const control=item.type==='select'
+        ? `<select id="item18_${item.code}" disabled>${item.options.map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(value ? `${value} — ${label}` : label)}</option>`).join('')}</select>`
+        : `<input id="item18_${item.code}" disabled autocapitalize="characters" ${item.maxlength?`maxlength="${item.maxlength}"`:''} placeholder="Escriba el dato después de ${item.code}/">`;
+      return `<div class="item18-field">
+        <label class="item18-enable"><input type="checkbox" data-item18-toggle="${item.code}"> <strong>${item.code}/</strong> ${escapeHtml(item.label)}</label>
+        <p class="help">${escapeHtml(item.description)}</p>
+        ${control}
+      </div>`;
+    }).join('');
+    return `<details class="item18-group"><summary>${escapeHtml(group)}</summary>${fields}</details>`;
+  }).join('');
+
+  container.querySelectorAll('[data-item18-toggle]').forEach(toggle=>{
+    toggle.addEventListener('change',()=>{
+      const input=$(`item18_${toggle.dataset.item18Toggle}`);
+      if(input) input.disabled=!toggle.checked;
+      updateItem18GeneratedPreview();
+    });
+  });
+  ITEM18_FIELDS.forEach(item=>{
+    $(`item18_${item.code}`)?.addEventListener('input',updateItem18GeneratedPreview);
+    $(`item18_${item.code}`)?.addEventListener('change',updateItem18GeneratedPreview);
+  });
+  updateItem18GeneratedPreview();
+}
+
+function buildItem18AssistantText(){
+  const parts=[];
+  ITEM18_FIELDS.forEach(item=>{
+    const toggle=document.querySelector(`[data-item18-toggle="${item.code}"]`);
+    const input=$(`item18_${item.code}`);
+    if(!toggle?.checked || !input) return;
+    const value=upper(input.value).replace(/\s+/g,' ').trim();
+    if(value) parts.push(`${item.code}/${value}`);
+  });
+  return parts.join(' ');
+}
+
+function updateItem18GeneratedPreview(){
+  const preview=$('item18GeneratedPreview');
+  if(preview) preview.textContent=buildItem18AssistantText() || 'Sin acrónimos seleccionados.';
+}
+
+function clearItem18Assistant(){
+  document.querySelectorAll('[data-item18-toggle]').forEach(toggle=>{ toggle.checked=false; });
+  ITEM18_FIELDS.forEach(item=>{
+    const input=$(`item18_${item.code}`);
+    if(input){ input.value=''; input.disabled=true; }
+  });
+  updateItem18GeneratedPreview();
+}
+
+function parseItem18IntoAssistant(text){
+  clearItem18Assistant();
+  const source=upper(text);
+  const matches=[...source.matchAll(/(?:^|\s)(STS|PBN|NAV|COM|DAT|SUR|DEP|DEST|DOF|EET|DLE|RIF|REG|SEL|TYP|CODE|OPR|ORGN|PER|ALTN|RALT|TALT|RMK)\//g)];
+  matches.forEach((match,index)=>{
+    const code=match[1];
+    const start=match.index + match[0].length;
+    const end=index+1<matches.length ? matches[index+1].index : source.length;
+    const value=source.slice(start,end).trim();
+    const toggle=document.querySelector(`[data-item18-toggle="${code}"]`);
+    const input=$(`item18_${code}`);
+    if(toggle && input){ toggle.checked=true; input.disabled=false; input.value=value; }
+  });
+  updateItem18GeneratedPreview();
+}
+
+function validateItem18Assistant(){
+  const errors=[];
+  const dep=upper($('departure')?.value), dest=upper($('destination')?.value);
+  const depValue=upper($('item18_DEP')?.value), destValue=upper($('item18_DEST')?.value);
+  const dof=upper($('item18_DOF')?.value);
+  if(dep==='ZZZZ' && !depValue) errors.push('Cuando la salida es ZZZZ debe diligenciar DEP/.');
+  if(dest==='ZZZZ' && !destValue) errors.push('Cuando el destino es ZZZZ debe diligenciar DEST/.');
+  if(dof && !/^\d{6}$/.test(dof)) errors.push('DOF/ debe tener seis números en formato AAMMDD.');
+  return errors;
+}
+
+
+function parseEquipmentCodes(value, definitions, fallback){
+  const text=upper(value);
+  const codes=definitions.map(([code])=>code).sort((a,b)=>b.length-a.length);
+  const found=[];
+  let remaining=text;
+  while(remaining){
+    const code=codes.find(item=>remaining.startsWith(item));
+    if(!code) break;
+    if(!found.includes(code)) found.push(code);
+    remaining=remaining.slice(code.length);
+  }
+  return found.length ? found : [...fallback];
+}
+
+function renderEquipmentOptions(containerId, inputId, definitions, value, fallback){
+  const selected=new Set(parseEquipmentCodes(value, definitions, fallback));
+  const container=$(containerId);
+  container.innerHTML=definitions.map(([code,description])=>`
+    <label class="equipment-code-option" title="${description}">
+      <input type="checkbox" value="${code}" ${selected.has(code)?'checked':''}>
+      <span class="equipment-code"><strong>${code}</strong><small>${description}</small></span>
+    </label>`).join('');
+  const sync=()=>{
+    const checked=[...container.querySelectorAll('input:checked')].map(el=>el.value);
+    const ordered=definitions.map(([code])=>code).filter(code=>checked.includes(code));
+    $(inputId).value=(ordered.length?ordered:fallback).join('');
+    updateEquipmentPreview();
+  };
+  container.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+    if(input.value==='N' && input.checked){
+      container.querySelectorAll('input').forEach(other=>{if(other!==input) other.checked=false;});
+    }else if(input.checked){
+      const none=container.querySelector('input[value="N"]');
+      if(none) none.checked=false;
+    }
+    if(!container.querySelector('input:checked')){
+      const defaultCode=fallback[0];
+      const defaultInput=container.querySelector(`input[value="${defaultCode}"]`);
+      if(defaultInput) defaultInput.checked=true;
+    }
+    sync();
+  }));
+  sync();
+}
+
+function updateEquipmentPreview(){
+  const preview=$('equipmentCombinedPreview');
+  if(preview) preview.textContent=`${$('equipmentComNav').value || 'S'}/${$('equipmentSurveillance').value || 'SV1'}`;
+}
 
 function getSettings(){
   try { return {...defaultSettings, ...JSON.parse(localStorage.getItem(STORAGE_SETTINGS) || '{}')}; }
@@ -149,7 +353,8 @@ function loadSettingsForm(){
   $('profileLicense').value=s.pilotLicense || '';
   $('profileCopilotName').value=s.copilotName || '';
   $('mission').value=s.mission || '';
-  $('equipmentComNav').value=s.equipmentComNav || 'S';
+  renderEquipmentOptions('equipmentComNavOptions','equipmentComNav',EQUIPMENT_10A_CODES,s.equipmentComNav || 'S',['S']);
+  renderEquipmentOptions('equipmentSurveillanceOptions','equipmentSurveillance',EQUIPMENT_10B_CODES,s.equipmentSurveillance || 'SV1',['S','V1']);
   renderAssignedAircraft(s.assignedAircraft);
   updateProfileLogoPreview(s.companyLogo || '');
 }
@@ -309,7 +514,9 @@ function loadData(values,{duplicate=false}={}){
     clearFieldErrors();
     toast('Plan duplicado. Revise fecha, hora y ruta antes de generar.');
   }
-  updateFixedPreview(); switchTab('plan'); window.scrollTo({top:0,behavior:'smooth'});
+  updateFixedPreview();
+  parseItem18IntoAssistant($('variableOtherInfo')?.value || '');
+  switchTab('plan'); window.scrollTo({top:0,behavior:'smooth'});
 }
 function createShareableFile(blob,name){
   try{
@@ -645,6 +852,7 @@ $('settingsForm').addEventListener('submit',e=>{
     assignedAircraft:assignedAircraft.length ? assignedAircraft : Object.keys(CFG.aircraft || {}),
     mission:upper($('mission').value),
     equipmentComNav:upper($('equipmentComNav').value) || 'S',
+    equipmentSurveillance:upper($('equipmentSurveillance').value) || 'SV1',
     contactName:fullName,
     contactPhone:phone,
     contactEmail:email,
@@ -962,5 +1170,18 @@ $('removeLogoBtn')?.addEventListener('click',()=>{
   updateProfileLogoPreview('');
   toast('Logo eliminado');
 });
+
+
+renderItem18Assistant();
+$('item18ApplyBtn')?.addEventListener('click',()=>{
+  const errors=validateItem18Assistant();
+  if(errors.length){ alert(errors.join('\n')); return; }
+  $('variableOtherInfo').value=buildItem18AssistantText();
+  toast('Casilla 18 actualizada desde el asistente');
+});
+$('item18ClearBtn')?.addEventListener('click',()=>{
+  if(confirm('¿Limpiar todos los campos del asistente de casilla 18?')) clearItem18Assistant();
+});
+$('variableOtherInfo')?.addEventListener('change',()=>parseItem18IntoAssistant($('variableOtherInfo').value));
 
 loadAircraft();loadSettingsForm();loadFormDefaults();renderHistory();renderDirectory();renderAircraftModule();

@@ -54,7 +54,7 @@ window.SIS_CONFIG = {
     "equipmentComNav": "S",
     "pilotLicense": "",
     "aircraftColour": "BLANCO",
-    "equipmentSurveillance": "CB1"
+    "equipmentSurveillance": "SV1"
   },
   "fieldRects": {
     "Aircraft_ID": [

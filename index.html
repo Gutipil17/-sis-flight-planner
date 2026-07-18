@@ -143,11 +143,26 @@
     <section class="card">
       <h2>Casilla 18</h2>
       <div id="fixedPreview" class="fixed-preview"></div>
-      <label>Información variable
-        <textarea id="variableOtherInfo" rows="3" autocapitalize="characters"
+      <p class="help">La aplicación conserva la información fija del perfil. Use el asistente para añadir únicamente los datos variables que correspondan al vuelo.</p>
+
+      <details class="item18-assistant" open>
+        <summary>Asistente de acrónimos de la casilla 18</summary>
+        <div class="item18-toolbar">
+          <button type="button" id="item18ClearBtn" class="secondary">Limpiar asistente</button>
+          <button type="button" id="item18ApplyBtn" class="primary">Aplicar a casilla 18</button>
+        </div>
+        <div id="item18Fields" class="item18-fields"></div>
+        <div class="item18-result">
+          <strong>Texto generado</strong>
+          <div id="item18GeneratedPreview" class="fixed-preview">Sin acrónimos seleccionados.</div>
+        </div>
+      </details>
+
+      <label>Información variable / edición manual
+        <textarea id="variableOtherInfo" rows="4" autocapitalize="characters"
           placeholder="Ejemplo: DEP/BRIGADA 17 CAREPA DEST/HLP IMPROVISADO AREA ACANDI 50NM NW CAREPA"></textarea>
       </label>
-      <p class="help">La aplicación añade automáticamente operador, CODE, misión y contacto.</p>
+      <p class="help">Puede editar manualmente el resultado. El asistente no borra la información existente hasta que pulse “Aplicar a casilla 18”.</p>
     </section>
 
     <section class="card">
@@ -291,10 +306,27 @@
       <label>Misión habitual
         <textarea id="mission" rows="3"></textarea>
       </label>
-      <label>Equipo COM/NAV (casilla 10, antes del slash)
-        <input id="equipmentComNav" autocapitalize="characters" value="S">
-      </label>
-      <p class="help">La parte posterior al slash permanece como <strong>CB1</strong>.</p>
+      <h3>Equipos y capacidades — Casilla 10</h3>
+      <p class="help">Configure por separado las dos partes de la casilla 10. Marque únicamente los equipos y capacidades realmente instalados, operativos y aprobados para la aeronave.</p>
+
+      <div class="equipment-profile-block">
+        <label>10a — COM/NAV y ayudas de aproximación (antes del slash)
+          <input id="equipmentComNav" autocapitalize="characters" value="S" readonly>
+        </label>
+        <div id="equipmentComNavOptions" class="equipment-code-grid" aria-label="Opciones de equipos COM y NAV"></div>
+      </div>
+
+      <div class="equipment-profile-block">
+        <label>10b — Equipos de vigilancia (después del slash)
+          <input id="equipmentSurveillance" autocapitalize="characters" value="SV1" readonly>
+        </label>
+        <div id="equipmentSurveillanceOptions" class="equipment-code-grid" aria-label="Opciones de equipos de vigilancia"></div>
+      </div>
+
+      <div class="equipment-result-preview">
+        Resultado para la casilla 10: <strong id="equipmentCombinedPreview">S/SV1</strong>
+      </div>
+      <p class="help">El código <strong>N</strong> significa “ningún equipo” y no puede combinarse con otros códigos. Algunas selecciones requieren información relacionada en la casilla 18, por ejemplo R con PBN/, Z con COM/NAV/DAT y J1 con CODE/.</p>
       <button type="submit" class="primary full">Guardar perfil y configuración</button>
     </section>
 
@@ -305,7 +337,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.0.8</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.1.0</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -331,8 +363,8 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="vendor/jspdf.umd.min.js?v=308"></script>
-<script src="config.js?v=308"></script>
-<script src="app.js?v=308"></script>
+<script src="vendor/jspdf.umd.min.js?v=310"></script>
+<script src="config.js?v=310"></script>
+<script src="app.js?v=310"></script>
 </body>
 </html>
