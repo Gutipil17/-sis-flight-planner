@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.0.5';
+const APP_VERSION='3.0.6';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;

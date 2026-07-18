@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Actualizar GutiPilot</title></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding:32px;text-align:center">
+<h2>Actualizando GutiPilot…</h2><p id="msg">Limpiando la versión anterior.</p>
+<script>
+(async()=>{
+ try{
+  if('serviceWorker' in navigator){const regs=await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map(r=>r.unregister()));}
+  if('caches' in window){const keys=await caches.keys(); await Promise.all(keys.map(k=>caches.delete(k)));}
+ }catch(e){}
+ document.getElementById('msg').textContent='Listo. Abriendo la versión 3.0.6…';
+ setTimeout(()=>location.replace('./?v=306&t='+Date.now()),700);
+})();
+</script></body></html>
