@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.1.0';
+const APP_VERSION='3.1.1';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -116,78 +116,37 @@ function escapeHtml(value){
 }
 
 function renderItem18Assistant(){
-  const container=$('item18Fields');
-  if(!container) return;
-  const groups=[...new Set(ITEM18_FIELDS.map(item=>item.group))];
-  container.innerHTML=groups.map(group=>{
-    const fields=ITEM18_FIELDS.filter(item=>item.group===group).map(item=>{
-      const control=item.type==='select'
-        ? `<select id="item18_${item.code}" disabled>${item.options.map(([value,label])=>`<option value="${escapeHtml(value)}">${escapeHtml(value ? `${value} — ${label}` : label)}</option>`).join('')}</select>`
-        : `<input id="item18_${item.code}" disabled autocapitalize="characters" ${item.maxlength?`maxlength="${item.maxlength}"`:''} placeholder="Escriba el dato después de ${item.code}/">`;
-      return `<div class="item18-field">
-        <label class="item18-enable"><input type="checkbox" data-item18-toggle="${item.code}"> <strong>${item.code}/</strong> ${escapeHtml(item.label)}</label>
-        <p class="help">${escapeHtml(item.description)}</p>
-        ${control}
-      </div>`;
-    }).join('');
-    return `<details class="item18-group"><summary>${escapeHtml(group)}</summary>${fields}</details>`;
-  }).join('');
-
-  container.querySelectorAll('[data-item18-toggle]').forEach(toggle=>{
-    toggle.addEventListener('change',()=>{
-      const input=$(`item18_${toggle.dataset.item18Toggle}`);
-      if(input) input.disabled=!toggle.checked;
-      updateItem18GeneratedPreview();
-    });
-  });
-  ITEM18_FIELDS.forEach(item=>{
-    $(`item18_${item.code}`)?.addEventListener('input',updateItem18GeneratedPreview);
-    $(`item18_${item.code}`)?.addEventListener('change',updateItem18GeneratedPreview);
-  });
-  updateItem18GeneratedPreview();
+  const container=$('item18Fields'), picker=$('item18Picker');
+  if(!container || !picker) return;
+  let advanced=false;
+  const basicCodes=new Set(['DOF','DEP','DEST','REG','OPR','STS','PBN','EET','RMK']);
+  const refreshPicker=()=>{
+    const visible=ITEM18_FIELDS.filter(i=>advanced || basicCodes.has(i.code));
+    picker.innerHTML='<option value="">Seleccione un dato…</option>'+visible.map(i=>`<option value="${i.code}">${i.code}/ — ${escapeHtml(i.label)}</option>`).join('');
+  };
+  const addField=(code)=>{
+    if(!code || document.querySelector(`[data-item18-card="${code}"]`)) return;
+    const item=ITEM18_FIELDS.find(i=>i.code===code); if(!item) return;
+    const control=item.type==='select'
+      ? `<select id="item18_${item.code}">${item.options.map(([v,l])=>`<option value="${escapeHtml(v)}">${escapeHtml(v?`${v} — ${l}`:l)}</option>`).join('')}</select>`
+      : `<input id="item18_${item.code}" autocapitalize="characters" ${item.maxlength?`maxlength="${item.maxlength}"`:''} placeholder="Dato después de ${item.code}/">`;
+    container.insertAdjacentHTML('beforeend',`<section class="item18-field" data-item18-card="${item.code}"><div class="item18-card-head"><div><strong>${item.code}/</strong><span>${escapeHtml(item.label)}</span></div><button type="button" class="item18-remove" aria-label="Eliminar ${item.code}">×</button></div><p class="help">${escapeHtml(item.description)}</p>${control}</section>`);
+    const input=$(`item18_${item.code}`); input?.addEventListener('input',updateItem18GeneratedPreview); input?.addEventListener('change',updateItem18GeneratedPreview);
+    container.querySelector(`[data-item18-card="${item.code}"] .item18-remove`)?.addEventListener('click',()=>{container.querySelector(`[data-item18-card="${item.code}"]`)?.remove();updateItem18GeneratedPreview();});
+    input?.focus(); updateItem18GeneratedPreview();
+  };
+  picker.addEventListener('change',()=>{addField(picker.value);picker.value='';});
+  $('item18BasicBtn')?.addEventListener('click',()=>{advanced=false;$('item18BasicBtn').classList.add('active');$('item18AdvancedBtn').classList.remove('active');refreshPicker();});
+  $('item18AdvancedBtn')?.addEventListener('click',()=>{advanced=true;$('item18AdvancedBtn').classList.add('active');$('item18BasicBtn').classList.remove('active');refreshPicker();});
+  refreshPicker(); updateItem18GeneratedPreview();
 }
 
 function buildItem18AssistantText(){
-  const parts=[];
-  ITEM18_FIELDS.forEach(item=>{
-    const toggle=document.querySelector(`[data-item18-toggle="${item.code}"]`);
-    const input=$(`item18_${item.code}`);
-    if(!toggle?.checked || !input) return;
-    const value=upper(input.value).replace(/\s+/g,' ').trim();
-    if(value) parts.push(`${item.code}/${value}`);
-  });
-  return parts.join(' ');
+  return ITEM18_FIELDS.map(item=>{const input=$(`item18_${item.code}`);const value=upper(input?.value).replace(/\s+/g,' ').trim();return input&&value?`${item.code}/${value}`:'';}).filter(Boolean).join(' ');
 }
-
-function updateItem18GeneratedPreview(){
-  const preview=$('item18GeneratedPreview');
-  if(preview) preview.textContent=buildItem18AssistantText() || 'Sin acrónimos seleccionados.';
-}
-
-function clearItem18Assistant(){
-  document.querySelectorAll('[data-item18-toggle]').forEach(toggle=>{ toggle.checked=false; });
-  ITEM18_FIELDS.forEach(item=>{
-    const input=$(`item18_${item.code}`);
-    if(input){ input.value=''; input.disabled=true; }
-  });
-  updateItem18GeneratedPreview();
-}
-
-function parseItem18IntoAssistant(text){
-  clearItem18Assistant();
-  const source=upper(text);
-  const matches=[...source.matchAll(/(?:^|\s)(STS|PBN|NAV|COM|DAT|SUR|DEP|DEST|DOF|EET|DLE|RIF|REG|SEL|TYP|CODE|OPR|ORGN|PER|ALTN|RALT|TALT|RMK)\//g)];
-  matches.forEach((match,index)=>{
-    const code=match[1];
-    const start=match.index + match[0].length;
-    const end=index+1<matches.length ? matches[index+1].index : source.length;
-    const value=source.slice(start,end).trim();
-    const toggle=document.querySelector(`[data-item18-toggle="${code}"]`);
-    const input=$(`item18_${code}`);
-    if(toggle && input){ toggle.checked=true; input.disabled=false; input.value=value; }
-  });
-  updateItem18GeneratedPreview();
-}
+function updateItem18GeneratedPreview(){const preview=$('item18GeneratedPreview');if(preview) preview.textContent=buildItem18AssistantText()||'Sin información adicional.';}
+function clearItem18Assistant(){const c=$('item18Fields');if(c)c.innerHTML='';updateItem18GeneratedPreview();}
+function parseItem18IntoAssistant(text){clearItem18Assistant();const source=upper(text);const re=/(?:^|\s)(STS|PBN|NAV|COM|DAT|SUR|DEP|DEST|DOF|REG|EET|SEL|TYP|CODE|DLE|OPR|ORGN|PER|ALTN|RALT|TALT|RIF|RMK)\//g;const matches=[...source.matchAll(re)];matches.forEach((m,i)=>{const code=m[1];$('item18Picker').value=code;$('item18Picker').dispatchEvent(new Event('change'));const input=$(`item18_${code}`);if(input){const start=m.index+m[0].length,end=i+1<matches.length?matches[i+1].index:source.length;input.value=source.slice(start,end).trim();}});updateItem18GeneratedPreview();}
 
 function validateItem18Assistant(){
   const errors=[];
@@ -248,7 +207,7 @@ function renderEquipmentOptions(containerId, inputId, definitions, value, fallba
 
 function updateEquipmentPreview(){
   const preview=$('equipmentCombinedPreview');
-  if(preview) preview.textContent=`${$('equipmentComNav').value || 'S'}/${$('equipmentSurveillance').value || 'SV1'}`;
+  if(preview) preview.textContent=`${$('equipmentComNav').value || 'S'}/${$('equipmentSurveillance').value || 'SV1'}`; if($('equipmentComNavSummary')) $('equipmentComNavSummary').textContent=$('equipmentComNav').value||'S'; if($('equipmentSurveillanceSummary')) $('equipmentSurveillanceSummary').textContent=$('equipmentSurveillance').value||'SV1';
 }
 
 function getSettings(){

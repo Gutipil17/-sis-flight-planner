@@ -145,18 +145,24 @@
       <div id="fixedPreview" class="fixed-preview"></div>
       <p class="help">La aplicación conserva la información fija del perfil. Use el asistente para añadir únicamente los datos variables que correspondan al vuelo.</p>
 
-      <details class="item18-assistant" open>
-        <summary>Asistente de acrónimos de la casilla 18</summary>
-        <div class="item18-toolbar">
-          <button type="button" id="item18ClearBtn" class="secondary">Limpiar asistente</button>
-          <button type="button" id="item18ApplyBtn" class="primary">Aplicar a casilla 18</button>
+      <div class="item18-assistant apple-panel">
+        <div class="item18-mode" role="group" aria-label="Nivel de ayuda">
+          <button type="button" id="item18BasicBtn" class="segmented active">Básico</button>
+          <button type="button" id="item18AdvancedBtn" class="segmented">Todos</button>
         </div>
+        <label class="item18-picker-label">Agregar información
+          <select id="item18Picker"><option value="">Seleccione un dato…</option></select>
+        </label>
         <div id="item18Fields" class="item18-fields"></div>
         <div class="item18-result">
-          <strong>Texto generado</strong>
-          <div id="item18GeneratedPreview" class="fixed-preview">Sin acrónimos seleccionados.</div>
+          <span class="result-label">Vista previa automática</span>
+          <div id="item18GeneratedPreview" class="fixed-preview">Sin información adicional.</div>
         </div>
-      </details>
+        <div class="item18-toolbar">
+          <button type="button" id="item18ClearBtn" class="secondary">Limpiar</button>
+          <button type="button" id="item18ApplyBtn" class="primary">Usar en el plan</button>
+        </div>
+      </div>
 
       <label>Información variable / edición manual
         <textarea id="variableOtherInfo" rows="4" autocapitalize="characters"
@@ -309,19 +315,17 @@
       <h3>Equipos y capacidades — Casilla 10</h3>
       <p class="help">Configure por separado las dos partes de la casilla 10. Marque únicamente los equipos y capacidades realmente instalados, operativos y aprobados para la aeronave.</p>
 
-      <div class="equipment-profile-block">
-        <label>10a — COM/NAV y ayudas de aproximación (antes del slash)
-          <input id="equipmentComNav" autocapitalize="characters" value="S" readonly>
-        </label>
+      <details class="equipment-profile-block apple-disclosure">
+        <summary><span>10a — Comunicaciones y navegación</span><strong id="equipmentComNavSummary">S</strong></summary>
+        <input id="equipmentComNav" autocapitalize="characters" value="S" readonly hidden>
         <div id="equipmentComNavOptions" class="equipment-code-grid" aria-label="Opciones de equipos COM y NAV"></div>
-      </div>
+      </details>
 
-      <div class="equipment-profile-block">
-        <label>10b — Equipos de vigilancia (después del slash)
-          <input id="equipmentSurveillance" autocapitalize="characters" value="SV1" readonly>
-        </label>
+      <details class="equipment-profile-block apple-disclosure">
+        <summary><span>10b — Vigilancia</span><strong id="equipmentSurveillanceSummary">SV1</strong></summary>
+        <input id="equipmentSurveillance" autocapitalize="characters" value="SV1" readonly hidden>
         <div id="equipmentSurveillanceOptions" class="equipment-code-grid" aria-label="Opciones de equipos de vigilancia"></div>
-      </div>
+      </details>
 
       <div class="equipment-result-preview">
         Resultado para la casilla 10: <strong id="equipmentCombinedPreview">S/SV1</strong>
@@ -337,7 +341,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.1.0</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.1.1</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
