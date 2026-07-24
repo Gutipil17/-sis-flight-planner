@@ -44,11 +44,11 @@ window.SIS_CONFIG = {
     }
   },
   "fixed": {
-    "operator": "SIS SOLUCIONES INTEGRALES",
-    "contactName": "ANDRES GUTIERREZ",
-    "contactPhone": "3134617236",
-    "contactEmail": "GUTIPIL17@GMAIL.COM",
-    "mission": "APOYO AL EJERCITO NACIONAL TRANSPORTE DE CARGA Y PASAJEROS",
+    "operator": "",
+    "contactName": "",
+    "contactPhone": "",
+    "contactEmail": "",
+    "mission": "",
     "flightRules": "V",
     "flightType": "N",
     "equipmentComNav": "S",

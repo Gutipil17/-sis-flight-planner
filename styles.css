@@ -34,6 +34,7 @@ textarea{resize:vertical;min-height:68px}
 .checks input{width:22px;height:22px;margin:0 6px 0 0;accent-color:var(--navy)}
 .fixed-preview{white-space:pre-wrap;background:#f4f7f9;border:1px solid var(--line);padding:11px;border-radius:10px;font-family:ui-monospace,monospace;font-size:12px;line-height:1.45;margin-bottom:10px}
 .help{color:var(--muted);font-size:12px;margin:0}
+.required-mark{color:var(--danger)}
 .actions{display:flex;gap:10px}.actions button{flex:1}
 button{border-radius:11px;padding:11px 14px;border:1px solid transparent;font-weight:700}
 .primary{background:var(--navy);color:white}.secondary{background:white;color:var(--navy);border-color:var(--navy)}
@@ -50,6 +51,11 @@ button{border-radius:11px;padding:11px 14px;border:1px solid transparent;font-we
 .toast{position:fixed;left:16px;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));background:#132a39;color:white;padding:13px;border-radius:12px;text-align:center;z-index:200}
 .hidden{display:none!important}
 @media(max-width:520px){.grid.two,.grid.three{grid-template-columns:1fr}.tabs{top:76px}}
+@media(max-width:520px){
+  main{padding:10px}
+  .sticky-actions{position:static}
+  .module-tabs::after{content:'›';position:sticky;right:0;display:grid;place-items:center;min-width:24px;background:linear-gradient(90deg,transparent,#fff 45%);color:var(--navy);font-size:22px}
+}
 
 .actions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .actions-grid button{min-height:46px}
@@ -154,6 +160,7 @@ button:disabled{opacity:.45}
   text-align:center;
   padding:18px 5px;
 }
+.directory-source{margin-top:8px;color:var(--muted);font-size:11px}
 @media(max-width:520px){
   .tabs{grid-template-columns:repeat(4,1fr)}
   .tab{font-size:11px;padding-left:2px;padding-right:2px}
@@ -221,10 +228,12 @@ input.field-error, select.field-error, textarea.field-error{
 .profile-logo-actions{flex:1}
 .file-button{display:inline-block;background:white;color:var(--navy);border:1px solid var(--navy);border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer}
 .file-button input{display:none}
+.backup-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.backup-file-button{display:grid;place-items:center;text-align:center;margin:0}
 .aircraft-checkbox-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 14px}
 .aircraft-checkbox-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-weight:600}
 .aircraft-checkbox-item input{width:20px;height:20px;margin:0}
-@media(max-width:480px){.profile-logo-row{align-items:flex-start}.aircraft-checkbox-list{grid-template-columns:1fr}}
+@media(max-width:480px){.profile-logo-row{align-items:flex-start}.aircraft-checkbox-list,.backup-actions{grid-template-columns:1fr}}
 
 .module-tabs{
   display:flex !important;

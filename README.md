@@ -1,4 +1,4 @@
-# GutiPilot Flight Planner Mobile 1.0
+# GutiPilot Flight Planner 3.2
 
 Aplicación web móvil (PWA) para iPhone y Mac.
 
@@ -31,11 +31,22 @@ La carpeta está preparada para servicios de alojamiento estático. No necesita 
 
 ## Datos
 
-Los datos fijos y el historial se guardan solamente en el navegador del dispositivo mediante localStorage. Si se borran los datos de Safari o se cambia de dispositivo, se pierde ese historial.
+Los datos fijos y el historial se guardan solamente en el navegador del dispositivo mediante localStorage. La pestaña Perfil permite descargar y restaurar un respaldo JSON antes de borrar Safari o cambiar de dispositivo.
 
 ## Seguridad operacional
 
 La aplicación solo diligencia y genera el formato. No verifica NOTAM, AIP, espacio aéreo, meteorología, performance, autorización ATS ni legalidad de la ruta.
+
+## Versión 3.2 — Seguridad y confiabilidad
+
+- Se retiraron del código público los datos personales predeterminados.
+- Se añadieron validaciones de OACI, UTC, EET, autonomía, personas a bordo, velocidad y nivel.
+- Se bloquean combinaciones contradictorias con “Ninguno”.
+- Los planes con salida o destino ZZZZ requieren DEP/ o DEST/ en la casilla 18.
+- Se restauró la caché PWA para uso sin conexión.
+- Se añadió respaldo y restauración de perfil e historial.
+- Se unificó la versión mostrada y se mejoró la navegación y accesibilidad móvil.
+- El directorio muestra la fecha y el estado de la fuente registrada.
 
 
 ## Versión 1.1

@@ -13,16 +13,16 @@
   <link rel="icon" sizes="192x192" href="assets/icon-192.png" type="image/png">
 
 
-  <link rel="stylesheet" href="styles.css?v=308">
+  <link rel="stylesheet" href="styles.css?v=320">
   <title>GutiPilot Flight Planner</title>
 </head>
 <body>
 <header class="app-header">
   <div>
     <strong>GutiPilot Flight Planner</strong>
-    <span>Plan de vuelo Aerocivil · v3.0.8</span>
+    <span>Plan de vuelo Aerocivil · v3.2.0</span>
   </div>
-  <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
+  <div class="header-actions"><button id="headerUpdateBtn" class="ghost" title="Verificar actualización" aria-label="Verificar actualización">↻</button><button id="installBtn" class="ghost hidden">Instalar</button></div>
 </header>
 
 <div id="updateBanner" class="update-banner hidden">
@@ -30,13 +30,13 @@
   <button id="updateNowBtn" class="update-button">Actualizar ahora</button>
 </div>
 
-<nav class="tabs module-tabs" aria-label="Módulos">
-  <button class="tab active" data-tab="plan">Plan</button>
-  <button class="tab" data-tab="directory">Directorio</button>
-  <button class="tab" data-tab="history">Historial</button>
-  <button class="tab" data-tab="aircraft">Aeronaves</button>
-  <button class="tab" data-tab="settings">Perfil</button>
-  <button class="tab" data-tab="updates">Actualizar</button>
+<nav class="tabs module-tabs" aria-label="Módulos" role="tablist">
+  <button class="tab active" data-tab="plan" role="tab" aria-selected="true" aria-controls="tab-plan">Plan</button>
+  <button class="tab" data-tab="directory" role="tab" aria-selected="false" aria-controls="tab-directory">Directorio</button>
+  <button class="tab" data-tab="history" role="tab" aria-selected="false" aria-controls="tab-history">Historial</button>
+  <button class="tab" data-tab="aircraft" role="tab" aria-selected="false" aria-controls="tab-aircraft">Aeronaves</button>
+  <button class="tab" data-tab="settings" role="tab" aria-selected="false" aria-controls="tab-settings">Perfil</button>
+  <button class="tab" data-tab="updates" role="tab" aria-selected="false" aria-controls="tab-updates">Actualizar</button>
 </nav>
 
 <main>
@@ -55,16 +55,16 @@
         <label>Fecha
           <input id="flightDate" type="date" required>
         </label>
-        <label>Salida
+        <label>Salida <span class="required-mark" aria-hidden="true">*</span>
           <input id="departure" maxlength="4" autocapitalize="characters" placeholder="ESCRIBA EL OACI, EJ.: SKLC" required>
         </label>
-        <label>Hora UTC
+        <label>Hora UTC <span class="required-mark" aria-hidden="true">*</span>
           <input id="departureTime" inputmode="numeric" maxlength="4" placeholder="ESCRIBA LA HORA, EJ.: 1230" required>
         </label>
-        <label>Destino
+        <label>Destino <span class="required-mark" aria-hidden="true">*</span>
           <input id="destination" maxlength="4" autocapitalize="characters" placeholder="ESCRIBA EL DESTINO, EJ.: ZZZZ" required>
         </label>
-        <label>EET total
+        <label>EET total <span class="required-mark" aria-hidden="true">*</span>
           <input id="eet" inputmode="numeric" maxlength="4" placeholder="ESCRIBA EL EET, EJ.: 0045" required>
         </label>
         <label>Velocidad
@@ -305,6 +305,15 @@
       <h3>Aeronaves asignadas</h3>
       <p class="help">Solo estas matrículas aparecerán en Nuevo plan.</p>
       <div id="assignedAircraftList" class="aircraft-checkbox-list"></div>
+
+      <h3>Respaldo de datos</h3>
+      <p class="help">Descargue una copia del perfil y el historial para restaurarlos si cambia de dispositivo o borra los datos del navegador.</p>
+      <div class="backup-actions">
+        <button type="button" id="exportBackupBtn" class="secondary">Descargar respaldo</button>
+        <label class="file-button backup-file-button">Restaurar respaldo
+          <input id="importBackupInput" type="file" accept="application/json,.json">
+        </label>
+      </div>
     </section>
 
     <section class="card">
@@ -341,7 +350,7 @@
 <section id="tab-updates" class="panel">
   <section class="card update-module-card">
     <h2>Actualizaciones</h2>
-    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.1.1</strong></div>
+    <div class="version-badge">Versión instalada: <strong id="installedVersion">3.2.0</strong></div>
     <p class="help">Este botón siempre estará disponible. Comprueba si GitHub Pages publicó una versión más reciente.</p>
     <button type="button" id="checkUpdateBtn" class="primary full">Verificar actualización</button>
     <button type="button" id="forceReloadBtn" class="secondary full update-secondary">Recargar aplicación</button>
@@ -355,20 +364,20 @@
 
 </main>
 
-<div id="modal" class="modal hidden">
-  <div class="modal-card">
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+  <div class="modal-card" tabindex="-1">
     <div class="row-between">
-      <strong>Vista previa de casilla 18</strong>
+      <strong id="previewTitle">Revisión del plan</strong>
       <button id="closeModal" class="ghost">Cerrar</button>
     </div>
     <pre id="previewText"></pre>
   </div>
 </div>
 
-<div id="toast" class="toast hidden"></div>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
-<script src="vendor/jspdf.umd.min.js?v=310"></script>
-<script src="config.js?v=310"></script>
-<script src="app.js?v=310"></script>
+<script src="vendor/jspdf.umd.min.js?v=320"></script>
+<script src="config.js?v=320"></script>
+<script src="app.js?v=320"></script>
 </body>
 </html>

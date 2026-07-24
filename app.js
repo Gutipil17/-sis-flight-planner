@@ -20,7 +20,7 @@ Object.assign(window.FPL_CONTACTS.SKPS, {
   status:'Oficina receptora: Cali',
   note:'PASTO: la oficina receptora del plan de vuelo es Cali. Para gestión regional use 602-418-5124.'
 });
-const APP_VERSION='3.1.1';
+const APP_VERSION='3.2.0';
 
 const CFG = window.SIS_CONFIG;
 const { jsPDF } = window.jspdf;
@@ -32,7 +32,11 @@ let lastPdfBlob = null;
 const $ = id => document.getElementById(id);
 const upper = value => String(value || '').trim().toUpperCase();
 const upperTyping = value => String(value || '').toUpperCase();
-const today = () => new Date().toISOString().slice(0,10);
+const today = () => {
+  const date=new Date();
+  const local=new Date(date.getTime()-date.getTimezoneOffset()*60000);
+  return local.toISOString().slice(0,10);
+};
 const defaultSettings = {
   ...CFG.fixed,
   fullName: CFG.fixed.contactName || '',
@@ -231,6 +235,16 @@ function saveHistory(items){
     toast('No se pudo guardar el historial en este dispositivo');
   }
 }
+
+function downloadJson(data,name){
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  forceDownload(blob,name);
+}
+
+function validBackup(value){
+  return value && value.format==='gutipilot-backup' && value.settings &&
+    Array.isArray(value.history) && typeof value.settings==='object';
+}
 function toast(message){
   const el=$('toast'); el.textContent=message; el.classList.remove('hidden');
   setTimeout(()=>el.classList.add('hidden'),2200);
@@ -279,6 +293,7 @@ function applyOperationalDefaults(){
 function loadFormDefaults(){
   const s=getSettings();
   $('flightDate').value=today();
+  if(!$('route').value.trim()) $('route').value='DCT';
   $('aircraftColour').value=s.aircraftColour || 'BLANCO';
   applyOperationalDefaults();
   updateFixedPreview();
@@ -319,6 +334,10 @@ function loadSettingsForm(){
 }
 function updateFixedPreview(){
   const s=getSettings(), ac=CFG.aircraft[$('registration').value];
+  if(!upper(s.company || s.operator) || !upper(s.fullName || s.contactName)){
+    $('fixedPreview').textContent='Complete el Perfil para añadir operador, piloto y datos de contacto.';
+    return;
+  }
   $('fixedPreview').textContent=[
     `OPR/${(s.company || s.operator)} CODE/${ac.code} SUR/${ac.sur}`,
     `RMK/${s.mission}`,
@@ -591,6 +610,7 @@ function renderDirectory(){
       <h3><span class="directory-code">${item.code}</span>${item.city || ''} · ${item.airport || item.name}</h3>
       ${emailLine}${fplLine}${towerLine}
       ${item.receiverCode ? `<div class="directory-line"><span>Oficina receptora</span><strong>${item.receiverCode}</strong></div>` : ''}
+      <div class="directory-source">Fuente registrada: ${item.sourceDate || 'sin fecha'} · ${item.status || 'sin estado de verificación'}</div>
       ${item.note ? `<p class="office-warning">${item.note}</p>` : ''}
     </article>`;
   }).join('');
@@ -639,7 +659,12 @@ $('aircraftCards')?.addEventListener('change',event=>{
 });
 
 function switchTab(tab){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.tab').forEach(b=>{
+    const active=b.dataset.tab===tab;
+    b.classList.toggle('active',active);
+    b.setAttribute('aria-selected',String(active));
+    if(active) b.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  });
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${tab}`));
   if(tab==='history')renderHistory();
   if(tab==='directory')renderDirectory();
@@ -651,22 +676,105 @@ function clearFieldErrors(){
   document.querySelectorAll('.field-error').forEach(element=>element.classList.remove('field-error'));
 }
 
+function markFieldError(id){
+  const element=$(id);
+  element?.classList.add('field-error');
+  return element;
+}
+
+function validTime(value,{allowZero=true}={}){
+  if(!/^\d{4}$/.test(value)) return false;
+  const hours=Number(value.slice(0,2));
+  const minutes=Number(value.slice(2));
+  return hours<=23 && minutes<=59 && (allowZero || value!=='0000');
+}
+
+function validDuration(value){
+  return /^\d{4}$/.test(value) && Number(value.slice(2))<=59 && value!=='0000';
+}
+
+function hasItem18Code(code){
+  return new RegExp(`(?:^|\\s)${code}\\/\\S+`,'i').test($('variableOtherInfo')?.value || '');
+}
+
 function validateRequired(){
   clearFieldErrors();
+  const errors=[];
   const required=[
     ['registration','Matrícula'],['flightDate','Fecha'],['departure','Salida'],
-    ['departureTime','Hora UTC'],['destination','Destino'],['eet','EET total']
+    ['departureTime','Hora UTC'],['destination','Destino'],['eet','EET total'],
+    ['route','Ruta'],['endurance','Autonomía'],['pob','Personas a bordo']
   ];
 
   for(const [id,label] of required){
     const element=$(id);
     const value=String(element?.value || '').trim();
     if(!value){
-      element?.classList.add('field-error');
-      element?.scrollIntoView({behavior:'smooth',block:'center'});
-      setTimeout(()=>element?.focus(),250);
-      throw new Error(`Falta diligenciar el campo: ${label}. El texto gris de ejemplo no cuenta como dato.`);
+      markFieldError(id);
+      errors.push(`Falta diligenciar: ${label}.`);
     }
+  }
+  const departure=upper($('departure').value);
+  const destination=upper($('destination').value);
+  if(departure && !/^(?:[A-Z]{4}|ZZZZ)$/.test(departure)){
+    markFieldError('departure'); errors.push('Salida debe ser un código OACI de cuatro letras o ZZZZ.');
+  }
+  if(destination && !/^(?:[A-Z]{4}|ZZZZ)$/.test(destination)){
+    markFieldError('destination'); errors.push('Destino debe ser un código OACI de cuatro letras o ZZZZ.');
+  }
+  for(const [id,label] of [['alternate1','Alterno 1'],['alternate2','Alterno 2']]){
+    const value=upper($(id).value);
+    if(value && !/^[A-Z]{4}$/.test(value)){
+      markFieldError(id); errors.push(`${label} debe ser un código OACI de cuatro letras.`);
+    }
+  }
+  if($('departureTime').value && !validTime($('departureTime').value)){
+    markFieldError('departureTime'); errors.push('Hora UTC debe tener formato HHMM entre 0000 y 2359.');
+  }
+  if($('eet').value && !validDuration($('eet').value)){
+    markFieldError('eet'); errors.push('EET debe tener formato HHMM, minutos entre 00 y 59 y ser mayor que cero.');
+  }
+  if($('endurance').value && !validDuration($('endurance').value)){
+    markFieldError('endurance'); errors.push('Autonomía debe tener formato HHMM, minutos entre 00 y 59 y ser mayor que cero.');
+  }
+  const pob=Number($('pob').value);
+  if($('pob').value && (!/^\d{1,3}$/.test($('pob').value) || pob<1)){
+    markFieldError('pob'); errors.push('Personas a bordo debe ser un número mayor que cero.');
+  }
+  const speed=upper($('speed').value);
+  if(speed && !/^(?:[KN]\d{4}|M\d{3})$/.test(speed)){
+    markFieldError('speed'); errors.push('Velocidad debe usar formato ICAO: N/K + 4 números o M + 3 números.');
+  }
+  const level=upper($('level').value);
+  if(level && !/^(?:F\d{3}|A\d{3}|S\d{4}|M\d{4}|VFR)$/.test(level)){
+    markFieldError('level'); errors.push('Nivel debe usar formato ICAO, por ejemplo A025, F120 o VFR.');
+  }
+  if(departure==='ZZZZ' && !hasItem18Code('DEP')){
+    markFieldError('variableOtherInfo'); errors.push('Cuando la salida es ZZZZ debe incluir DEP/ en la casilla 18.');
+  }
+  if(destination==='ZZZZ' && !hasItem18Code('DEST')){
+    markFieldError('variableOtherInfo'); errors.push('Cuando el destino es ZZZZ debe incluir DEST/ en la casilla 18.');
+  }
+  const settings=getSettings();
+  if(!upper(settings.fullName || settings.contactName)) errors.push('Complete el nombre del piloto en Perfil.');
+  if(!upper(settings.company || settings.operator)) errors.push('Complete la empresa u operador en Perfil.');
+  if(!String(settings.phone || settings.contactPhone || '').trim()) errors.push('Complete el teléfono de contacto en Perfil.');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(settings.email || settings.contactEmail || ''))){
+    errors.push('Complete un correo electrónico válido en Perfil.');
+  }
+  const contradictory=[
+    ['survivalNone',['survivalPolar','survivalDesert','survivalMaritime','survivalJungle'],'Equipo de supervivencia'],
+    ['jacketsNone',['jacketsLight','jacketsFluorescent','jacketsUHF','jacketsVHF'],'Chalecos'],
+    ['dinghiesNone',['dinghiesCover'],'Botes']
+  ];
+  contradictory.forEach(([noneId,otherIds,label])=>{
+    if($(noneId).checked && otherIds.some(id=>$(id).checked)) errors.push(`${label}: “Ninguno” no puede combinarse con otras opciones.`);
+  });
+  if(errors.length){
+    const first=document.querySelector('.field-error');
+    first?.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(()=>first?.focus(),250);
+    throw new Error(errors.join('\n'));
   }
 }
 
@@ -782,11 +890,23 @@ $('emailBtn').addEventListener('click',async()=>{
 });
 $('newPlanBtn').addEventListener('click',startNewPlan);
 $('previewBtn').addEventListener('click',()=>{
-  $('previewText').textContent=buildOtherInfo().join('\n');
+  const s=getSettings();
+  $('previewText').textContent=[
+    `MATRÍCULA: ${$('registration').value}`,
+    `FECHA: ${$('flightDate').value}`,
+    `RUTA: ${upper($('departure').value)} ${upper($('departureTime').value)} → ${upper($('destination').value)}`,
+    `EET: ${$('eet').value || 'PENDIENTE'} · NIVEL: ${upper($('level').value) || 'NO INDICADO'}`,
+    `PILOTO: ${upper(s.fullName || s.contactName) || 'PERFIL INCOMPLETO'}`,
+    '',
+    'CASILLA 18:',
+    ...buildOtherInfo()
+  ].join('\n');
   $('modal').classList.remove('hidden');
+  $('modal').querySelector('.modal-card')?.focus();
 });
 $('closeModal').addEventListener('click',()=>$('modal').classList.add('hidden'));
 $('modal').addEventListener('click',e=>{if(e.target===$('modal'))$('modal').classList.add('hidden')});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')$('modal').classList.add('hidden')});
 $('settingsForm').addEventListener('submit',e=>{
   e.preventDefault();
   const current=getSettings();
@@ -830,7 +950,13 @@ $('historyList').addEventListener('click',async e=>{
   const item=getHistory().find(x=>String(x.id)===btn.dataset.id); if(!item)return;
   loadData(item.data,{duplicate:btn.dataset.action==='duplicate'});
   if(btn.dataset.action==='generate'){
-    setTimeout(async()=>{try{const doc=await createPdf();await downloadOrShare(doc)}catch(err){alert(err.message)}},150);
+    setTimeout(async()=>{
+      try{
+        const {blob,file}=await makePdfFile();
+        const shared=await sharePdfFile(file,'Plan de vuelo GutiPilot');
+        if(!shared) forceDownload(blob,file.name);
+      }catch(err){alert(err.message)}
+    },150);
   }
 });
 $('clearHistoryBtn').addEventListener('click',()=>{
@@ -851,6 +977,15 @@ $('clearHistoryBtn').addEventListener('click',()=>{
 ['departureTime','eet','endurance','pob','dinghiesNumber','dinghiesCapacity'].forEach(id=>{
   $(id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'')});
 });
+
+function enforceNoneExclusive(noneId,otherIds){
+  const none=$(noneId);
+  none.addEventListener('change',()=>{if(none.checked) otherIds.forEach(id=>$(id).checked=false)});
+  otherIds.forEach(id=>$(id).addEventListener('change',()=>{if($(id).checked) none.checked=false}));
+}
+enforceNoneExclusive('survivalNone',['survivalPolar','survivalDesert','survivalMaritime','survivalJungle']);
+enforceNoneExclusive('jacketsNone',['jacketsLight','jacketsFluorescent','jacketsUHF','jacketsVHF']);
+enforceNoneExclusive('dinghiesNone',['dinghiesCover']);
 
 
 
@@ -1100,6 +1235,9 @@ $('forceReloadBtn')?.addEventListener('click',async()=>{
 // Comprobación silenciosa al abrir. No interrumpe al usuario si no hay una versión nueva.
 window.addEventListener('load',()=>{
   setTimeout(()=>checkForUpdates(),1200);
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js').catch(error=>console.warn('No se pudo activar el modo sin conexión.',error));
+  }
 });
 
 $('companyLogoInput')?.addEventListener('change',event=>{
@@ -1128,6 +1266,39 @@ $('removeLogoBtn')?.addEventListener('click',()=>{
   $('companyLogoInput').value='';
   updateProfileLogoPreview('');
   toast('Logo eliminado');
+});
+
+$('exportBackupBtn')?.addEventListener('click',()=>{
+  downloadJson({
+    format:'gutipilot-backup',
+    version:APP_VERSION,
+    exportedAt:new Date().toISOString(),
+    settings:getSettings(),
+    history:getHistory()
+  },`GutiPilot_respaldo_${today()}.json`);
+  toast('Respaldo descargado');
+});
+
+$('importBackupInput')?.addEventListener('change',async event=>{
+  const file=event.target.files?.[0];
+  if(!file) return;
+  try{
+    const backup=JSON.parse(await file.text());
+    if(!validBackup(backup)) throw new Error('El archivo no es un respaldo válido de GutiPilot.');
+    if(!confirm('¿Restaurar este perfil e historial? Los datos actuales serán reemplazados.')) return;
+    saveSettings({...defaultSettings,...backup.settings});
+    saveHistory(backup.history);
+    loadAircraft();
+    loadSettingsForm();
+    loadFormDefaults();
+    renderHistory();
+    updateFixedPreview();
+    toast('Respaldo restaurado');
+  }catch(error){
+    alert(error.message || 'No se pudo restaurar el respaldo.');
+  }finally{
+    event.target.value='';
+  }
 });
 
 
